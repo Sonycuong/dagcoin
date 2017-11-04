@@ -40,7 +40,7 @@
         </div>
         
         <div ng-hide="create.hideWalletName">
-          <div class="description m10b">
+          <div class="description m10b" translate>
           	Single address wallets will not spawn new addresses for every transaction, change will always go to the one and only address the wallet contains.
           </div>
           <label><span translate class="left m10t">Single address wallet</span>
@@ -95,13 +95,13 @@
               <select ng-model="cosigner.device_address"
                       ng-disabled="$parent.totalCosigners == 1"
                       ng-change="create.onCorrespondentSelected(cosigner.device_address)">
-                <option value="">-- Select co-signer --</option>
+                <option value="" translate>-- Select co-signer --</option>
                 <option ng-repeat="candidate_cosigner in create.candidate_cosigners"
                         value="{{candidate_cosigner.device_address}}">
                   {{candidate_cosigner.name+'
                   ('+candidate_cosigner.device_address.substr(0,4)+'...)'}}
                 </option>
-                <option value="new">[ Add new co-signer device ]</option>
+                <option value="new" translate>[ Add new co-signer device ]</option>
               </select>
             </label>
           </div>
