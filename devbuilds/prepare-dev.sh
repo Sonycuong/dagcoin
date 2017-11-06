@@ -4,10 +4,9 @@ Red='\033[0;31m'
 CloseColor='\033[0m'
 
 NodeVersion="v5.12.0"
-echo "${Green}* Checking Node version...${CloseColor}"
-if ! node -v | grep -q ${NodeVersion}; then
- echo "${Red}* ERROR. Please use Node v5.12.0...${CloseColor}"
- exit
+environment=$1
+if [ "$environment" == "base" ]; then
+  environment="live"
 fi
 echo "${Green}* Node version OK${CloseColor}"
 if ! type bower > /dev/null; then
@@ -41,17 +40,17 @@ fi
 
 if [ "$(uname)" == "Darwin" ]; then
   if [ -d "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64" ]; then
-    grunt
+    grunt build:${environment}
     exit
   fi
   mkdir "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64"
   cp "${Sqlite3Path}/node-v47-darwin-x64/node_sqlite3.node" "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ -d "${Sqlite3Path}/node-webkit-v0.14.7-linux-x64" ]; then
-    grunt
+    grunt build:${environment}
     exit
   fi
   mkdir "${Sqlite3Path}/node-webkit-v0.14.7-linux-x64"
   cp "${Sqlite3Path}/node-v47-linux-x64/node_sqlite3.node" "${Sqlite3Path}/node-webkit-v0.14.7-linux-x64"
 fi
-grunt
+grunt build:${environment}

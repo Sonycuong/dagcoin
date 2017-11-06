@@ -109,3 +109,6 @@ webkitbuilds/setup-win64.iss
 
 #generated package.json
 package.json
+
+#generated environment variables
+src/js/config.js

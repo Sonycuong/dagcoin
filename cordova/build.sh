@@ -166,13 +166,13 @@ if $DBGJS
 then
 	echo "${OpenColor}${Green}* Generating byteball bundle (debug js)...${CloseColor}"
 	cd $BUILDDIR/..
-	grunt cordova
+	grunt cordova:$4
 	checkOK
 else
 	echo "${OpenColor}${Green}* Generating byteball bundle...${CloseColor}"
 	cd $BUILDDIR/..
 	#grunt cordova-prod byteball core has some error, so uglify doesn't work.
-	grunt cordova
+	grunt cordova:$4
 	checkOK
 fi
 

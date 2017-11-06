@@ -39,7 +39,8 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
       changeWalletTypeService,
       autoRefreshClientService,
       connectionService,
-      newVersion) {
+      newVersion,
+      ENV) {
       const async = require('async');
       const constants = require('byteballcore/constants.js');
       const mutex = require('byteballcore/mutex.js');
@@ -49,11 +50,8 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
       const breadcrumbs = require('byteballcore/breadcrumbs.js');
       const Bitcore = require('bitcore-lib');
       const _ = require('lodash');
-      // const EventEmitter = require('events').EventEmitter;
       breadcrumbs.add('index.js');
       const self = this;
-      const isTestnet = constants.version.match(/t$/);
-      self.DAGCOIN_ASSET = isTestnet ? 'B9dw3C3gMC+AODL/XqWjFh9jFe31jS08yf2C3zl8XGg=' : 'j5brqzPhQ0H2VNYi3i59PmlV15p54yAiSzacrQ2KqQQ=';
       self.isCordova = isCordova;
       self.isSafari = isMobile.Safari();
       self.onGoingProcess = {};
@@ -568,7 +566,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
             objSharedWallet.total = assocSharedByAddress[sa];
             if ($scope.asset === 'base') {
               objSharedWallet.totalStr = `${profileService.formatAmount(assocSharedByAddress[sa], 'base')} ${self.unitName}`;
-            } else if ($scope.asset === self.DAGCOIN_ASSET) {
+            } else if ($scope.asset === ENV.DAGCOIN_ASSET) {
               objSharedWallet.totalStr = `${profileService.formatAmount(assocSharedByAddress[sa], 'DAG')} ${self.dagUnitName}`;
             }
             arrSharedWallets.push(objSharedWallet);
@@ -992,7 +990,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
               balanceInfo.assocSharedByAddress[sa] = totalOnSharedAddress;
             });
           }
-          if (asset === 'base' || asset === self.DAGCOIN_ASSET) {
+          if (asset === 'base' || asset === ENV.DAGCOIN_ASSET) {
             const assetName = asset !== 'base' ? 'DAG' : 'base';
             balanceInfo.totalStr = profileService.formatAmount(balanceInfo.total, assetName);
             balanceInfo.stableStr = profileService.formatAmount(balanceInfo.stable, assetName);
@@ -1011,7 +1009,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         if (!self.shared_address) {
           self.arrMainWalletBalances = self.arrBalances;
         }
-        self.dagBalance = _.find(self.arrBalances, { asset: self.DAGCOIN_ASSET });
+        self.dagBalance = _.find(self.arrBalances, { asset: ENV.DAGCOIN_ASSET });
         self.baseBalance = _.find(self.arrBalances, { asset: 'base' });
         console.log(`========= setBalance done, balances: ${JSON.stringify(self.arrBalances)}`);
         breadcrumbs.add(`setBalance done, balances: ${JSON.stringify(self.arrBalances)}`);
@@ -1165,7 +1163,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         if (!client.isComplete()) {
           return console.log('fc incomplete yet');
         }
-        return client.getTxHistory(self.DAGCOIN_ASSET, self.shared_address, (txs) => {
+        return client.getTxHistory(ENV.DAGCOIN_ASSET, self.shared_address, (txs) => {
           const newHistory = self.processNewTxs(txs);
           $log.debug(`Tx History synced. Total Txs: ${newHistory.length}`);
 

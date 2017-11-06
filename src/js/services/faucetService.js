@@ -2,11 +2,9 @@
   'use strict';
 
   angular.module('copayApp.services')
-    .factory('faucetService', ($rootScope, $q) => {
+    .factory('faucetService', ($rootScope, $q, ENV) => {
       const self = {};
-      const constants = require('byteballcore/constants.js');
       const code = 'A6thOoiPnsPGKgMj4G/OYkh4d7WR/MX3r1k2tG/WJPof@byteball.org/bb-test#0000';
-      const isTestnet = constants.version.match(/t$/);
       let isInitialized = false;
 
       self.isFaucetAddress = isFaucetAddress;
@@ -14,8 +12,7 @@
       const faucetAddresses = [
         '0JMVEW6BBLT26R5C66HRN7YAP2Z77XCX7', // testnet faucet
       ];
-
-      if (isTestnet) {
+      if (ENV.isTestnet) {
         $rootScope.$on('Local/BalanceUpdatedAndWalletUnlocked', () => {
           initService();
         });

@@ -64,14 +64,14 @@ echo "Copying ..."
 
 if [ "$(uname)" == "Darwin" ]; then
   if [ -d "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64" ]; then
-    grunt
+    grunt build:$1
     exit
   fi
   mkdir "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64"
   cp "${Sqlite3Path}/node-v47-darwin-x64/node_sqlite3.node" "${Sqlite3Path}/node-webkit-v0.14.7-darwin-x64"
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ -d "${Sqlite3Path}/node-webkit-v0.14.7-linux-x64" ]; then
-    grunt
+    grunt build:$1
     exit
   fi
   mkdir "${Sqlite3Path}/node-webkit-v0.14.7-linux-x64"
@@ -87,6 +87,6 @@ if [ -d "./node_modules-temp" ]; then
   mv "./node_modules-temp" "./node_modules"
 fi
 
-grunt
+grunt build:$1
 
 grunt ${Action}

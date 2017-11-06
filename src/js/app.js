@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved, no-unused-vars, no-undef */
 const modules = [
+  'config',
   'ui.router',
   'angularMoment',
   'angular-carousel',

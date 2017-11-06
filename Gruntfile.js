@@ -1,3 +1,4 @@
+/* eslint-disable no-var */
 module.exports = function (grunt) {
   function getPlatform() {
     switch (process.platform) {
@@ -205,6 +206,10 @@ module.exports = function (grunt) {
         ],
         dest: 'public/dagcoin.js'
       },
+      constants: {
+        src: ['src/js/config.js'],
+        dest: 'public/config.js'
+      },
       css: {
         src: ['src/css/*.css', 'src/js/**/*.css'],
         dest: 'public/css/dagcoin.css'
@@ -330,6 +335,23 @@ module.exports = function (grunt) {
         dryRun: true,
         force: true,
         recursive: false
+      }
+    },
+    ngconstant: {
+      options: {
+        // Name of our Angular module with configuration data.
+        name: 'config',
+        // Place where we need to create new file with our config module.
+        dest: './src/js/config.js',
+        // Template to create config module.
+        template: grunt.file.read('./environments/constant-template.ejs')
+      },
+      // Environments
+      testnet: {
+        constants: './environments/testnet.json'
+      },
+      live: {
+        constants: './environments/live.json'
       }
     },
     nwjs: {
@@ -495,6 +517,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-karma-coveralls');
+  grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-nw-builder');
   grunt.loadNpmTasks('grunt-contrib-compress');
   // grunt.loadNpmTasks('grunt-debian-package');
@@ -506,17 +529,24 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
 
   grunt.registerTask('dev', ['watch']);
-
-  grunt.registerTask('default', ['copy', 'ngtemplates', 'nggettext_compile', 'exec:version', 'stylelint', 'sass', 'concat', 'postcss', 'svgmin']);
-  grunt.registerTask('cordova', ['default', 'browserify']);
+  grunt.registerTask('build', (target) => {
+    var ngconstantTask = 'ngconstant:testnet';
+    if (target === 'live') {
+      ngconstantTask = 'ngconstant:live';
+    }
+    grunt.task.run([ngconstantTask, 'copy', 'ngtemplates', 'nggettext_compile', 'exec:version', 'stylelint', 'sass', 'concat', 'postcss', 'svgmin']);
+  });
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('cordova:testnet', ['build', 'browserify']);
+  grunt.registerTask('cordova:live', ['build:live', 'browserify']);
   grunt.registerTask('cordova-prod', ['cordova', 'uglify']);
   // grunt.registerTask('prod', ['default', 'uglify']);
   grunt.registerTask('translate', ['nggettext_extract']);
   grunt.registerTask('test', ['karma:prod']);
   grunt.registerTask('test-coveralls', ['karma:unit', 'coveralls']);
   // grunt.registerTask('desktop', ['prod', 'nwjs', 'copy:linux', 'compress:linux32', 'compress:linux64', 'copy:osx', 'exec:osx32', 'exec:osx64']);
-  grunt.registerTask('desktop:testnet', ['env:testnet', 'default', 'nwjs']);
-  grunt.registerTask('desktop:live', ['env:live', 'default', 'nwjs']);
+  grunt.registerTask('desktop:testnet', ['env:testnet', 'build', 'nwjs']);
+  grunt.registerTask('desktop:live', ['env:live', 'build:live', 'nwjs']);
   grunt.registerTask('dmg', ['copy:osx', 'exec:osx64']);
   grunt.registerTask('linux64:testnet', ['env:testnet', 'template', 'copy:linux', 'compress:linux64']);
   grunt.registerTask('linux64:live', ['env:live', 'template', 'copy:linux', 'compress:linux64']);

@@ -27,13 +27,11 @@
                 discoveryService,
                 isMobile,
                 fundingExchangeClientService,
-                go,
-                chooseFeeTypeService) {
+                ENV) {
         const constants = require('byteballcore/constants.js');
         const eventBus = require('byteballcore/event_bus.js');
         const breadcrumbs = require('byteballcore/breadcrumbs.js');
         const self = this;
-        const home = this;
         const conf = require('byteballcore/conf.js');
         this.protocol = conf.program_version.match(/t$/) ? 'byteball-tn' : 'byteball';
         $rootScope.hideMenuBar = false;
@@ -58,8 +56,6 @@
         this.showScanner = false;
         this.isMobile = isMobile.any();
         this.addr = {};
-        this.isTestnet = constants.version.match(/t$/);
-        this.testnetName = (constants.alt === '2') ? '[NEW TESTNET]' : '[TESTNET]';
         $scope.index.tab = 'walletHome'; // for some reason, current tab state is tracked in index and survives re-instatiations of walletHome.js
         const disablePaymentRequestListener = $rootScope.$on('paymentRequest', (event, address, amount, asset, recipientDeviceAddress) => {
           console.log(`paymentRequest event ${address}, ${amount}`);
@@ -1352,8 +1348,7 @@
             };
 
             $scope.openInExplorer = function () {
-              const testnet = home.isTestnet ? 'testnet' : '';
-              const url = `https://${testnet}explorer.dagcoin.org/#${btx.unit}`;
+              const url = `https://${ENV.explorerPrefix}explorer.dagcoin.org/#${btx.unit}`;
               if (typeof nw !== 'undefined') {
                 nw.Shell.openExternal(url);
               } else if (isCordova) {

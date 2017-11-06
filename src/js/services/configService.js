@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('copayApp.services').factory('configService', (storageService, lodash, $log, isCordova) => {
+  angular.module('copayApp.services').factory('configService', (storageService, lodash, $log, isCordova, ENV) => {
     const root = {};
 
     root.colorOpts = [
@@ -19,17 +19,13 @@
       '#7A8C9E',
     ];
 
-    const constants = require('byteballcore/constants.js');
-    const isTestnet = constants.version.match(/t$/);
-    root.TIMESTAMPER_ADDRESS = isTestnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT';
-
     const defaultConfig = {
       // wallet limits
       limits: {
         totalCosigners: 6,
       },
 
-      hub: (constants.alt === '2' && isTestnet) ? 'testnetexplorer.dagcoin.org/wss/' : 'byteball.org/bb',
+      hub: ENV.hub,
 
       // requires bluetooth permission on android
       // deviceName: /*isCordova ? cordova.plugins.deviceName.name : */require('os').hostname(),

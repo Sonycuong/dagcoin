@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('copayApp.services')
-    .factory('discoveryService', ($q, fileSystemService, promiseService, isCordova) => {
+    .factory('discoveryService', ($q, fileSystemService, promiseService, ENV) => {
       const eventBus = require('byteballcore/event_bus.js');
 
       const self = {};
@@ -31,28 +31,8 @@
       function getPairingCode() {
         console.log('GETTING THE PAIRING CODE');
 
-        return new Promise((resolve, reject) => {
-          if (!isCordova) {
-            fileSystemService.readFile('package.json', (err, data) => {
-              if (err) {
-                reject(`COULD NOT OPEN package.json: ${err}`);
-              } else {
-                const env = JSON.parse(data);
-                console.log(`PAIRING CODE: ${env.discoveryServicePairingCode}`);
-                resolve(env.discoveryServicePairingCode);
-              }
-            });
-          } else {
-            const constants = require('byteballcore/constants.js');
-
-            if (constants.version.match(/t$/)) {
-              // TESTNET
-              resolve('AnqLjlEMkQsoP6yZ/vDwT41F3IE6ItfggF0oxyYsUj42@byteball.org/bb-test#0000');
-            } else {
-              // LIVENET
-              resolve('A7MiDQd+H7S6kFXfEdIKrM6oW6YF2oq4ewU+eSH30YGp@byteball.org/bb#0000');
-            }
-          }
+        return new Promise((resolve) => {
+          resolve(ENV.discoveryServicePairingCode);
         });
       }
 

@@ -2,7 +2,6 @@
   "testnet": {
     "name": "dagcoin-tn",
     "version": "1.3.2t",
-    "discoveryServicePairingCode": "AnqLjlEMkQsoP6yZ/vDwT41F3IE6ItfggF0oxyYsUj42@byteball.org/bb-test#0000",
     "dependencies": {
       "async": "^1.5.2",
       "bip38": "^1.4.0",

@@ -2,10 +2,8 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('correspondentDevicesController',
-    ($scope, $timeout, configService, profileService, go, correspondentListService, $state, $rootScope) => {
+    ($scope, $timeout, configService, profileService, go, correspondentListService, $state, $rootScope, ENV) => {
       const wallet = require('byteballcore/wallet.js');
-      const constants = require('byteballcore/constants.js');
-      const isTestnet = constants.version.match(/t$/);
       $scope.editCorrespondentList = false;
       $scope.selectedCorrespondentList = {};
       const fc = profileService.focusedClient;
@@ -63,9 +61,7 @@
           }
           wallet.readDeviceAddressesUsedInSigningPaths((arrNotRemovableDeviceAddresses) => {
             // adding manually discovery service, because it doesn't exists in signing paths
-            const discoveryDeviceAddress = isTestnet ? '06HM3M45WJYU7EXIXWCYAKPXQS32ZNR6X' :
-                                                       '0EPKJTMDEB5RUCOHTL77LHPR5K6KV3G7V';
-            arrNotRemovableDeviceAddresses.push(discoveryDeviceAddress);
+            arrNotRemovableDeviceAddresses.push(ENV.discoveryDeviceAddress);
             // add a new property indicating whether the device can be removed or not
             const length = ab.length;
             for (let i = 0; i < length; i += 1) {

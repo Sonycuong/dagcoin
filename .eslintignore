@@ -3,6 +3,9 @@ src/js/directives/ngSwipe.js
 src/js/controllers/preferencesEditWitness.js
 src/js/controllers/preferencesColor.js
 
+#environment variables
+src/js/config.js
+
 # version
 src/js/version.js
 
