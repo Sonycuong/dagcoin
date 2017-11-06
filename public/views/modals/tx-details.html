@@ -43,7 +43,7 @@
                 <svg-icon title="vertical_align_top"></svg-icon>
                 <strong>From:</strong>
                 <div class="value" ng-repeat="address in btx.arrPayerAddresses">
-                    {{address}}
+                    {{address ? address : ('Incoming transaction' | translate)}}
                 </div>
             </li>
 

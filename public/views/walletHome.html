@@ -156,7 +156,7 @@
 											</svg>
 
 											<span ng-if="btx.action == 'received'"
-												  ng-repeat="address in btx.arrPayerAddresses" class="details-info">{{address}}</span>
+												  ng-repeat="address in btx.arrPayerAddresses" class="details-info">{{address ? address : ('Incoming transaction' | translate)}}</span>
 											<span ng-if="btx.action == 'sent'"
 												  class="details-info">{{btx.addressTo}}</span>
 										</div>
@@ -279,7 +279,7 @@
 						<div class="form-group">
 							<div class="title clearfix"><span class="name">Amount</span>
 								<div class="left" ng-hide="sendForm.amount.$pristine && !sendForm.amount.$modelValue">
-									<span class="has-error right size-12" ng-if="sendForm.amount.$invalid">
+									<span class="has-error right size-12" ng-if="sendForm.amount.$invalid && !sendForm.amount.$error.required">
 										<i class="icon-close-circle size-14"></i>
 										<span clas="vm" translate>Not valid</span>
 									</span>
@@ -402,7 +402,7 @@
 													<use
 															xlink:href="{{index.getSvgSrc(btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right')}}"></use>
 												</svg>
-												<span ng-if="btx.action == 'received'" ng-repeat="address in btx.arrPayerAddresses" class="details-info">{{address}}</span>
+												<span ng-if="btx.action == 'received'" ng-repeat="address in btx.arrPayerAddresses" class="details-info">{{address ? address : ('Incoming transaction' | translate)}}</span>
 
 												<span ng-if="btx.action == 'sent'" class="details-info">{{btx.addressTo}}</span>
 

@@ -960,9 +960,12 @@
                           }
                         }
                       } else {
-                        // todo: should redirect to transaction detail
-                        // redirect to history
                         $rootScope.$emit('Local/SetTab', 'history');
+
+                        $timeout(() => {
+                          indexScope.updateTxHistory();
+                          self.openTxModal(indexScope.txHistory[0], indexScope.txHistory);
+                        }, 500);
                       }
                       resolve();
                     });

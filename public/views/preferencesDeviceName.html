@@ -14,12 +14,12 @@
 						<span class="name" translate>Device name</span>
 					</div>
 					<div class="input-wrap">
-						<input id="deviceName" type="text" name="deviceName" ng-model="prefDeviceName.deviceName">
+						<input id="deviceName" type="text" name="deviceName" ng-maxlength="50" maxlength="50" ng-model="prefDeviceName.deviceName">
 					</div>
 				</div>
 
 
-				<button type="submit" class="btn btn_red-full">{{'Save'|translate}}</button>
+				<button ng-disabled="prefDeviceName.deviceName.trim() === ''" type="submit" class="btn btn_red-full">{{'Save'|translate}}</button>
 			</form>
 			<div class="text-gray size-12 text-center" translate>Device name is visible to other devices you communicate
 				with.

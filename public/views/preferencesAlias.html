@@ -8,15 +8,18 @@
   <div class="p-share js-introduction">
     <div class="p-wrap">
       <form name="settingsAliasForm" ng-submit="prefAlias.save()" class="page-form">
+        <div class="box-notification" ng-show="prefAlias.error">
+          <span class="text-warning size-14">{{prefAlias.error|translate}}</span>
+        </div>
         <div class="form-group">
           <div class="title clearfix">
             <span class="name" translate>Wallet alias</i></span>
           </div>
           <div class="input-wrap">
-            <input type="text" id="alias2" type="text" name="alias2" ng-model="prefAlias.alias">
+            <input type="text" id="alias2" type="text" name="alias2" ng-maxlength="50" maxlength="50" ng-model="prefAlias.alias">
           </div>
         </div>
-        <button type="submit" class="btn btn_red-full">{{'Save'|translate}}</button>
+        <button ng-disabled="prefAlias.alias.trim() === ''" type="submit" class="btn btn_red-full">{{'Save'|translate}}</button>
       </form>
       <div class="text-gray size-12 text-center" translate>Changing wallet alias only affects the local wallet
         name.

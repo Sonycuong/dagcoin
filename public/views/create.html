@@ -31,7 +31,8 @@
             <span translate>Wallet name</span>
 
             <input type="text"
-                   placeholder="{{'New wallet' | translate}}"
+                   placeholder="{{'New wallet' | translate}}" 
+                   ng-maxlength="50" maxlength="50"
                    name="walletName" ng-model="walletName" ng-required="true"
                    ng-focus="create.formFocus('wallet-name')" ng-blur="create.formFocus(false)">
 

@@ -139,6 +139,12 @@
           return;
         }
 
+        const existingWallet = lodash.find(self.wallets, { name: form.walletName.$modelValue });
+        if (existingWallet) {
+          setError('Wallet with the same name already exists');
+          return;
+        }
+
         const opts = {
           m: $scope.requiredCosigners,
           n: $scope.totalCosigners,
@@ -214,11 +220,28 @@
         }, 1);
       };
 
+      this.loadExistingWallets = function () {
+        if (!profileService.profile) {
+          return;
+        }
+
+        const config = configService.getSync();
+
+        config.aliasFor = config.aliasFor || {};
+
+        const ret = lodash.map(profileService.profile.credentials, c => ({
+          name: config.aliasFor[c.walletId] || c.walletName,
+        }));
+
+        self.wallets = lodash.sortBy(ret, 'name');
+      };
+
       $scope.$on('$destroy', () => {
         $rootScope.hideWalletNavigation = false;
       });
 
       updateSeedSourceSelect(1);
       self.setSeedSource('new');
+      self.loadExistingWallets();
     });
 }());
