@@ -5,10 +5,10 @@
     .module('copayApp.services')
     .factory('sharedService', sharedService);
 
-  sharedService.$inject = ['$rootScope'];
+  sharedService.$inject = ['$rootScope', 'ENV'];
 
   /* @ngInject */
-  function sharedService($rootScope) {
+  function sharedService($rootScope, ENV) {
     const service = {};
     const balanceStatuses = {
       total: 'total',
@@ -37,9 +37,8 @@
     }
 
     function hasDags(status) {
-      const constants = require('byteballcore/constants.js');
       const st = status || balanceStatuses.stable;
-      return (currentBalance && currentBalance[constants.DAGCOIN_ASSET] && currentBalance[constants.DAGCOIN_ASSET][st] > 0);
+      return (currentBalance && currentBalance[ENV.DAGCOIN_ASSET] && currentBalance[ENV.DAGCOIN_ASSET][st] > 0);
     }
 
     return service;

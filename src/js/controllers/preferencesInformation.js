@@ -17,9 +17,9 @@
       $rootScope,
       fundingExchangeClientService,
       proofingService,
-      dagcoinProtocolService
+      dagcoinProtocolService,
+      ENV
     ) {
-      const constants = require('byteballcore/constants.js');
       const fc = profileService.focusedClient;
       const c = fc.credentials;
 
@@ -88,7 +88,7 @@
 
         fc.getListOfBalancesOnAddresses((listOfBalances) => {
           const balanceList = listOfBalances.map((row) => {
-            if (row.asset === 'base' || row.asset === constants.DAGCOIN_ASSET) {
+            if (row.asset === 'base' || row.asset === ENV.DAGCOIN_ASSET) {
               const assetName = row.asset !== 'base' ? 'DAG' : 'base';
               const unitName = row.asset !== 'base' ? config.dagUnitName : config.unitName;
               row.amount = `${profileService.formatAmount(row.amount, assetName, { dontRound: true })} ${unitName}`;

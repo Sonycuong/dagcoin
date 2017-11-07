@@ -1,6 +1,6 @@
 angular.module('copayApp.controllers').controller('correspondentDeviceController',
   ($scope, $rootScope, $timeout, $sce, $modal, configService, profileService, animationService, isCordova, go,
-    correspondentListService, addressService, lodash, $deepStateRedirect, $state, backButton, connectionService) => {
+    correspondentListService, addressService, lodash, $deepStateRedirect, $state, backButton, connectionService, ENV) => {
     const chatStorage = require('byteballcore/chat_storage.js');
     const constants = require('byteballcore/constants.js');
     console.log('correspondentDeviceController');
@@ -183,7 +183,7 @@ angular.module('copayApp.controllers').controller('correspondentDeviceController
             info.displayName = walletSettings.unitName;
           } else if (b.asset === constants.BLACKBYTES_ASSET) {
             info.displayName = walletSettings.bbUnitName;
-          } else if (b.asset === constants.DAGCOIN_ASSET) {
+          } else if (b.asset === ENV.DAGCOIN_ASSET) {
             info.displayName = walletSettings.dagUnitName;
           } else {
             info.displayName = `of ${b.asset.substr(0, 4)}`;
@@ -252,7 +252,7 @@ angular.module('copayApp.controllers').controller('correspondentDeviceController
             if (contract.myAsset === constants.BLACKBYTES_ASSET) {
               myAmount *= walletSettings.bbUnitValue;
             }
-            if (contract.myAsset === constants.DAGCOIN_ASSET) {
+            if (contract.myAsset === ENV.DAGCOIN_ASSET) {
               myAmount *= walletSettings.dagUnitValue;
             }
             myAmount = Math.round(myAmount);
@@ -872,7 +872,7 @@ angular.module('copayApp.controllers').controller('correspondentDeviceController
             amountInSmallestUnits = parseInt((amount * $scopeModal.unitValue).toFixed(0), 10);
           } else if (asset === constants.BLACKBYTES_ASSET) {
             amountInSmallestUnits = parseInt((amount * $scopeModal.bbUnitValue).toFixed(0), 10);
-          } else if (asset === constants.DAGCOIN_ASSET) {
+          } else if (asset === ENV.DAGCOIN_ASSET) {
             amountInSmallestUnits = amount * $scopeModal.dagUnitValue;
           } else {
             amountInSmallestUnits = amount;
@@ -886,7 +886,7 @@ angular.module('copayApp.controllers').controller('correspondentDeviceController
             units = $scopeModal.unitName;
           } else if (asset === constants.BLACKBYTES_ASSET) {
             units = $scopeModal.bbUnitName;
-          } else if (asset === constants.DAGCOIN_ASSET) {
+          } else if (asset === ENV.DAGCOIN_ASSET) {
             units = $scopeModal.dagUnitName;
           } else {
             units = `of ${asset}`;

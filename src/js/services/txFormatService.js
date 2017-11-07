@@ -1,14 +1,13 @@
 (function () {
   'use strict';
 
-  angular.module('copayApp.services').factory('txFormatService', (profileService, configService, lodash) => {
-    const constants = require('byteballcore/constants.js');
+  angular.module('copayApp.services').factory('txFormatService', (profileService, configService, lodash, ENV) => {
     const root = {};
     const formatAmountStr = function (amount, asset) {
       if (!amount) {
         return;
       }
-      if (asset !== 'base' && asset !== constants.DAGCOIN_ASSET) {
+      if (asset !== 'base' && asset !== ENV.DAGCOIN_ASSET) {
         return amount;
       }
       const assetName = asset !== 'base' ? 'dag' : 'base';

@@ -6,7 +6,8 @@
     profileService,
     addressService,
     dagcoinProtocolService,
-    $rootScope
+    $rootScope,
+    ENV
   ) => {
     const root = {};
 
@@ -276,7 +277,6 @@
 
     root.buildListWithEnoughDagcoinsForFunding = function (addressList, fundingList, total) {
       const db = require('byteballcore/db');
-      const constants = require('byteballcore/constants');
 
       console.log(`LIST: ${JSON.stringify(addressList)}`);
 
@@ -312,7 +312,7 @@
               for (let i = 0; i < rows.length; i += 1) {
                 const row = rows[i];
 
-                if (row.asset === constants.DAGCOIN_ASSET) {
+                if (row.asset === ENV.DAGCOIN_ASSET) {
                   totalAmount += row.balance;
                 }
               }
