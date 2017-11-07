@@ -277,7 +277,6 @@
 
     root.buildListWithEnoughDagcoinsForFunding = function (addressList, fundingList, total) {
       const db = require('byteballcore/db');
-      const constants = require('byteballcore/constants');
 
       console.log(`LIST: ${JSON.stringify(addressList)}`);
 
