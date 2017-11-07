@@ -1,6 +1,6 @@
 angular.module('copayApp.services').factory('correspondentListService',
   ($state, $rootScope, $sce, $compile, configService, storageService,
-   profileService, go, lodash, $stickyState, $deepStateRedirect, $timeout, discoveryService, faucetService) => {
+   profileService, go, lodash, $stickyState, $deepStateRedirect, $timeout, discoveryService, faucetService, ENV) => {
     const eventBus = require('byteballcore/event_bus.js');
     const ValidationUtils = require('byteballcore/validation_utils.js');
     const objectHash = require('byteballcore/object_hash.js');
@@ -271,7 +271,7 @@ angular.module('copayApp.services').factory('correspondentListService',
         const bbUnitName = walletSettings.bbUnitName;
         newAmount /= bbUnitValue;
         return `${newAmount} ${bbUnitName}`;
-      } else if (asset === constants.DAGCOIN_ASSET) {
+      } else if (asset === ENV.DAGCOIN_ASSET) {
         const dagUnitValue = walletSettings.dagUnitValue;
         const dagUnitName = walletSettings.dagUnitName;
         newAmount /= dagUnitValue;

@@ -464,7 +464,7 @@
                 return console.log('openCustomizedAmountModal: no balances yet');
               }
               const amount = form.amount.$modelValue;
-              const asset = $scope.DAGCOIN_ASSET;
+              const asset = ENV.DAGCOIN_ASSET;
               let amountInSmallestUnits;
               if (!asset) {
                 throw Error('no asset');
@@ -473,7 +473,7 @@
                 case 'base':
                   amountInSmallestUnits = parseInt((amount * $scope.unitValue).toFixed(0));
                   break;
-                case constants.DAGCOIN_ASSET:
+                case ENV.DAGCOIN_ASSET:
                   amountInSmallestUnits = parseInt((amount * $scope.dagUnitValue).toFixed(0));
                   break;
                 default:
@@ -481,7 +481,7 @@
               }
 
               return $timeout(() => {
-                $scope.customizedAmountUnit = `${amount} ${(asset === 'base') ? $scope.unitName : (asset === constants.DAGCOIN_ASSET ? $scope.dagUnitName : `of ${asset}`)}`;
+                $scope.customizedAmountUnit = `${amount} ${(asset === 'base') ? $scope.unitName : (asset === ENV.DAGCOIN_ASSET ? $scope.dagUnitName : `of ${asset}`)}`;
                 $scope.amountInSmallestUnits = amountInSmallestUnits;
                 $scope.asset_param = (asset === 'base') ? '' : `&asset=${encodeURIComponent(asset)}`;
               }, 1);
@@ -709,7 +709,7 @@
            return self.setSendError(gettext(msg));
            } */
 
-          const asset = $scope.index.DAGCOIN_ASSET;
+          const asset = ENV.DAGCOIN_ASSET;
           console.log(`asset ${asset}`);
           const address = form.address.$modelValue;
           const recipientDeviceAddress = assocDeviceAddressesByPaymentAddress[address];
@@ -1043,7 +1043,7 @@
               const info = { asset: b.asset };
               if (b.asset === 'base') {
                 info.displayName = self.unitName;
-              } else if (b.asset === constants.DAGCOIN_ASSET) {
+              } else if (b.asset === ENV.DAGCOIN_ASSET) {
                 info.displayName = self.dagUnitName;
               } else {
                 info.displayName = `of ${b.asset.substr(0, 4)}`;
@@ -1114,7 +1114,7 @@
           let moneyAmount = amount;
           if (asset === 'base') {
             moneyAmount *= self.unitValue;
-          } else if (asset === constants.DAGCOIN_ASSET) {
+          } else if (asset === ENV.DAGCOIN_ASSET) {
             moneyAmount *= self.dagUnitValue;
           }
           return Math.round(moneyAmount);
@@ -1124,7 +1124,7 @@
           let moneyAmount = amount;
           if (asset === 'base') {
             moneyAmount /= self.unitValue;
-          } else if (asset === constants.DAGCOIN_ASSET) {
+          } else if (asset === ENV.DAGCOIN_ASSET) {
             moneyAmount /= self.dagUnitValue;
           }
           return moneyAmount;
@@ -1166,7 +1166,7 @@
             if (asset === 'base') {
               moneyAmount /= this.unitValue;
             }
-            if (asset === constants.DAGCOIN_ASSET) {
+            if (asset === ENV.DAGCOIN_ASSET) {
               moneyAmount /= this.dagUnitValue;
             }
             // form.amount.$setViewValue("" + amount);
@@ -1336,7 +1336,7 @@
 
             if (self.checkFeeIsPayedByHub(btx, txHistory)) {
               $scope.feeIsPayedByHub = true;
-              $scope.btx.feeStr = getAmountInDisplayUnits(constants.DAG_FEE, constants.DAGCOIN_ASSET);
+              $scope.btx.feeStr = getAmountInDisplayUnits(constants.DAG_FEE, ENV.DAGCOIN_ASSET);
             }
 
             $scope.getAmount = function (amount) {

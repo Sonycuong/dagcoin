@@ -499,7 +499,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
 
                   Object.keys(assocAmountByAssetAndAddress[asset]).forEach((address) => {
                     if (asset !== 'base') {
-                      currency = asset === constants.DAGCOIN_ASSET ? 'dag' : `of asset ${formattedAsset}`;
+                      currency = asset === ENV.DAGCOIN_ASSET ? 'dag' : `of asset ${formattedAsset}`;
                       value = assocAmountByAssetAndAddress[asset][address] / walletSettings.dagUnitValue;
                     } else {
                       currency = 'bytes';

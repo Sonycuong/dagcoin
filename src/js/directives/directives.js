@@ -39,8 +39,8 @@
       };
     },
   ])
-  .directive('validAmount', ['configService',
-    function (configService) {
+  .directive('validAmount', ['configService', 'ENV',
+    function (configService, ENV) {
       return {
         require: 'ngModel',
         link(scope, element, attrs, ctrl) {
@@ -52,7 +52,6 @@
              return value;
              } */
             // console.log('-- amount');
-            const constants = require('byteballcore/constants.js');
             const asset = attrs.validAmount;
             const settings = configService.getSync().wallet.settings;
             let unitValue = 1;
@@ -60,7 +59,7 @@
             if (asset === 'base') {
               unitValue = settings.unitValue;
               decimals = Number(settings.unitDecimals);
-            } else if (asset === constants.DAGCOIN_ASSET) {
+            } else if (asset === ENV.DAGCOIN_ASSET) {
               unitValue = settings.dagUnitValue;
               decimals = Number(settings.dagUnitDecimals);
             }
