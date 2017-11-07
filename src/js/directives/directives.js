@@ -60,7 +60,7 @@
             if (asset === 'base') {
               unitValue = settings.unitValue;
               decimals = Number(settings.unitDecimals);
-            } else if (asset === constants.DAGCOIN_ASSET) {
+            } else if (asset === ENV.DAGCOIN_ASSET) {
               unitValue = settings.dagUnitValue;
               decimals = Number(settings.dagUnitDecimals);
             }

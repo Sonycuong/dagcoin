@@ -6,7 +6,8 @@
     profileService,
     addressService,
     dagcoinProtocolService,
-    $rootScope
+    $rootScope,
+    ENV
   ) => {
     const root = {};
 
@@ -312,7 +313,7 @@
               for (let i = 0; i < rows.length; i += 1) {
                 const row = rows[i];
 
-                if (row.asset === constants.DAGCOIN_ASSET) {
+                if (row.asset === ENV.DAGCOIN_ASSET) {
                   totalAmount += row.balance;
                 }
               }
