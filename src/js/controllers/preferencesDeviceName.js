@@ -22,5 +22,11 @@
           }, 50);
         });
       };
+
+      $scope.$watch('prefDeviceName.deviceName', (newValue, oldValue) => {
+        if (newValue.length > 50) {
+          $scope.prefDeviceName.deviceName = oldValue;
+        }
+      });
     });
 }());

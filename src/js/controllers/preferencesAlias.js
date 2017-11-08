@@ -54,6 +54,12 @@
         self.wallets = lodash.filter(self.wallets, c => (c.name !== self.alias));
       };
 
+      $scope.$watch('prefAlias.alias', (newValue, oldValue) => {
+        if (newValue.length > 50) {
+          $scope.prefAlias.alias = oldValue;
+        }
+      });
+
       self.loadExistingWallets();
     });
 }());
