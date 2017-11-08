@@ -23,9 +23,6 @@ rules:
   indent: 0
   consistent-return: 0
   no-bitwise: 0
-  operator-assignment:
-    - error
-    - never
   no-use-before-define:
     - error
     - functions: false
