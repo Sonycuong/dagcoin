@@ -875,11 +875,11 @@ input{
 }
 
 .rn-carousel-control.rn-carousel-control-prev:before {
-  content: "‹";
+  content: "<";
 }
 
 .rn-carousel-control.rn-carousel-control-next:before {
-  content: "›";
+  content: ">";
 }
 
 /* removes 300ms in IE * /
