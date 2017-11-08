@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "async": "^1.5.2",
+    "qrcode": "^1.0.0",
     "bip38": "^1.4.0",
     "bitcore-lib": "^0.13.14",
     "bitcore-mnemonic": "~1.0.0",

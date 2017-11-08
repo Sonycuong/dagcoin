@@ -219,7 +219,7 @@
 
 
 				<!-- Address-->
-				<div class="page-qr text-center">
+				<div class="text-center">
 					<div class="box-notification" ng-show="home.addrError">
                 <span class="text-warning">
                   {{home.addrError|translate}}
@@ -227,7 +227,8 @@
 					</div>
 
 					<div ng-click="home.copyAddress(home.addr[index.walletId])" ng-show="home.addr[index.walletId] || home.generatingAddress">
-						<qrcode size="220" data="{{home.protocol}}:{{home.addr[index.walletId]}}"></qrcode>
+						<dag-qr-code url="{{home.protocol}}:{{home.addr[index.walletId]}}"></dag-qr-code>
+
 						<div  ng-show="home.generatingAddress" style="position:relative; top:-226px; height:0px">
 							<div style="height:220px; width:220px; margin:auto; background: url(img/qr.png) white">
 								<div class="spinner" style="margin-top:80px">
