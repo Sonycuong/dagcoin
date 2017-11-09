@@ -98,10 +98,12 @@
 
       function activate() {
         if (self.active) {
+          console.log('FUNDING EXCHANGE CLIENT READY');
           return Promise.resolve(true);
         }
 
         if (self.activating) {
+          console.log('FUNDING EXCHANGE CLIENT STILL ACTIVATING');
           return Promise.resolve(false);
         }
 
@@ -110,15 +112,18 @@
         if (isFundingPairPresent()) {
           self.activating = false;
           self.active = true;
+          console.log('FUNDING EXCHANGE CLIENT READY');
           return Promise.resolve(true);
         }
 
         return readFundingClientConfiguration().then((ready) => {
+          console.log('FUNDING EXCHANGE CLIENT CONFIGURATION READ');
+
           if (ready) {
             console.log('A SHARED ADDRESS WAS FOUND IN THE DATABASE USED THAT ONE TO INITIALIZE');
             self.activating = false;
             self.active = true;
-            return Promise.resolve();
+            return Promise.resolve(true);
           }
 
           return queryDiscoveryService();
@@ -126,12 +131,12 @@
       }
 
       function readFundingClientConfiguration() {
-        return readMyAddress().then((myAddress) => {
-          if (!myAddress) {
+        return proofingService.readMasterAddress().then((masterAddress) => {
+          if (!masterAddress) {
             return Promise.reject('COULD NOT FIND ANY ADDRESS IN THE DATABASE');
           }
 
-          self.dagcoinOrigin = myAddress;
+          self.dagcoinOrigin = masterAddress.address;
 
           return new Promise((resolve, reject) => {
             const db = require('byteballcore/db.js');
@@ -171,13 +176,14 @@
             return Promise.resolve(self.dagcoinOrigin);
           }
 
-          return readMyAddress();
-        }).then((myAddress) => {
-          if (!myAddress) {
+          return proofingService.readMasterAddress().then((masterAddress) => {
+            self.dagcoinOrigin = masterAddress.address;
+            return Promise.resolve(self.dagcoinOrigin);
+          });
+        }).then((masterAddress) => {
+          if (!masterAddress) {
             return Promise.reject('COULD NOT FIND ANY ADDRESS IN THE DATABASE');
           }
-
-          self.dagcoinOrigin = myAddress;
 
           const device = require('byteballcore/device');
 
@@ -279,6 +285,7 @@
           return checkConfigurationInTime(times - 1);
         });
       }
+
       // todo: needs refactoring
       function readMyAddresses() {
         return new Promise((resolve, reject) => {
@@ -287,21 +294,6 @@
             if (!addr) {
               reject('NO ADDRESSES AVAILABLE');
             } else {
-              resolve(addr);
-            }
-          });
-        });
-      }
-
-      // TODO: should have some dagcoins on it
-      function readMyAddress() {
-        return new Promise((resolve, reject) => {
-          const fc = profileService.focusedClient;
-          addressService.getAddress(fc.credentials.walletId, false, (err, addr) => {
-            if (!addr) {
-              reject('NO ADDRESSES AVAILABLE');
-            } else {
-              console.log(`FOUND AN ADDRESS: ${addr}`);
               resolve(addr);
             }
           });
@@ -415,7 +407,7 @@
                   self.bytesProviderDeviceAddress,
                   'load-address',
                   {
-                    address: masterAddress
+                    address: masterAddress.address
                   }
                 );
               });

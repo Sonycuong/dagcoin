@@ -501,7 +501,7 @@ angular.module('copayApp.services').factory('correspondentListService',
 
         if (message !== null) {
           if (message.protocol === 'dagcoin') {
-            console.log(`DAGCOIN MESSAGE RECEIVED FROM ${fromAddress}`);
+            console.log(`DAGCOIN MESSAGE RECEIVED FROM ${fromAddress} WITH TITLE ${message.title} AND BODY ${JSON.stringify(message)}`);
             eventBus.emit(`dagcoin.${message.title}`, message, fromAddress);
             return Promise.resolve(true);
           }

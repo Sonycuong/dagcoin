@@ -6,6 +6,6 @@
     "explorerPrefix": "testnet",
     "TIMESTAMPER_ADDRESS": "OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD",
     "hub": "testnetexplorer.dagcoin.org/wss/",
-    "discoveryServicePairingCode": "AnqLjlEMkQsoP6yZ/vDwT41F3IE6ItfggF0oxyYsUj42@byteball.org/bb-test#0000"
+    "discoveryServicePairingCode": "AnqLjlEMkQsoP6yZ/vDwT41F3IE6ItfggF0oxyYsUj42@testnetexplorer.dagcoin.org/wss/#0000"
   }
 }

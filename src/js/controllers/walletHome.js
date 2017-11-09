@@ -879,7 +879,7 @@
 
                       return fundingExchangeClientService.getSharedAddressBalance(sharedAddress).then((assocBalances) => {
                         console.log(`BALANCE FOR ${sharedAddress}: ${JSON.stringify(assocBalances)}`);
-                        console.log(assocBalances);
+
                         if (assocBalances.base.stable === 0 || assocBalances.base.stable < 1500) {
                           return Promise.reject('Funding hub is fueling your wallet, it may take several minutes. Please try again a bit later.');
                         }
