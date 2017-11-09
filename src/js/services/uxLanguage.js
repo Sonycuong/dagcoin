@@ -9,62 +9,27 @@
       name: 'English',
       isoCode: 'en',
     }, {
-      name: 'Français',
-      isoCode: 'fr',
-    }, {
-      name: 'Italiano',
-      isoCode: 'it',
-    }, {
-      name: 'Deutsch',
-      isoCode: 'de',
-    }, {
-      name: 'Español',
-      isoCode: 'es',
-    }, {
-      name: 'Português',
-      isoCode: 'pt',
-    }, {
       name: 'Nederlands',
-      isoCode: 'nl',
-    }, {
-      name: 'Svenska',
-      isoCode: 'sv',
-    }, {
-      name: 'Polski',
-      isoCode: 'pl',
-    }, {
-      name: 'Magyar',
-      isoCode: 'hu',
-    }, {
-      name: 'Ελληνικά',
-      isoCode: 'el',
-    }, {
-      name: '日本語',
-      isoCode: 'ja',
-      useIdeograms: true,
+      isoCode: 'nl_NL',
     }, {
       name: '中文',
-      isoCode: 'zh',
+      isoCode: 'zh_CN',
       useIdeograms: true,
     }, {
       name: 'Pусский',
-      isoCode: 'ru',
+      isoCode: 'ru_RU',
     }, {
       name: 'Bahasa Indonesia',
-      isoCode: 'id',
-    }, {
-      name: 'Türk',
-      isoCode: 'tr',
+      isoCode: 'id_ID',
     }];
 
     root.currentLanguage = null;
 
-    root.detect = function () {
+    root._detect = function () {
       // Auto-detect browser language
-      let userLang;
-      const androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i);
+      var userLang, androidLang;
 
-      if (navigator && navigator.userAgent && androidLang) {
+      if (navigator && navigator.userAgent && (androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
         userLang = androidLang[1];
       } else {
         // works for iOS and Android 4.x
@@ -72,15 +37,20 @@
       }
       userLang = userLang ? (userLang.split('-', 1)[0] || 'en') : 'en';
 
-      return userLang;
+      for (var i = 0; i < root.availableLanguages.length; i++) {
+        var isoCode = root.availableLanguages[i].isoCode;
+        if (userLang === isoCode.substr(0, 2))
+          return isoCode;
+      }
+
+      return 'en';
     };
 
-    root.set = function (lang) {
-      $log.debug(`Setting default language: ${lang}`);
+    root._set = function (lang) {
+      $log.debug('Setting default language: ' + lang);
       gettextCatalog.setCurrentLanguage(lang);
-      if (lang !== 'en') {
-        gettextCatalog.loadRemote(`languages/${lang}.json`);
-      }
+      if (lang !== 'en')
+        gettextCatalog.loadRemote("languages/" + lang + ".json");
       amMoment.changeLocale(lang);
       root.currentLanguage = lang;
     };
@@ -95,7 +65,7 @@
 
     root.getCurrentLanguageInfo = function () {
       return lodash.find(root.availableLanguages, {
-        isoCode: root.currentLanguage,
+        'isoCode': root.currentLanguage
       });
     };
 
@@ -104,25 +74,25 @@
     };
 
     root.init = function () {
-      root.set(root.detect());
+      root._set(root._detect());
     };
 
     root.update = function () {
-      let userLang = configService.getSync().wallet.settings.defaultLanguage;
+      var userLang = configService.getSync().wallet.settings.defaultLanguage;
 
       if (!userLang) {
-        userLang = root.detect();
+        userLang = root._detect();
       }
 
-      if (userLang !== gettextCatalog.getCurrentLanguage()) {
-        root.set(userLang);
+      if (userLang != gettextCatalog.getCurrentLanguage()) {
+        root._set(userLang);
       }
       return userLang;
     };
 
     root.getName = function (lang) {
       return lodash.result(lodash.find(root.availableLanguages, {
-        isoCode: lang,
+        'isoCode': lang
       }), 'name');
     };
 

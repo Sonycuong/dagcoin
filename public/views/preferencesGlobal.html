@@ -17,13 +17,13 @@
       <i class="icon-arrow-right3 size-24 arrow-right"></i>
     </li>
 
-    <!--<li ng-click="$root.go('preferencesLanguage')">
-      <div class="right text-gray">
-        {{prefGlobal.currentLanguageName|translate}}
-        <i class="icon-arrow-right3 size-24"></i>
-      </div>
+    <li dag-right-icon="chevron-thin-right" ng-click="$root.go('preferencesLanguage')">
       <div translate>Language</div>
-    </li>-->
+      <div class="value">
+        {{prefGlobal.currentLanguageName|translate}}
+      </div>
+      <i class="icon-arrow-right3 size-24 arrow-right"></i>
+    </li>
   </ul>
 
   <!--<h4 translate ng-show="false">Funding Node</h4>-->
