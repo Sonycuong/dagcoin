@@ -25,11 +25,12 @@
 
     root.currentLanguage = null;
 
-    root._detect = function () {
+    root.detect = function () {
       // Auto-detect browser language
-      var userLang, androidLang;
+      let userLang;
+      const androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i);
 
-      if (navigator && navigator.userAgent && (androidLang = navigator.userAgent.match(/android.*\W(\w\w)-(\w\w)\W/i))) {
+      if (navigator && navigator.userAgent && androidLang) {
         userLang = androidLang[1];
       } else {
         // works for iOS and Android 4.x
@@ -37,20 +38,18 @@
       }
       userLang = userLang ? (userLang.split('-', 1)[0] || 'en') : 'en';
 
-      for (var i = 0; i < root.availableLanguages.length; i++) {
-        var isoCode = root.availableLanguages[i].isoCode;
-        if (userLang === isoCode.substr(0, 2))
-          return isoCode;
+      for (let i = 0; i < root.availableLanguages.length; i += 1) {
+        const isoCode = root.availableLanguages[i].isoCode;
+        if (userLang === isoCode.substr(0, 2)) { return isoCode; }
       }
 
       return 'en';
     };
 
-    root._set = function (lang) {
-      $log.debug('Setting default language: ' + lang);
+    root.set = function (lang) {
+      $log.debug(`Setting default language: ${lang}`);
       gettextCatalog.setCurrentLanguage(lang);
-      if (lang !== 'en')
-        gettextCatalog.loadRemote("languages/" + lang + ".json");
+      if (lang !== 'en') { gettextCatalog.loadRemote(`languages/${lang}.json`); }
       amMoment.changeLocale(lang);
       root.currentLanguage = lang;
     };
@@ -65,7 +64,7 @@
 
     root.getCurrentLanguageInfo = function () {
       return lodash.find(root.availableLanguages, {
-        'isoCode': root.currentLanguage
+        isoCode: root.currentLanguage
       });
     };
 
@@ -74,25 +73,25 @@
     };
 
     root.init = function () {
-      root._set(root._detect());
+      root.set(root.detect());
     };
 
     root.update = function () {
-      var userLang = configService.getSync().wallet.settings.defaultLanguage;
+      let userLang = configService.getSync().wallet.settings.defaultLanguage;
 
       if (!userLang) {
-        userLang = root._detect();
+        userLang = root.detect();
       }
 
-      if (userLang != gettextCatalog.getCurrentLanguage()) {
-        root._set(userLang);
+      if (userLang !== gettextCatalog.getCurrentLanguage()) {
+        root.set(userLang);
       }
       return userLang;
     };
 
     root.getName = function (lang) {
       return lodash.result(lodash.find(root.availableLanguages, {
-        'isoCode': lang
+        isoCode: lang
       }), 'name');
     };
 
