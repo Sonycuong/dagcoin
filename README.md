@@ -1,4 +1,5 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/26c05315539e4d96a81728e88fd9b76c)](https://www.codacy.com/app/dagcoin1/dagcoin?utm_source=github.com&utm_medium=referral&utm_content=dagcoin/dagcoin&utm_campaign=badger)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/dagcoin/localized.svg)](https://crowdin.com/project/dagcoin)
+
 [![Build Status](https://travis-ci.org/dagcoin/dagcoin.svg?branch=master)](https://travis-ci.org/dagcoin/dagcoin)
 
 Dagcoin as cryptocurrency is built on a new technology called DAG chain, offering scalable, low cost and secure payments. Dagcoin uses byteball network as an underlying platform. Our mission is to provide alternative currency for everyday using, focusing on Asian market to help unbanked people manage their funds better. By doing that, Dagcoin will be the most widely used open source cryptocurrency in the world.
