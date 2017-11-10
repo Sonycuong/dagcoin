@@ -961,7 +961,7 @@
                         $timeout(() => {
                           indexScope.updateTxHistory();
                           self.openTxModal(indexScope.txHistory[0], indexScope.txHistory);
-                        }, 500);
+                        }, 1000);
                       }
                       resolve();
                     });
