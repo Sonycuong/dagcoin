@@ -242,6 +242,8 @@
           const device = require('byteballcore/device');
 
           eventBus.on('create_new_shared_address', (template, signers) => {
+            // TODO: validate signers?
+
             console.log(`CREATE NEW SHARED ADDRESS FOR ${self.dagcoinOrigin} TEMPLATE: ${JSON.stringify(template)}`);
             console.log(`CREATE NEW SHARED ADDRESS FOR ${self.dagcoinOrigin} SIGNERS: ${JSON.stringify(signers)}`);
 
