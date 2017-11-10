@@ -1,7 +1,7 @@
 {
   "ENV": {
     "isTestnet": true,
-    "discoveryDeviceAddress": "0EPKJTMDEB5RUCOHTL77LHPR5K6KV3G7V",
+    "discoveryDeviceAddress": "06HM3M45WJYU7EXIXWCYAKPXQS32ZNR6X",
     "DAGCOIN_ASSET": "B9dw3C3gMC+AODL/XqWjFh9jFe31jS08yf2C3zl8XGg=",
     "explorerPrefix": "testnet",
     "TIMESTAMPER_ADDRESS": "OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD",
