@@ -634,6 +634,11 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         title: gettext('History'),
         icon: 'icon-history',
         link: 'history'
+      }, {
+        title: gettext('Chat'),
+        icon: 'icon-chat',
+        new_state: 'correspondentDevices',
+        link: 'chat'
       }];
 
       self.getSvgSrc = function (id) {
