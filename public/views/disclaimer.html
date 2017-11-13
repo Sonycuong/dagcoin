@@ -2,7 +2,18 @@
   <div ng-if="agreed && index.hasProfile" ng-include="'views/includes/topbar.html'"
     ng-init="titleSection='Terms of Use';  goBackToState = 'about'; invert = true;">
   </div>
-
+  <div class="onGoingProcess" ng-show="loading">
+    <div class="onGoingProcess-content" ng-style="{'background-color':'#222'}">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+      <span translate>Loading...</span>
+    </div>
+  </div>
   <div class="introduction-svg" ng-include="'views/includes/background.html'"></div>
   <div class="content p20b" ng-class="{'disclaimer':!index.hasProfile}">
     <h4 class="title m0" ng-show="!index.hasProfile" style="background: transparent;">
