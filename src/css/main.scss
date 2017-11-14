@@ -40,6 +40,11 @@ svg-icon {
   vertical-align: middle;
   fill: currentColor;
   line-height: 0;
+  pointer-events: none;
+}
+
+svg {
+  pointer-events: none;
 }
 
 .color_red {
