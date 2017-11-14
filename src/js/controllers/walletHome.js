@@ -33,7 +33,7 @@
         const breadcrumbs = require('byteballcore/breadcrumbs.js');
         const self = this;
         const conf = require('byteballcore/conf.js');
-        this.protocol = conf.program_version.match(/t$/) ? 'byteball-tn' : 'byteball';
+        this.protocol = conf.program_version.match(/t$/) ? 'dagcoin-tn' : 'dagcoin';
         $rootScope.hideMenuBar = false;
         $rootScope.wpInputFocused = false;
         const config = configService.getSync();
