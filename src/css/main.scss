@@ -3037,3 +3037,14 @@ p.color_red {
   pointer-events: none;
   color: #8597a7;
 }
+
+.badge {
+  top: 3px;
+  right: 3px;
+  font-size: 0.6em;
+  padding: 3px 7.6px 2px;
+  background-color: $red;
+  border-radius: 10px;
+  color: #fff;
+  position: absolute;
+}

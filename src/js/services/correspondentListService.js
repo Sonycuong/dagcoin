@@ -75,7 +75,6 @@ angular.module('copayApp.services').factory('correspondentListService',
       if ($state.is('walletHome') && $rootScope.tab === 'walletHome' && !faucetService.isFaucetAddress(peerAddress)) {
         setCurrentCorrespondent(peerAddress, () => {
           $stickyState.reset('correspondentDevices.correspondentDevice');
-          go.path('correspondentDevices.correspondentDevice');
         });
       } else {
         $rootScope.$digest();
@@ -123,7 +122,7 @@ angular.module('copayApp.services').factory('correspondentListService',
       let objMultiPaymentRequest;
       let assocPaymentsByAsset;
       let invalidChash;
-      const paymentJson = Buffer(paymentJsonBase64, 'base64').toString('utf8');
+      const paymentJson = new Buffer(paymentJsonBase64, 'base64').toString('utf8');
       console.log(paymentJson);
       try {
         objMultiPaymentRequest = JSON.parse(paymentJson);
