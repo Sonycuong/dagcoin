@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('preferencesGlobalController',
-    function ($scope, $q, $rootScope, $timeout, $log, configService, uxLanguage, pushNotificationsService, profileService,
-      fundingExchangeProviderService, $modal, animationService, changeWalletTypeService) {
+    function ($scope, $q, $rootScope, $log, $modal, configService, uxLanguage, pushNotificationsService, profileService,
+              fundingExchangeProviderService, animationService, changeWalletTypeService, gettext) {
       const conf = require('byteballcore/conf.js');
       const self = this;
       self.fundingNodeSettings = {};
@@ -52,37 +52,52 @@
         });
       });
 
+      function lock() {
+        $rootScope.$emit('Local/NeedsPassword', true, null, (err, password) => {
+          if (err && !password) {
+            $scope.encrypt = false;
+            return;
+          }
+          profileService.setPrivateKeyEncryptionFC(password, () => {
+            $rootScope.$emit('Local/NewEncryptionSetting');
+            $scope.encrypt = true;
+          });
+        });
+      }
+
+      function unlock(error) {
+        profileService.unlockFC(error, (err) => {
+          if (err) {
+            $scope.encrypt = true;
+
+            if (err.message !== gettext('Password needed')) {
+              return unlock(err.message);
+            }
+            return;
+          }
+          profileService.disablePrivateKeyEncryptionFC((disablePrivateKeyEncryptionFCError) => {
+            $rootScope.$emit('Local/NewEncryptionSetting');
+            if (disablePrivateKeyEncryptionFCError) {
+              $scope.encrypt = true;
+              $log.error(disablePrivateKeyEncryptionFCError);
+              return;
+            }
+            $scope.encrypt = false;
+          });
+        });
+      }
+
       const unwatchEncrypt = $scope.$watch('encrypt', (val) => {
         const fc = profileService.focusedClient;
-        if (!fc) return;
+
+        if (!fc) {
+          return;
+        }
 
         if (val && !fc.hasPrivKeyEncrypted()) {
-          $rootScope.$emit('Local/NeedsPassword', true, null, (err, password) => {
-            if (err || !password) {
-              $scope.encrypt = false;
-              return;
-            }
-            profileService.setPrivateKeyEncryptionFC(password, () => {
-              $rootScope.$emit('Local/NewEncryptionSetting');
-              $scope.encrypt = true;
-            });
-          });
+          lock();
         } else if (!val && fc.hasPrivKeyEncrypted()) {
-          profileService.unlockFC(null, (err) => {
-            if (err) {
-              $scope.encrypt = true;
-              return;
-            }
-            profileService.disablePrivateKeyEncryptionFC((disablePrivateKeyEncryptionFCError) => {
-              $rootScope.$emit('Local/NewEncryptionSetting');
-              if (disablePrivateKeyEncryptionFCError) {
-                $scope.encrypt = true;
-                $log.error(disablePrivateKeyEncryptionFCError);
-                return;
-              }
-              $scope.encrypt = false;
-            });
-          });
+          unlock();
         }
       });
 
