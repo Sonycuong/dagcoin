@@ -6,7 +6,7 @@
       const self = this;
 
       self.validationErrors = [];
-      let pass1;
+      let passwordTemp;
 
       self.isVerification = false;
 
@@ -22,7 +22,7 @@
         if (isSetup && !self.isVerification) {
           document.getElementById('passwordInput').focus();
           self.isVerification = true;
-          pass1 = self.password;
+          passwordTemp = self.password;
           self.password = null;
           $timeout(() => {
             $rootScope.$apply();
@@ -30,12 +30,8 @@
           return;
         }
         if (isSetup) {
-          if (pass1 !== self.password) {
+          if (passwordTemp !== self.password) {
             self.error = gettext('Passwords do not match');
-            self.isVerification = false;
-            self.password = null;
-            pass1 = null;
-
             return;
           }
         }
