@@ -13,7 +13,6 @@
 
       const conf = require('byteballcore/conf.js');
       $scope.protocol = conf.program;
-      $scope.qr_version = (conf.program === 'byteball') ? 5 : 6; // longer code doesn't fit into version 5
       $scope.isCordova = isCordova;
       const fc = profileService.focusedClient;
       $scope.color = fc.backgroundColor;
@@ -25,7 +24,6 @@
 
       $scope.copyCode = function () {
         console.log('copyCode');
-        // $scope.$digest();
         if (isCordova) {
           window.cordova.plugins.clipboard.copy($scope.code);
           window.plugins.toast.showShortCenter(gettextCatalog.getString('Copied to clipboard'));
@@ -48,7 +46,6 @@
         console.log(`beginAddCorrespondent ${pairingInfo.pairing_secret}`);
         $scope.code = `${pairingInfo.device_pubkey}@${pairingInfo.hub}#${pairingInfo.pairing_secret}`;
         $scope.$digest();
-        // $timeout(function(){$scope.$digest();}, 100);
         const eventName = `paired_by_secret-${pairingInfo.pairing_secret}`;
         eventBus.once(eventName, onPaired);
         $scope.$on('$destroy', () => {
