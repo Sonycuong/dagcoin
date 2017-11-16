@@ -1,6 +1,8 @@
 @import "variables";
 @import "mobile";
 @import "dagNavBar";
+@import "settings";
+
 /* Components */
 @import "components/buttons";
 @import "components/inputs";
@@ -146,77 +148,6 @@ h4 {
       font-weight: 400;
       padding: 7px;
       font-size: 12px;
-    }
-  }
-}
-
-.preferences {
-  background: #f1f3f5;
-
-  form {
-    background: #fff;
-    padding-top: 10px;
-    margin-bottom: 10px;
-  }
-
-  .switch {
-    top: -5px !important;
-  }
-
-  h4 {
-    background: #f1f3f5;
-    padding: 25px 20px 5px;
-    text-transform: uppercase;
-    color: #555;
-    font-size: 12px;
-    font-weight: 300;
-    margin: 0;
-
-    button {
-      color: $red;
-      float: right;
-      background: transparent;
-
-      &:hover {
-        color: $red;
-        background: transparent;
-      }
-    }
-  }
-
-  ul {
-    font-size: 14px;
-    background: #fff;
-    margin: 5px 0;
-
-    li {
-      cursor: pointer !important;
-      overflow: hidden;
-      padding: 10px 20px;
-      border-bottom: 1px solid #e9e9ec;
-      position: relative;
-      word-break: break-all;
-
-      .arrow-right {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        margin-top: -12px;
-      }
-
-      .switch {
-        position: absolute;
-        right: 20px;
-        top: 50% !important;
-        margin-top: -16px;
-      }
-
-      > div {
-        &.value {
-          color: #666;
-          font-size: 12px;
-        }
-      }
     }
   }
 }
