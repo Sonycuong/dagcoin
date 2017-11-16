@@ -285,6 +285,7 @@
         if (self.inputMnemonic) {
           self.error = '';
           self.inputMnemonic = self.inputMnemonic.toLowerCase();
+
           if ((self.inputMnemonic.split(' ').length % 3 === 0) && Mnemonic.isValid(self.inputMnemonic)) {
             self.scanning = true;
             if (self.bLight) {
