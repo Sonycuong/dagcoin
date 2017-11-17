@@ -131,7 +131,8 @@
 
       function handleUri(uri) {
         const conf = require('byteballcore/conf.js');
-        this.protocol = conf.program_version.match(/t$/) ? 'byteball-tn' : 'byteball';
+        const pack = require('../package.json');
+        this.protocol = pack.name;
         const tmpUri = uri.replace(`${this.protocol}`, conf.program);
         console.log(`handleUri ${tmpUri}`);
         require('byteballcore/uri.js').parseUri(tmpUri, {

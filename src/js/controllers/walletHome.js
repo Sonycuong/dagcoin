@@ -31,9 +31,10 @@
         const constants = require('byteballcore/constants.js');
         const eventBus = require('byteballcore/event_bus.js');
         const breadcrumbs = require('byteballcore/breadcrumbs.js');
+        const pack = require('../package.json');
         const self = this;
         const conf = require('byteballcore/conf.js');
-        this.protocol = conf.program_version.match(/t$/) ? 'dagcoin-tn' : 'dagcoin';
+        self.protocol = pack.name;
         $rootScope.hideMenuBar = false;
         $rootScope.wpInputFocused = false;
         const config = configService.getSync();
