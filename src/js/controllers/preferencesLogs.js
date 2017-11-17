@@ -2,17 +2,17 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('preferencesLogs',
-    function (historicLog) {
+    function (historicLog, gettext) {
       this.logs = historicLog.get();
 
       this.sendLogs = function () {
-        let body = 'Dagcoin Session Logs\n Be careful, this could contain sensitive private data\n\n';
+        let body = gettext('Dagcoin Session Logs\n Be careful, this could contain sensitive private data\n\n');
         body += '\n\n';
         body += this.logs.map(v => v.msg).join('\n');
 
         window.plugins.socialsharing.shareViaEmail(
           body,
-          'Dagcoin Logs',
+          gettext('Dagcoin Logs'),
           null, // TO: must be null or an array
           null, // CC: must be null or an array
           null, // BCC: must be null or an array

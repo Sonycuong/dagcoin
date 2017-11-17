@@ -37,7 +37,7 @@
 
       const modalDeleteWallet = function () {
         const ModalInstanceCtrl = function ($scope, $modalInstance, $sce) {
-          $scope.header = $sce.trustAsHtml('Delete wallet');
+          $scope.header = $sce.trustAsHtml(gettextCatalog.getString('Delete wallet'));
           $scope.title = $sce.trustAsHtml(deleteMessage);
           $scope.loading = false;
 
@@ -70,7 +70,7 @@
 
       this.deleteWallet = function () {
         if (profileService.profile.credentials.length === 1 || profileService.getWallets().length === 1) {
-          return $rootScope.$emit('Local/ShowErrorAlert', "Can't delete the last remaining wallet");
+          return $rootScope.$emit('Local/ShowErrorAlert', gettextCatalog.getString("Can't delete the last remaining wallet"));
         }
         if (isCordova) {
           return navigator.notification.confirm(

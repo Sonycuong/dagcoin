@@ -20,7 +20,7 @@ msgstr ""
 msgid "2. Who can unlock the contract:"
 msgstr ""
 
-#: public/views/disclaimer.html:75
+#: public/views/disclaimer.html:86
 msgid ""
 "<label>\n"
 "          <input type=\"checkbox\" ng-model=\"isAgree\">\n"
@@ -35,7 +35,11 @@ msgstr ""
 msgid "A wallet for decentralized value"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:156
+#: public/views/preferencesGlobal.html:73
+msgid "ABOUT"
+msgstr ""
+
+#: public/views/preferencesGlobal.html:76
 msgid "About Dagcoin"
 msgstr ""
 
@@ -139,6 +143,10 @@ msgstr ""
 msgid "Available Balance"
 msgstr ""
 
+#: public/views/preferencesGlobal.html:44
+msgid "BACKUP"
+msgstr ""
+
 #: public/views/correspondentDevice.html:7
 #: public/views/editCorrespondentDevice.html:15
 #: public/views/modals/correspondentListToReSendPrivPayloads.html:6
@@ -151,7 +159,7 @@ msgstr ""
 msgid "Backup now"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:128
+#: public/views/preferencesGlobal.html:48
 msgid "Backup wallet seed"
 msgstr ""
 
@@ -194,6 +202,10 @@ msgstr ""
 msgid "CONTINUE"
 msgstr ""
 
+#: src/js/controllers/preferencesDelete.js:73
+msgid "Can't delete the last remaining wallet"
+msgstr ""
+
 #: public/views/modals/destination-address.html:127
 #: src/js/controllers/copayers.js:11
 #: src/js/controllers/preferencesDelete.js:14
@@ -209,14 +221,30 @@ msgstr ""
 msgid "Change hub:"
 msgstr ""
 
+#: src/js/controllers/preferencesGlobal.js:157
+msgid "Change it"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:151
+msgid "Change wallet type!"
+msgstr ""
+
 #: public/views/preferencesAlias.html:24
 msgid ""
 "Changing wallet alias only affects the local wallet\n"
 "        name."
 msgstr ""
 
+#: src/js/controllers/index.js:638
+msgid "Chat"
+msgstr ""
+
 #: public/views/modals/correspondentListToReSendPrivPayloads.html:10
 msgid "Choose the device to send to"
+msgstr ""
+
+#: src/js/controllers/editCorrespondentDevice.js:25
+msgid "Clear chat history"
 msgstr ""
 
 #: public/views/modals/address-definition.html:30
@@ -226,7 +254,6 @@ msgstr ""
 #: public/views/modals/customized-amount.html:4
 #: public/views/modals/destination-address.html:5
 #: public/views/modals/multi-payment.html:4
-#: public/views/modals/no-bytes.html:7
 #: public/views/modals/offer-contract.html:4
 #: public/views/modals/pending-modal.html:6
 #: public/views/modals/select-subwallet.html:4
@@ -245,7 +272,7 @@ msgstr ""
 msgid "Compress the file? (Slower)"
 msgstr ""
 
-#: public/views/disclaimer.html:78
+#: public/views/disclaimer.html:89
 #: src/js/controllers/copayers.js:12
 #: src/js/controllers/index.js:291
 #: src/js/controllers/preferencesDelete.js:15
@@ -261,12 +288,12 @@ msgstr ""
 msgid "Confirmed"
 msgstr ""
 
-#: src/js/controllers/inviteCorrespondentDevice.js:31
+#: src/js/controllers/inviteCorrespondentDevice.js:29
 #: src/js/controllers/walletHome.js:413
 msgid "Copied to clipboard"
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:39
+#: public/views/recoveryFromSeed.html:43
 msgid "Correspondents are not restored."
 msgstr ""
 
@@ -306,7 +333,7 @@ msgid "Could not import. Check input file and password"
 msgstr ""
 
 #: src/js/controllers/walletHome.js:69
-msgid "Could not recognize a valid Byteball QR Code"
+msgid "Could not recognize a valid Dagcoin QR Code"
 msgstr ""
 
 #: src/js/controllers/walletHome.js:644
@@ -357,6 +384,16 @@ msgstr ""
 msgid "DOWNLOAD THE ENTIRE DAGCOIN DATABASE"
 msgstr ""
 
+#: src/js/controllers/preferencesLogs.js:15
+msgid "Dagcoin Logs"
+msgstr ""
+
+#: src/js/controllers/preferencesLogs.js:9
+msgid ""
+"Dagcoin Session Logs\n"
+" Be careful, this could contain sensitive private data"
+msgstr ""
+
 #: public/views/modals/bind.html:57
 #: public/views/modals/offer-contract.html:102
 msgid "Data feed name:"
@@ -394,7 +431,13 @@ msgid ""
 "            Wallet"
 msgstr ""
 
+#: src/js/controllers/editCorrespondentDevice.js:26
+msgid "Delete the whole chat history with  ?"
+msgstr ""
+
 #: public/views/preferencesDeleteWallet.html:12
+#: src/js/controllers/copayers.js:49
+#: src/js/controllers/preferencesDelete.js:40
 msgid "Delete wallet"
 msgstr ""
 
@@ -407,7 +450,7 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:108
+#: public/views/preferencesGlobal.html:29
 msgid "Device address"
 msgstr ""
 
@@ -422,7 +465,7 @@ msgid ""
 "\t\t\t\twith."
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:40
+#: public/views/recoveryFromSeed.html:44
 msgid "Do not clone wallets, stop using the original wallet with this seed."
 msgstr ""
 
@@ -493,12 +536,16 @@ msgstr ""
 msgid "Full address:"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:143
+#: public/views/preferencesGlobal.html:63
 msgid "Full backup"
 msgstr ""
 
 #: public/views/modals/fundingNodeNotification.html:4
 msgid "Funding hub"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:884
+msgid "Funding hub is fueling your wallet, it may take several minutes. Please try again a bit later."
 msgstr ""
 
 #: public/views/paperWallet.html:69
@@ -529,7 +576,7 @@ msgstr ""
 msgid "Getting address for wallet {{selectedWalletName}} ..."
 msgstr ""
 
-#: public/views/disclaimer.html:82
+#: public/views/disclaimer.html:93
 msgid "Go back"
 msgstr ""
 
@@ -573,6 +620,11 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
+#: src/js/controllers/import.js:183
+#: src/js/controllers/import.js:204
+msgid "Import successfully completed, please restart the application."
+msgstr ""
+
 #: public/views/add.html:16
 msgid "Import wallet"
 msgstr ""
@@ -591,16 +643,20 @@ msgstr ""
 msgid "Insert my address"
 msgstr ""
 
-#: src/js/controllers/index.js:1585
+#: src/js/controllers/index.js:1590
 msgid "Invalid Touch ID"
+msgstr ""
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:33
+msgid "Invalid pairing code"
+msgstr ""
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:39
+msgid "Invalid pubkey length"
 msgstr ""
 
 #: public/views/addCorrespondentDevice.html:13
 msgid "Invite the other device"
-msgstr ""
-
-#: public/views/modals/no-bytes.html:3
-msgid "It's not possible to exchange Dagcoins until fees payment type is chosen."
 msgstr ""
 
 #: public/views/splash.html:93
@@ -623,10 +679,7 @@ msgstr ""
 msgid "Later"
 msgstr ""
 
-#: public/views/modals/no-bytes.html:8
-msgid "Learn more"
-msgstr ""
-
+#: public/views/disclaimer.html:14
 #: src/js/controllers/disclaimer.js:14
 msgid "Loading..."
 msgstr ""
@@ -658,7 +711,12 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+#: src/js/controllers/import.js:173
+msgid "Mobile version supports only light wallets."
+msgstr ""
+
 #: public/views/walletHome.html:151
+#: public/views/walletHome.html:400
 msgid "My Account"
 msgstr ""
 
@@ -668,6 +726,11 @@ msgstr ""
 
 #: public/views/paymentUri.html:18
 msgid "Network"
+msgstr ""
+
+#: src/js/controllers/preferencesAdvanced.js:28
+#: src/js/controllers/preferencesInformation.js:42
+msgid "New Address successfully generated."
 msgstr ""
 
 #: src/js/controllers/create.js:28
@@ -691,6 +754,10 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: src/js/controllers/recoveryFromSeed.js:276
+msgid "No active addresses found."
+msgstr ""
+
 #: public/views/preferencesInformation.html:37
 msgid "No private key"
 msgstr ""
@@ -701,6 +768,14 @@ msgstr ""
 
 #: public/views/walletHome.html:387
 msgid "No transactions yet"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:385
+msgid "Not enough confirmed funds"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:931
+msgid "Not enough dagcoins"
 msgstr ""
 
 #: public/views/modals/bind.html:46
@@ -729,7 +804,7 @@ msgstr ""
 msgid "Once you have written your wallet seed down, it is recommended to delete it from this device."
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:38
+#: public/views/recoveryFromSeed.html:42
 msgid "Only single-sig wallets can be recovered."
 msgstr ""
 
@@ -759,6 +834,23 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
+#: src/js/controllers/password.js:45
+msgid "Password must be at least 8 characters long"
+msgstr ""
+
+#: src/js/controllers/password.js:51
+msgid "Password must contain at least one digit"
+msgstr ""
+
+#: src/js/controllers/password.js:48
+msgid "Password must contain at least one letter"
+msgstr ""
+
+#: src/js/controllers/password.js:54
+msgid "Password must contain at least one special character"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:73
 #: src/js/services/profileService.js:624
 msgid "Password needed"
 msgstr ""
@@ -823,7 +915,7 @@ msgstr ""
 msgid "Please choose the type of this wallet"
 msgstr ""
 
-#: src/js/controllers/create.js:134
+#: src/js/controllers/create.js:124
 msgid "Please enter the required fields"
 msgstr ""
 
@@ -841,6 +933,10 @@ msgstr ""
 
 #: src/js/controllers/walletHome.js:1426
 msgid "Private payloads sent"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:933
+msgid "Problems with connecting to the hub. Please try again later"
 msgstr ""
 
 #: public/views/modals/customized-amount.html:16
@@ -872,11 +968,11 @@ msgstr ""
 msgid "Reconnecting to Wallet Service..."
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:31
+#: public/views/recoveryFromSeed.html:33
 msgid "Recover"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:138
+#: public/views/preferencesGlobal.html:58
 msgid "Recovery from seed"
 msgstr ""
 
@@ -917,7 +1013,7 @@ msgstr ""
 msgid "Replace"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:119
+#: public/views/preferencesGlobal.html:39
 msgid "Request Password"
 msgstr ""
 
@@ -925,7 +1021,7 @@ msgstr ""
 msgid "Request a specific amount"
 msgstr ""
 
-#: public/views/correspondentDevice.html:297
+#: src/js/controllers/correspondentDevice.js:844
 msgid "Request payment"
 msgstr ""
 
@@ -933,7 +1029,7 @@ msgstr ""
 msgid "Required number of signatures"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:147
+#: public/views/preferencesGlobal.html:67
 msgid "Restore from full backup"
 msgstr ""
 
@@ -973,7 +1069,7 @@ msgstr ""
 msgid "Scan the above QR code using the other device, or send this pairing code to the other device:"
 msgstr ""
 
-#: src/js/controllers/index.js:1576
+#: src/js/controllers/index.js:1581
 msgid "Scan your fingerprint please"
 msgstr ""
 
@@ -989,12 +1085,12 @@ msgstr ""
 msgid "Scanning wallet funds..."
 msgstr ""
 
-#: public/views/paymentUri.html:30
-msgid "Select a wallet"
+#: src/js/controllers/recoveryFromSeed.js:296
+msgid "Seed is not valid"
 msgstr ""
 
-#: public/views/modals/no-bytes.html:6
-msgid "Select payment type"
+#: public/views/paymentUri.html:30
+msgid "Select a wallet"
 msgstr ""
 
 #: public/views/modals/select-subwallet.html:8
@@ -1038,7 +1134,7 @@ msgstr ""
 msgid "Sending..."
 msgstr ""
 
-#: public/views/preferencesAbout.html:30
+#: public/views/preferencesAbout.html:29
 msgid "Session log"
 msgstr ""
 
@@ -1070,6 +1166,10 @@ msgstr ""
 msgid "Share wallet link"
 msgstr ""
 
+#: public/views/walletHome.html:420
+msgid "Show all"
+msgstr ""
+
 #: public/views/backup.html:31
 msgid "Show the Wallet Seed Anyway"
 msgstr ""
@@ -1097,7 +1197,7 @@ msgid "Specify Seed..."
 msgstr ""
 
 #: public/views/preferences.html:37
-#: public/views/preferencesGlobal.html:115
+#: public/views/preferencesGlobal.html:36
 msgid "Spending Restrictions"
 msgstr ""
 
@@ -1105,7 +1205,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:131
+#: public/views/preferencesGlobal.html:51
 msgid "Still not done"
 msgstr ""
 
@@ -1146,13 +1246,27 @@ msgstr ""
 msgid "Tap to retry"
 msgstr ""
 
-#: public/views/disclaimer.html:10
-#: public/views/preferencesAbout.html:26
+#: public/views/disclaimer.html:21
+#: public/views/preferencesAbout.html:25
 msgid "Terms of Use"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:872
+msgid "The Funding Client is not ready"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:270
+msgid ""
+"The amounts are equal, you cannot require the peer to pay to the contract.  \n"
+"              Please either change the amounts slightly or fund the entire contract yourself and require the peer to pay his half to you."
 msgstr ""
 
 #: public/views/modals/bind.html:73
 msgid "The expected value will be posted:"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:877
+msgid "The funding service is currently not supported on secondary wallets. Load some bytes on it"
 msgstr ""
 
 #: public/views/modals/approveNewWitnesses.html:11
@@ -1168,11 +1282,23 @@ msgstr ""
 msgid "The wallet \"{{walletName}}\" was deleted"
 msgstr ""
 
+#: src/js/controllers/correspondentDevice.js:118
+#: src/js/controllers/correspondentDevice.js:125
+msgid "The wallet is not approved yet"
+msgstr ""
+
 #: public/views/splash.html:97
 msgid ""
 "The wallet will contain minimum information relevant to you.  The wallet vendor will be able to know\n"
 "              some of your balances and will be able to see which transactions are yours, but you can start using the\n"
 "              wallet immediately and the wallet is fully functional."
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:152
+msgid ""
+"The wallet will contain the most current state of the entire Dagcoin database. \n"
+"            This option is better for privacy but will take several gigabytes of storage and the initial sync will take several days. \n"
+"            CPU load will be high during sync. After changing to full wallet your money won't be visible until database will synchronize your transactions."
 msgstr ""
 
 #: public/views/splash.html:79
@@ -1194,11 +1320,19 @@ msgstr ""
 msgid "This Wallet has positive balance."
 msgstr ""
 
+#: src/js/controllers/correspondentDevice.js:382
+msgid "This is a private asset, please send it only by clicking links from chat"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:621
+msgid "This payment is already under way"
+msgstr ""
+
 #: public/views/modals/tx-details.html:65
 msgid "This transaction has become invalid; possibly due to a double spend attempt."
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:37
+#: public/views/recoveryFromSeed.html:41
 msgid "This will permanently delete all your existing wallets!"
 msgstr ""
 
@@ -1206,6 +1340,21 @@ msgstr ""
 #: public/views/includes/transaction.html:19
 #: public/views/modals/tx-details.html:16
 msgid "To"
+msgstr ""
+
+#: src/js/controllers/backup.js:13
+msgid ""
+"To protect your funds, please use multisig wallets with redundancy, \n"
+"          e.g. 1-of-2 wallet with one key on this device and another key on your laptop computer. \n"
+"          Just the wallet seed is not enough."
+msgstr ""
+
+#: src/js/controllers/backup.js:19
+msgid ""
+"To restore your wallets, you will need a full backup of Dagcoin data at .  \n"
+"                     Better yet, use multisig wallets with redundancy, \n"
+"                     e.g. 1-of-2 wallet with one key on this device and another key on your smartphone.  \n"
+"                     Just the wallet seed is not enough."
 msgstr ""
 
 #: public/views/modals/tx-details.html:52
@@ -1268,7 +1417,7 @@ msgstr ""
 msgid "WARNING: This will permanently delete all your existing wallets!"
 msgstr ""
 
-#: public/views/recoveryFromSeed.html:35
+#: public/views/recoveryFromSeed.html:40
 msgid "WARNINGS:"
 msgstr ""
 
@@ -1286,6 +1435,14 @@ msgstr ""
 
 #: public/views/preferencesDeleteWallet.html:5
 msgid "Wallet"
+msgstr ""
+
+#: src/js/controllers/index.js:251
+msgid "Wallet  approved by"
+msgstr ""
+
+#: src/js/controllers/index.js:264
+msgid "Wallet  declined by"
 msgstr ""
 
 #: public/views/preferences.html:10
@@ -1339,6 +1496,10 @@ msgstr ""
 msgid "Warning!"
 msgstr ""
 
+#: src/js/controllers/recoveryFromSeed.js:212
+msgid "When scanning an error occurred, please try again later."
+msgstr ""
+
 #: public/views/modals/multi-payment.html:35
 #: public/views/modals/offer-contract.html:144
 msgid "Who signs:"
@@ -1348,13 +1509,17 @@ msgstr ""
 msgid "Write it down and keep it somewhere safe."
 msgstr ""
 
-#: src/js/services/profileService.js:634
+#: src/js/services/profileService.js:635
 msgid "Wrong password"
 msgstr ""
 
 #: public/views/authConfirmation.html:17
 #: src/js/controllers/index.js:289
 msgid "Yes"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:1264
+msgid "You are sending all your stable amount. Transaction fee will be automatically excluded!"
 msgstr ""
 
 #: public/views/backup.html:42
@@ -1390,6 +1555,10 @@ msgstr ""
 msgid "[ Add new co-signer device ]"
 msgstr ""
 
+#: src/js/controllers/correspondentDevice.js:409
+msgid "[your share of payment to the contract]()"
+msgstr ""
+
 #: public/views/modals/offer-contract.html:127
 msgid "after the contract expires in:"
 msgstr ""
@@ -1402,6 +1571,10 @@ msgstr ""
 msgid "clear chat history"
 msgstr ""
 
+#: src/js/controllers/approveNewWitnesses.js:25
+msgid "closed result"
+msgstr ""
+
 #: public/views/modals/offer-contract.html:137
 msgid "days"
 msgstr ""
@@ -1412,6 +1585,19 @@ msgstr ""
 
 #: public/views/modals/bind.html:76
 msgid "explicitly"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:547
+msgid "failed to create shared address :"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:1201
+msgid "failed to find asset index of asset"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:25
+#: src/js/controllers/versionAndWalletType.js:7
+msgid "full wallet"
 msgstr ""
 
 #: public/views/modals/bind.html:90
@@ -1427,8 +1613,37 @@ msgstr ""
 msgid "in merkle tree"
 msgstr ""
 
+#: src/js/controllers/preferencesGlobal.js:25
+#: src/js/controllers/versionAndWalletType.js:7
+msgid "light wallet"
+msgstr ""
+
 #: public/views/includes/available-balance.html:12
 msgid "locked by pending payments"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:602
+msgid "more than 1 non-base asset not supported"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:944
+msgid "my address not known"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:493
+msgid "no member addresses in"
+msgstr ""
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:44
+msgid "pairing"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:748
+msgid "recipient device address not known"
+msgstr ""
+
+#: src/js/controllers/index.js:205
+msgid "refused to sign the transaction"
 msgstr ""
 
 #: src/js/controllers/walletHome.js:730
@@ -1441,6 +1656,10 @@ msgstr ""
 
 #: public/views/modals/approveNewWitnesses.html:17
 msgid "to"
+msgstr ""
+
+#: src/js/controllers/recoveryFromSeed.js:264
+msgid "wallets recovered, please restart the application to finish."
 msgstr ""
 
 #: public/views/modals/address-definition.html:16

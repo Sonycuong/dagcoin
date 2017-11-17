@@ -6,7 +6,8 @@
       $scope,
       $rootScope,
       profileService,
-      addressService
+      addressService,
+      gettext
     ) {
       const indexScope = $scope.index;
 
@@ -24,7 +25,7 @@
           if (err) {
             $rootScope.$emit('Local/ShowAlert', err, 'fi-alert', () => { });
           } else if (addr) {
-            $rootScope.$emit('Local/ShowAlert', 'New Address successfully generated.', 'fi-check', () => { });
+            $rootScope.$emit('Local/ShowAlert', gettext('New Address successfully generated.'), 'fi-check', () => { });
           }
         });
       };

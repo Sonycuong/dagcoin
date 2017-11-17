@@ -337,7 +337,7 @@
 
 						</div>
             <div class="page-action">
-              <button ng-disabled="sendForm.$invalid || index.onGoingProcessName == 'sending'" class="btn btn_red-full" ng-click="home.submitForm()">Send</button>
+              <button ng-disabled="sendForm.$invalid || index.onGoingProcessName == 'sending'" class="btn btn_red-full" ng-click="home.submitForm()" translate>Send</button>
             </div>
 					</form>
 				</div>
@@ -397,7 +397,7 @@
 									<tr  ng-repeat="btx in index.txHistory | filter: { isFundingNodeTransaction: false }" ng-click="home.openTxModal(btx, index.txHistory)"
 										 class="row  last-transactions-content">
 										<td><span class="details-price" ng-class="btx.action == 'received'? 'success':'danger'">{{btx.amountStr}}</span>
-											<div class="details-wrap"><span class="details-info">My Account</span>
+											<div class="details-wrap"><span class="details-info" translate>My Account</span>
 												<svg class="icon" ng-class="btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right'">
 													<use
 															xlink:href="{{index.getSvgSrc(btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right')}}"></use>
@@ -417,7 +417,7 @@
 							</div>
 						</div>
             <div class="page-action">
-              <a href="#" ng-show="index.historyShowShowAll" ng-click="index.showAllHistory()" class="btn btn_red-full">Show all</a>
+              <a href="#" ng-show="index.historyShowShowAll" ng-click="index.showAllHistory()" class="btn btn_red-full" translate>Show all</a>
             </div>
 					</div>
 				</div>

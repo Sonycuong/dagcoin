@@ -202,7 +202,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
       eventBus.on('refused_to_sign', (deviceAddress) => {
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.success(gettextCatalog.getString('Refused'), `${correspondent.name} refused to sign the transaction`);
+          notification.success(gettextCatalog.getString('Refused'), gettext(`${correspondent.name} refused to sign the transaction`));
         });
       });
 
@@ -248,7 +248,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         updatePublicKeyRing(client);
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.success(gettextCatalog.getString('Success'), `Wallet ${walletName} approved by ${correspondent.name}`);
+          notification.success(gettextCatalog.getString('Success'), gettext(`Wallet ${walletName} approved by ${correspondent.name}`));
         });
       });
 
@@ -261,7 +261,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         const walletName = client.credentials.walletName;
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.info(gettextCatalog.getString('Declined'), `Wallet ${walletName} declined by ${correspondent.name}`);
+          notification.info(gettextCatalog.getString('Declined'), gettext(`Wallet ${walletName} declined by ${correspondent.name}`));
         });
         profileService.deleteWallet({ client }, (err) => {
           if (err) {

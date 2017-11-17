@@ -9,9 +9,6 @@
       name: 'English',
       isoCode: 'en',
     }, {
-      name: 'Nederlands',
-      isoCode: 'nl_NL',
-    }, {
       name: '中文',
       isoCode: 'zh_CN',
       useIdeograms: true,

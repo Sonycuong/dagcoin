@@ -11,13 +11,13 @@ msgstr ""
 "Last-Translator: Dagcoin <tech@dagcoin.org>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
-"PO-Revision-Date: 2017-11-04 11:22-0400\n"
+"PO-Revision-Date: 2017-11-17 08:32-0500\n"
 
 #: public/views/authConfirmation.html:10
 msgid "(The site won't see your balance and no money will be spent)"
 msgstr "(站点看不到你的余额，也没有花费)"
 
-#: public/views/create.html:97
+#: public/views/create.html:98
 msgid "-- Select co-signer --"
 msgstr "-- 选择多重签名账户 --"
 
@@ -29,17 +29,13 @@ msgstr ""
 msgid "2. Who can unlock the contract:"
 msgstr ""
 
-#: public/views/correspondentDevices.html:15
-msgid "<i class=\"fi-trash size-24\"></i>"
-msgstr ""
-
-#: public/views/disclaimer.html:75
+#: public/views/disclaimer.html:86
 msgid "<label>\n"
 "          <input type=\"checkbox\" ng-model=\"isAgree\">\n"
 "          I confirm that I have read, understood, and agree to these terms.</label>"
 msgstr ""
 
-#: public/views/walletHome.html:242
+#: public/views/walletHome.html:243
 msgid "<svg-icon name=\"done\"></svg-icon>Copied!"
 msgstr ""
 
@@ -47,7 +43,11 @@ msgstr ""
 msgid "A wallet for decentralized value"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:156
+#: public/views/preferencesGlobal.html:73
+msgid "ABOUT"
+msgstr "关于"
+
+#: public/views/preferencesGlobal.html:76
 msgid "About Dagcoin"
 msgstr "关于Dagcoin"
 
@@ -114,7 +114,7 @@ msgstr "此外在设置菜单中，你可以找到安全选项例如设置密码
 #: public/views/modals/offer-contract.html:41
 #: public/views/modals/tx-details.html:119
 #: public/views/paymentUri.html:16
-#: public/views/walletHome.html:279
+#: public/views/walletHome.html:280
 msgid "Amount"
 msgstr "金额"
 
@@ -143,13 +143,17 @@ msgstr "您确定要删除此钱包吗？"
 msgid "Asset"
 msgstr "资产"
 
-#: public/views/walletHome.html:289
+#: public/views/walletHome.html:290
 msgid "Available <span>{{index.dagBalance.stable / 1e6}}</span>"
 msgstr "可用余额 <span>{{index.dagBalance.stable / 1e6}}</span>"
 
 #: public/views/includes/available-balance.html:7
 msgid "Available Balance"
 msgstr "可用余额"
+
+#: public/views/preferencesGlobal.html:44
+msgid "BACKUP"
+msgstr "备份"
 
 #: public/views/correspondentDevice.html:7
 #: public/views/editCorrespondentDevice.html:15
@@ -163,7 +167,7 @@ msgstr "返回"
 msgid "Backup now"
 msgstr "立即备份"
 
-#: public/views/preferencesGlobal.html:128
+#: public/views/preferencesGlobal.html:48
 msgid "Backup wallet seed"
 msgstr "备份钱包口令"
 
@@ -206,6 +210,10 @@ msgstr "取消"
 msgid "CONTINUE"
 msgstr "继续"
 
+#: src/js/controllers/preferencesDelete.js:73
+msgid "Can't delete the last remaining wallet"
+msgstr ""
+
 #: public/views/modals/destination-address.html:127
 #: src/js/controllers/copayers.js:11
 #: src/js/controllers/preferencesDelete.js:14
@@ -221,14 +229,30 @@ msgstr ""
 msgid "Change hub:"
 msgstr "更改Hub："
 
-#: public/views/preferencesAlias.html:21
+#: src/js/controllers/preferencesGlobal.js:157
+msgid "Change it"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:151
+msgid "Change wallet type!"
+msgstr ""
+
+#: public/views/preferencesAlias.html:24
 msgid "Changing wallet alias only affects the local wallet\n"
 "        name."
 msgstr "更改钱包别名只会影响本地钱包名称。"
 
+#: src/js/controllers/index.js:638
+msgid "Chat"
+msgstr "对话"
+
 #: public/views/modals/correspondentListToReSendPrivPayloads.html:10
 msgid "Choose the device to send to"
 msgstr "选择要发送到的设备"
+
+#: src/js/controllers/editCorrespondentDevice.js:25
+msgid "Clear chat history"
+msgstr "清除聊天记录"
 
 #: public/views/modals/address-definition.html:30
 #: public/views/modals/address-definition.html:4
@@ -237,14 +261,13 @@ msgstr "选择要发送到的设备"
 #: public/views/modals/customized-amount.html:4
 #: public/views/modals/destination-address.html:5
 #: public/views/modals/multi-payment.html:4
-#: public/views/modals/no-bytes.html:7
 #: public/views/modals/offer-contract.html:4
 #: public/views/modals/pending-modal.html:6
 #: public/views/modals/select-subwallet.html:4
 msgid "Close"
 msgstr "关闭"
 
-#: public/views/create.html:93
+#: public/views/create.html:94
 msgid "Co-signer {{$index+1}}:"
 msgstr "共同签署人 {{$index + 1}}:"
 
@@ -256,9 +279,9 @@ msgstr "共同签署人"
 msgid "Compress the file? (Slower)"
 msgstr "是否压缩文件？（较慢）"
 
-#: public/views/disclaimer.html:78
+#: public/views/disclaimer.html:89
 #: src/js/controllers/copayers.js:12
-#: src/js/controllers/index.js:293
+#: src/js/controllers/index.js:291
 #: src/js/controllers/preferencesDelete.js:15
 #: src/js/services/confirmDialog.js:10
 msgid "Confirm"
@@ -272,16 +295,16 @@ msgstr "确认支付"
 msgid "Confirmed"
 msgstr "已确认"
 
-#: src/js/controllers/inviteCorrespondentDevice.js:31
-#: src/js/controllers/walletHome.js:417
+#: src/js/controllers/inviteCorrespondentDevice.js:29
+#: src/js/controllers/walletHome.js:413
 msgid "Copied to clipboard"
 msgstr "已复制到剪贴板"
 
-#: public/views/recoveryFromSeed.html:39
+#: public/views/recoveryFromSeed.html:43
 msgid "Correspondents are not restored."
 msgstr "通讯没有恢复。"
 
-#: src/js/controllers/walletHome.js:648
+#: src/js/controllers/walletHome.js:644
 msgid "Could not create payment proposal"
 msgstr "无法创建支付协议"
 
@@ -302,7 +325,7 @@ msgid "Could not decrypt"
 msgstr "无法解密"
 
 #: public/views/walletHome.html:123
-#: public/views/walletHome.html:383
+#: public/views/walletHome.html:384
 msgid "Could not fetch transaction history"
 msgstr "无法获取历史交易记录"
 
@@ -316,24 +339,24 @@ msgstr "无法导入"
 msgid "Could not import. Check input file and password"
 msgstr "无法导入，请检查输入文件和密码"
 
-#: src/js/controllers/walletHome.js:73
-msgid "Could not recognize a valid Byteball QR Code"
-msgstr "无法识别有效的 Byteball QR码"
+#: src/js/controllers/walletHome.js:69
+msgid "Could not recognize a valid Dagcoin QR Code"
+msgstr "无法识别有效的 Dagcoin QR码"
 
-#: src/js/controllers/walletHome.js:648
+#: src/js/controllers/walletHome.js:644
 msgid "Could not send payment"
 msgstr "无法发送交易"
 
 #: public/views/add.html:9
-#: public/views/create.html:51
+#: public/views/create.html:52
 msgid "Create new wallet"
 msgstr "创建新钱包"
 
-#: src/js/controllers/index.js:353
+#: src/js/controllers/index.js:351
 msgid "Create new wallet  together with  ?"
 msgstr "一起创建新钱包？"
 
-#: public/views/create.html:111
+#: public/views/create.html:112
 msgid "Create {{requiredCosigners}}-of-{{totalCosigners}} wallet"
 msgstr "创建共{{totalCosigners}}人签署, 其中 {{requiredCosigners}} 人签署即通过的钱包"
 
@@ -367,6 +390,15 @@ msgstr "删除文档"
 msgid "DOWNLOAD THE ENTIRE DAGCOIN DATABASE"
 msgstr "下载整个 Dagcoin 数据库"
 
+#: src/js/controllers/preferencesLogs.js:15
+msgid "Dagcoin Logs"
+msgstr ""
+
+#: src/js/controllers/preferencesLogs.js:9
+msgid "Dagcoin Session Logs\n"
+" Be careful, this could contain sensitive private data"
+msgstr ""
+
 #: public/views/modals/bind.html:57
 #: public/views/modals/offer-contract.html:102
 msgid "Data feed name:"
@@ -376,7 +408,7 @@ msgstr ""
 msgid "Date:"
 msgstr "日期:"
 
-#: src/js/controllers/index.js:266
+#: src/js/controllers/index.js:264
 msgid "Declined"
 msgstr "已拒绝"
 
@@ -402,7 +434,13 @@ msgid "Delete\n"
 "            Wallet"
 msgstr "删除钱包"
 
+#: src/js/controllers/editCorrespondentDevice.js:26
+msgid "Delete the whole chat history with  ?"
+msgstr ""
+
 #: public/views/preferencesDeleteWallet.html:12
+#: src/js/controllers/copayers.js:49
+#: src/js/controllers/preferencesDelete.js:40
 msgid "Delete wallet"
 msgstr "删除钱包"
 
@@ -415,7 +453,7 @@ msgstr "派生策略"
 msgid "Details"
 msgstr "详情"
 
-#: public/views/preferencesGlobal.html:108
+#: public/views/preferencesGlobal.html:29
 msgid "Device address"
 msgstr "设备地址"
 
@@ -429,7 +467,7 @@ msgid "Device name is visible to other devices you communicate\n"
 "\t\t\t\twith."
 msgstr "与您通信的其他设备可以看到设备名称。"
 
-#: public/views/recoveryFromSeed.html:40
+#: public/views/recoveryFromSeed.html:44
 msgid "Do not clone wallets, stop using the original wallet with this seed."
 msgstr "不要复制钱包，不要在原始钱包上使用这个口令"
 
@@ -471,8 +509,8 @@ msgstr ""
 msgid "Export"
 msgstr "导出"
 
-#: src/js/controllers/export.js:146
-#: src/js/controllers/export.js:178
+#: src/js/controllers/export.js:145
+#: src/js/controllers/export.js:177
 msgid "Export completed successfully"
 msgstr "导出成功"
 
@@ -500,12 +538,16 @@ msgstr "来自:"
 msgid "Full address:"
 msgstr "完整地址:"
 
-#: public/views/preferencesGlobal.html:143
+#: public/views/preferencesGlobal.html:63
 msgid "Full backup"
 msgstr "完整备份钱包文件"
 
 #: public/views/modals/fundingNodeNotification.html:4
 msgid "Funding hub"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:884
+msgid "Funding hub is fueling your wallet, it may take several minutes. Please try again a bit later."
 msgstr ""
 
 #: public/views/paperWallet.html:69
@@ -518,7 +560,7 @@ msgstr "资金将会转移到"
 
 #: public/views/preferencesGlobal.html:6
 msgid "GENERAL"
-msgstr ""
+msgstr "秘书长"
 
 #: public/views/splash.html:156
 msgid "GET STARTED"
@@ -536,7 +578,7 @@ msgstr "产生csv文件中..."
 msgid "Getting address for wallet {{selectedWalletName}} ..."
 msgstr "{{selectedWalletName}} 获取钱包地址中 ..."
 
-#: public/views/disclaimer.html:82
+#: public/views/disclaimer.html:93
 msgid "Go back"
 msgstr "返回"
 
@@ -552,11 +594,11 @@ msgstr "硬件钱包"
 msgid "Hide the Wallet Seed"
 msgstr "隐藏钱包种子"
 
-#: src/js/controllers/index.js:636
+#: src/js/controllers/index.js:634
 msgid "History"
 msgstr "历史记录"
 
-#: src/js/controllers/index.js:624
+#: src/js/controllers/index.js:622
 msgid "Home"
 msgstr "首页"
 
@@ -580,6 +622,11 @@ msgstr ""
 msgid "Import"
 msgstr "导入"
 
+#: src/js/controllers/import.js:183
+#: src/js/controllers/import.js:204
+msgid "Import successfully completed, please restart the application."
+msgstr ""
+
 #: public/views/add.html:16
 msgid "Import wallet"
 msgstr "导入钱包"
@@ -588,7 +635,7 @@ msgstr "导入钱包"
 msgid "Importing wallet..."
 msgstr "钱包导入中…"
 
-#: public/views/walletHome.html:366
+#: public/views/walletHome.html:367
 msgid "Initial transaction history synchronization can take some minutes for wallets with many transactions.<br>\n"
 "\t\t\t\t\tPlease stand by."
 msgstr "多宗交易的钱包，其首次交易历史同步可能需要几分钟的时间。<br>\n"
@@ -598,17 +645,21 @@ msgstr "多宗交易的钱包，其首次交易历史同步可能需要几分钟
 msgid "Insert my address"
 msgstr "插入我的地址"
 
-#: src/js/controllers/index.js:1587
+#: src/js/controllers/index.js:1590
 msgid "Invalid Touch ID"
 msgstr "指纹识别无效"
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:33
+msgid "Invalid pairing code"
+msgstr ""
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:39
+msgid "Invalid pubkey length"
+msgstr ""
 
 #: public/views/addCorrespondentDevice.html:13
 msgid "Invite the other device"
 msgstr "邀请其他设备"
-
-#: public/views/modals/no-bytes.html:3
-msgid "It's not possible to exchange Dagcoins until fees payment type is chosen."
-msgstr ""
 
 #: public/views/splash.html:93
 msgid "KEEP ONLY DATA RELEVANT TO YOU"
@@ -618,7 +669,11 @@ msgstr ""
 msgid "Label"
 msgstr "标签"
 
-#: public/views/create.html:68
+#: public/views/preferencesGlobal.html:21
+msgid "Language"
+msgstr "语言设定"
+
+#: public/views/create.html:69
 msgid "Laptop + phone + tablet"
 msgstr "笔记本 + 手机 + 平板电脑"
 
@@ -626,10 +681,7 @@ msgstr "笔记本 + 手机 + 平板电脑"
 msgid "Later"
 msgstr "稍后"
 
-#: public/views/modals/no-bytes.html:8
-msgid "Learn more"
-msgstr ""
-
+#: public/views/disclaimer.html:14
 #: src/js/controllers/disclaimer.js:14
 msgid "Loading..."
 msgstr "加载中..."
@@ -661,7 +713,12 @@ msgstr "商家信息："
 msgid "Message"
 msgstr "消息"
 
+#: src/js/controllers/import.js:173
+msgid "Mobile version supports only light wallets."
+msgstr ""
+
 #: public/views/walletHome.html:151
+#: public/views/walletHome.html:400
 msgid "My Account"
 msgstr ""
 
@@ -672,6 +729,11 @@ msgstr "我的录制偏好"
 #: public/views/paymentUri.html:18
 msgid "Network"
 msgstr "网络"
+
+#: src/js/controllers/preferencesAdvanced.js:28
+#: src/js/controllers/preferencesInformation.js:42
+msgid "New Address successfully generated."
+msgstr ""
 
 #: src/js/controllers/create.js:28
 msgid "New Random Seed"
@@ -690,9 +752,13 @@ msgid "New witnesses"
 msgstr "新的证人"
 
 #: public/views/authConfirmation.html:22
-#: src/js/controllers/index.js:292
+#: src/js/controllers/index.js:290
 msgid "No"
 msgstr "否"
+
+#: src/js/controllers/recoveryFromSeed.js:276
+msgid "No active addresses found."
+msgstr ""
 
 #: public/views/preferencesInformation.html:37
 msgid "No private key"
@@ -702,16 +768,24 @@ msgstr ""
 msgid "No recent transactions yet"
 msgstr "没有交易"
 
-#: public/views/walletHome.html:386
+#: public/views/walletHome.html:387
 msgid "No transactions yet"
 msgstr "没有交易"
+
+#: src/js/controllers/correspondentDevice.js:385
+msgid "Not enough confirmed funds"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:931
+msgid "Not enough dagcoins"
+msgstr ""
 
 #: public/views/modals/bind.html:46
 #: public/views/modals/customized-amount.html:51
 #: public/views/modals/destination-address.html:112
 #: public/views/modals/offer-contract.html:91
-#: public/views/walletHome.html:283
-#: public/views/walletHome.html:316
+#: public/views/walletHome.html:284
+#: public/views/walletHome.html:317
 msgid "Not valid"
 msgstr "无效"
 
@@ -732,7 +806,7 @@ msgstr "签定合约"
 msgid "Once you have written your wallet seed down, it is recommended to delete it from this device."
 msgstr "一旦你写下你的钱包种子，建议从这个设备中删除它。"
 
-#: public/views/recoveryFromSeed.html:38
+#: public/views/recoveryFromSeed.html:42
 msgid "Only single-sig wallets can be recovered."
 msgstr "只有单签钱包能恢复。"
 
@@ -760,8 +834,25 @@ msgstr "密码"
 
 #: public/views/import.html:37
 msgid "Password"
+msgstr "密码"
+
+#: src/js/controllers/password.js:45
+msgid "Password must be at least 8 characters long"
+msgstr "密码长度必须至少为8个字符"
+
+#: src/js/controllers/password.js:51
+msgid "Password must contain at least one digit"
 msgstr ""
 
+#: src/js/controllers/password.js:48
+msgid "Password must contain at least one letter"
+msgstr ""
+
+#: src/js/controllers/password.js:54
+msgid "Password must contain at least one special character"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:73
 #: src/js/services/profileService.js:624
 msgid "Password needed"
 msgstr "需要密码"
@@ -826,7 +917,7 @@ msgstr ""
 msgid "Please choose the type of this wallet"
 msgstr ""
 
-#: src/js/controllers/create.js:134
+#: src/js/controllers/create.js:124
 msgid "Please enter the required fields"
 msgstr "请输入必填字段"
 
@@ -842,9 +933,13 @@ msgstr ""
 msgid "Press again to exit"
 msgstr "再次点击退出"
 
-#: src/js/controllers/walletHome.js:1428
+#: src/js/controllers/walletHome.js:1426
 msgid "Private payloads sent"
 msgstr "发送私人匿名资产"
+
+#: src/js/controllers/walletHome.js:933
+msgid "Problems with connecting to the hub. Please try again later"
+msgstr ""
 
 #: public/views/modals/customized-amount.html:16
 msgid "QR Code"
@@ -854,13 +949,13 @@ msgstr "QR码"
 msgid "Re-send private payloads"
 msgstr ""
 
-#: src/js/controllers/index.js:628
+#: src/js/controllers/index.js:626
 msgid "Receive"
 msgstr "接收"
 
-#: public/views/walletHome.html:311
+#: public/views/walletHome.html:312
 msgid "Receiver"
-msgstr ""
+msgstr "接收"
 
 #: public/views/walletHome.html:118
 msgid "Recent transactions"
@@ -875,11 +970,11 @@ msgstr "接收者"
 msgid "Reconnecting to Wallet Service..."
 msgstr "正在重新连接到钱包服务..."
 
-#: public/views/recoveryFromSeed.html:31
+#: public/views/recoveryFromSeed.html:33
 msgid "Recover"
 msgstr "恢复"
 
-#: public/views/preferencesGlobal.html:138
+#: public/views/preferencesGlobal.html:58
 msgid "Recovery from seed"
 msgstr "使用口令恢复钱包"
 
@@ -887,7 +982,7 @@ msgstr "使用口令恢复钱包"
 msgid "Recreating Wallet..."
 msgstr "重新创建钱包中…"
 
-#: src/js/controllers/index.js:207
+#: src/js/controllers/index.js:205
 msgid "Refused"
 msgstr "拒绝"
 
@@ -920,7 +1015,7 @@ msgstr "再次确认密码"
 msgid "Replace"
 msgstr "替换"
 
-#: public/views/preferencesGlobal.html:119
+#: public/views/preferencesGlobal.html:39
 msgid "Request Password"
 msgstr "密码保护"
 
@@ -928,15 +1023,15 @@ msgstr "密码保护"
 msgid "Request a specific amount"
 msgstr "要求特定金额"
 
-#: public/views/correspondentDevice.html:297
+#: src/js/controllers/correspondentDevice.js:844
 msgid "Request payment"
 msgstr "请求付款"
 
-#: public/views/create.html:84
+#: public/views/create.html:85
 msgid "Required number of signatures"
 msgstr "通过所需签名数"
 
-#: public/views/preferencesGlobal.html:147
+#: public/views/preferencesGlobal.html:67
 msgid "Restore from full backup"
 msgstr "使用完整备份文件还原钱包"
 
@@ -950,7 +1045,7 @@ msgstr "设置"
 
 #: public/views/editCorrespondentDevice.html:51
 #: public/views/modals/destination-address.html:132
-#: public/views/preferencesAlias.html:19
+#: public/views/preferencesAlias.html:22
 #: public/views/preferencesDeviceName.html:22
 #: public/views/preferencesEmail.html:35
 msgid "Save"
@@ -976,7 +1071,7 @@ msgstr "查询结果出现错误"
 msgid "Scan the above QR code using the other device, or send this pairing code to the other device:"
 msgstr "使用其他设备扫描上述QR码，或将此配对码发送到其他设备："
 
-#: src/js/controllers/index.js:1578
+#: src/js/controllers/index.js:1581
 msgid "Scan your fingerprint please"
 msgstr "请扫描您的指纹"
 
@@ -992,13 +1087,13 @@ msgstr "正在扫描地址..."
 msgid "Scanning wallet funds..."
 msgstr "查询钱包余额中…"
 
+#: src/js/controllers/recoveryFromSeed.js:296
+msgid "Seed is not valid"
+msgstr ""
+
 #: public/views/paymentUri.html:30
 msgid "Select a wallet"
 msgstr "选择一个钱包"
-
-#: public/views/modals/no-bytes.html:6
-msgid "Select payment type"
-msgstr ""
 
 #: public/views/modals/select-subwallet.html:8
 msgid "Select subwallet"
@@ -1009,11 +1104,11 @@ msgid "Select your identity"
 msgstr "选择您的身份"
 
 #: public/views/includes/transaction.html:10
-#: src/js/controllers/index.js:632
+#: src/js/controllers/index.js:630
 msgid "Send"
 msgstr "发送"
 
-#: public/views/walletHome.html:271
+#: public/views/walletHome.html:272
 msgid "Send <span>dags</span>"
 msgstr ""
 
@@ -1025,7 +1120,7 @@ msgstr "发送付款"
 msgid "Send addresses by email"
 msgstr "通过邮件发送地址"
 
-#: public/views/walletHome.html:290
+#: public/views/walletHome.html:291
 msgid "Send all"
 msgstr "全部发送"
 
@@ -1041,7 +1136,7 @@ msgstr "正在发送资金..."
 msgid "Sending..."
 msgstr "正在发送..."
 
-#: public/views/preferencesAbout.html:30
+#: public/views/preferencesAbout.html:29
 msgid "Session log"
 msgstr "会话日志"
 
@@ -1065,28 +1160,32 @@ msgstr "设置"
 msgid "Share address"
 msgstr "分享地址"
 
-#: public/views/walletHome.html:255
+#: public/views/walletHome.html:256
 msgid "Share the link above to receive payments."
 msgstr ""
 
-#: public/views/walletHome.html:252
+#: public/views/walletHome.html:253
 msgid "Share wallet link"
 msgstr ""
+
+#: public/views/walletHome.html:420
+msgid "Show all"
+msgstr "显示所有"
 
 #: public/views/backup.html:31
 msgid "Show the Wallet Seed Anyway"
 msgstr "无论如何显示钱包种子"
 
-#: src/js/controllers/index.js:514
+#: src/js/controllers/index.js:512
 msgid "Sign transaction spending  from wallet ?"
 msgstr "从钱包签署交易支出？"
 
-#: public/views/create.html:45
+#: public/views/create.html:46
 #: public/views/preferences.html:18
 msgid "Single address wallet"
 msgstr ""
 
-#: public/views/create.html:42
+#: public/views/create.html:43
 #: public/views/preferences.html:20
 msgid "Single address wallets will not spawn new addresses for every transaction, change will always go to the one and only address the wallet contains."
 msgstr ""
@@ -1100,7 +1199,7 @@ msgid "Specify Seed..."
 msgstr "指定口令…"
 
 #: public/views/preferences.html:37
-#: public/views/preferencesGlobal.html:115
+#: public/views/preferencesGlobal.html:36
 msgid "Spending Restrictions"
 msgstr "支出限制"
 
@@ -1108,17 +1207,17 @@ msgstr "支出限制"
 msgid "Status"
 msgstr ""
 
-#: public/views/preferencesGlobal.html:131
+#: public/views/preferencesGlobal.html:51
 msgid "Still not done"
 msgstr "未完成"
 
 #: src/js/controllers/copayers.js:40
-#: src/js/controllers/export.js:146
-#: src/js/controllers/export.js:178
-#: src/js/controllers/index.js:253
-#: src/js/controllers/index.js:286
+#: src/js/controllers/export.js:145
+#: src/js/controllers/export.js:177
+#: src/js/controllers/index.js:251
+#: src/js/controllers/index.js:284
 #: src/js/controllers/preferencesDelete.js:31
-#: src/js/controllers/walletHome.js:1428
+#: src/js/controllers/walletHome.js:1426
 msgid "Success"
 msgstr "成功"
 
@@ -1143,19 +1242,32 @@ msgid "Tap the <strong>QR-code</strong> to copy its address.<br>Share it with th
 msgstr ""
 
 #: public/views/walletHome.html:124
-#: public/views/walletHome.html:384
+#: public/views/walletHome.html:385
 #: public/views/walletHome.html:73
 #: public/views/walletHome.html:79
 msgid "Tap to retry"
 msgstr "点击重试"
 
-#: public/views/disclaimer.html:10
-#: public/views/preferencesAbout.html:26
+#: public/views/disclaimer.html:21
+#: public/views/preferencesAbout.html:25
 msgid "Terms of Use"
 msgstr "使用条款"
 
+#: src/js/controllers/walletHome.js:872
+msgid "The Funding Client is not ready"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:270
+msgid "The amounts are equal, you cannot require the peer to pay to the contract.  \n"
+"              Please either change the amounts slightly or fund the entire contract yourself and require the peer to pay his half to you."
+msgstr ""
+
 #: public/views/modals/bind.html:73
 msgid "The expected value will be posted:"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:877
+msgid "The funding service is currently not supported on secondary wallets. Load some bytes on it"
 msgstr ""
 
 #: public/views/modals/approveNewWitnesses.html:11
@@ -1171,10 +1283,21 @@ msgstr ""
 msgid "The wallet \"{{walletName}}\" was deleted"
 msgstr "钱包 \"{{walletName}}\"已被删除"
 
+#: src/js/controllers/correspondentDevice.js:118
+#: src/js/controllers/correspondentDevice.js:125
+msgid "The wallet is not approved yet"
+msgstr ""
+
 #: public/views/splash.html:97
 msgid "The wallet will contain minimum information relevant to you.  The wallet vendor will be able to know\n"
 "              some of your balances and will be able to see which transactions are yours, but you can start using the\n"
 "              wallet immediately and the wallet is fully functional."
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:152
+msgid "The wallet will contain the most current state of the entire Dagcoin database. \n"
+"            This option is better for privacy but will take several gigabytes of storage and the initial sync will take several days. \n"
+"            CPU load will be high during sync. After changing to full wallet your money won't be visible until database will synchronize your transactions."
 msgstr ""
 
 #: public/views/splash.html:79
@@ -1195,11 +1318,19 @@ msgstr "没有钱包可以进行付款"
 msgid "This Wallet has positive balance."
 msgstr ""
 
+#: src/js/controllers/correspondentDevice.js:382
+msgid "This is a private asset, please send it only by clicking links from chat"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:621
+msgid "This payment is already under way"
+msgstr ""
+
 #: public/views/modals/tx-details.html:65
 msgid "This transaction has become invalid; possibly due to a double spend attempt."
 msgstr "此交易已失效，可能由于尝试双重支付导致。"
 
-#: public/views/recoveryFromSeed.html:37
+#: public/views/recoveryFromSeed.html:41
 msgid "This will permanently delete all your existing wallets!"
 msgstr "这将永久删除您现有的所有钱包！"
 
@@ -1209,6 +1340,19 @@ msgstr "这将永久删除您现有的所有钱包！"
 msgid "To"
 msgstr "到"
 
+#: src/js/controllers/backup.js:13
+msgid "To protect your funds, please use multisig wallets with redundancy, \n"
+"          e.g. 1-of-2 wallet with one key on this device and another key on your laptop computer. \n"
+"          Just the wallet seed is not enough."
+msgstr ""
+
+#: src/js/controllers/backup.js:19
+msgid "To restore your wallets, you will need a full backup of Dagcoin data at .  \n"
+"                     Better yet, use multisig wallets with redundancy, \n"
+"                     e.g. 1-of-2 wallet with one key on this device and another key on your smartphone.  \n"
+"                     Just the wallet seed is not enough."
+msgstr ""
+
 #: public/views/modals/tx-details.html:52
 msgid "To:"
 msgstr "自："
@@ -1217,7 +1361,7 @@ msgstr "自："
 msgid "Total Locked Balance"
 msgstr "锁定总余额"
 
-#: public/views/create.html:76
+#: public/views/create.html:77
 msgid "Total number of co-signers"
 msgstr "共同签署者总数"
 
@@ -1225,11 +1369,11 @@ msgstr "共同签署者总数"
 msgid "Transaction detail"
 msgstr ""
 
-#: public/views/walletHome.html:372
+#: public/views/walletHome.html:373
 msgid "Transactions<br> Downloaded"
 msgstr "交易历史<br>下载完毕"
 
-#: src/js/controllers/walletHome.js:695
+#: src/js/controllers/walletHome.js:691
 msgid "Unable to send transaction proposal"
 msgstr "无法发送交易协议"
 
@@ -1269,7 +1413,7 @@ msgstr "注意：这个种子是由密码创建的。要恢复这个钱包，需
 msgid "WARNING: This will permanently delete all your existing wallets!"
 msgstr "这将永久删除您现有的所有钱包！"
 
-#: public/views/recoveryFromSeed.html:35
+#: public/views/recoveryFromSeed.html:40
 msgid "WARNINGS:"
 msgstr "警告:"
 
@@ -1288,6 +1432,14 @@ msgstr "等待中…"
 #: public/views/preferencesDeleteWallet.html:5
 msgid "Wallet"
 msgstr "钱包"
+
+#: src/js/controllers/index.js:251
+msgid "Wallet  approved by"
+msgstr ""
+
+#: src/js/controllers/index.js:264
+msgid "Wallet  declined by"
+msgstr ""
 
 #: public/views/preferences.html:10
 msgid "Wallet Alias"
@@ -1310,7 +1462,7 @@ msgstr "钱包信息"
 msgid "Wallet Name"
 msgstr "钱包名称"
 
-#: public/views/preferencesAlias.html:13
+#: public/views/preferencesAlias.html:16
 msgid "Wallet alias"
 msgstr "钱包别名"
 
@@ -1323,7 +1475,7 @@ msgid "Wallet cannot be converted to single address wallet as it consists of mul
 msgstr ""
 
 #: public/views/create.html:31
-#: public/views/create.html:66
+#: public/views/create.html:67
 msgid "Wallet name"
 msgstr "钱包名称"
 
@@ -1340,6 +1492,10 @@ msgstr "钱包"
 msgid "Warning!"
 msgstr "注意！"
 
+#: src/js/controllers/recoveryFromSeed.js:212
+msgid "When scanning an error occurred, please try again later."
+msgstr ""
+
 #: public/views/modals/multi-payment.html:35
 #: public/views/modals/offer-contract.html:144
 msgid "Who signs:"
@@ -1349,14 +1505,18 @@ msgstr "签署者："
 msgid "Write it down and keep it somewhere safe."
 msgstr "把它写下来，把它放在一个安全的地方。"
 
-#: src/js/services/profileService.js:634
+#: src/js/services/profileService.js:635
 msgid "Wrong password"
 msgstr "密码错误"
 
 #: public/views/authConfirmation.html:17
-#: src/js/controllers/index.js:291
+#: src/js/controllers/index.js:289
 msgid "Yes"
 msgstr "是的"
+
+#: src/js/controllers/walletHome.js:1264
+msgid "You are sending all your stable amount. Transaction fee will be automatically excluded!"
+msgstr ""
 
 #: public/views/backup.html:42
 #: public/views/recoveryFromSeed.html:27
@@ -1371,7 +1531,7 @@ msgstr "您的导出密码"
 msgid "Your password"
 msgstr "您的密码"
 
-#: public/views/walletHome.html:379
+#: public/views/walletHome.html:380
 msgid "Your transaction history"
 msgstr ""
 
@@ -1387,9 +1547,13 @@ msgstr "您的钱包密码将被加密，密码无法被恢复，一定要记下
 msgid "Your wallet will be created on this device, keep it safe.  See your backup options in the Settings menu."
 msgstr "你的钱包将被创建在此设备上，请确保其是安全的。请在设备菜单中查看备份选项。"
 
-#: public/views/create.html:103
+#: public/views/create.html:104
 msgid "[ Add new co-signer device ]"
 msgstr "[添加新的多钱包设备]"
+
+#: src/js/controllers/correspondentDevice.js:409
+msgid "[your share of payment to the contract]()"
+msgstr ""
 
 #: public/views/modals/offer-contract.html:127
 msgid "after the contract expires in:"
@@ -1403,6 +1567,10 @@ msgstr "取消创建钱包"
 msgid "clear chat history"
 msgstr "清除聊天记录"
 
+#: src/js/controllers/approveNewWitnesses.js:25
+msgid "closed result"
+msgstr ""
+
 #: public/views/modals/offer-contract.html:137
 msgid "days"
 msgstr "天"
@@ -1414,6 +1582,19 @@ msgstr "无论哪种方式"
 #: public/views/modals/bind.html:76
 msgid "explicitly"
 msgstr "明确的"
+
+#: src/js/controllers/correspondentDevice.js:547
+msgid "failed to create shared address :"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:1201
+msgid "failed to find asset index of asset"
+msgstr ""
+
+#: src/js/controllers/preferencesGlobal.js:25
+#: src/js/controllers/versionAndWalletType.js:7
+msgid "full wallet"
+msgstr ""
 
 #: public/views/modals/bind.html:90
 #: public/views/modals/offer-contract.html:66
@@ -1428,21 +1609,54 @@ msgstr ""
 msgid "in merkle tree"
 msgstr "在默克尔哈希树里"
 
+#: src/js/controllers/preferencesGlobal.js:25
+#: src/js/controllers/versionAndWalletType.js:7
+msgid "light wallet"
+msgstr ""
+
 #: public/views/includes/available-balance.html:12
 msgid "locked by pending payments"
 msgstr "待付锁定"
 
-#: src/js/controllers/walletHome.js:734
-#: src/js/controllers/walletHome.js:739
-#: src/js/controllers/walletHome.js:834
-#: src/js/controllers/walletHome.js:929
-#: src/js/controllers/walletHome.js:973
+#: src/js/controllers/correspondentDevice.js:602
+msgid "more than 1 non-base asset not supported"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:944
+msgid "my address not known"
+msgstr ""
+
+#: src/js/controllers/correspondentDevice.js:493
+msgid "no member addresses in"
+msgstr ""
+
+#: src/js/controllers/acceptCorrespondentInvitation.js:44
+msgid "pairing"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:748
+msgid "recipient device address not known"
+msgstr ""
+
+#: src/js/controllers/index.js:205
+msgid "refused to sign the transaction"
+msgstr ""
+
+#: src/js/controllers/walletHome.js:730
+#: src/js/controllers/walletHome.js:735
+#: src/js/controllers/walletHome.js:830
+#: src/js/controllers/walletHome.js:925
+#: src/js/controllers/walletHome.js:972
 msgid "sending"
 msgstr "正在发送"
 
 #: public/views/modals/approveNewWitnesses.html:17
 msgid "to"
 msgstr "到"
+
+#: src/js/controllers/recoveryFromSeed.js:264
+msgid "wallets recovered, please restart the application to finish."
+msgstr ""
 
 #: public/views/modals/address-definition.html:16
 msgid "{{address}} can be spent if:"
@@ -1480,3 +1694,4 @@ msgstr ""
 #: public/views/modals/confirmation.html:12
 msgid "{{yes_label || 'Yes'}}"
 msgstr ""
+
