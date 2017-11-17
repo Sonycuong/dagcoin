@@ -15,8 +15,7 @@
      gettextCatalog,
      authService,
      $deepStateRedirect,
-     $stickyState,
-     ENV) => {
+     $stickyState) => {
       const root = {};
       let removeListener;
       const hideSidebars = function () {
