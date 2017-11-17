@@ -3,7 +3,7 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('recoveryFromSeed',
-    function ($rootScope, $scope, $log, $timeout, profileService) {
+    function ($rootScope, $scope, $log, $timeout, profileService, gettext) {
       const async = require('async');
       const conf = require('byteballcore/conf.js');
       const walletDefinedByKeys = require('byteballcore/wallet_defined_by_keys.js');
