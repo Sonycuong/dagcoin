@@ -192,12 +192,12 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         newVersion.askForVersion();
       });
 
-      eventBus.on('confirm_on_other_devices', () => {
-        // todo: originally the mesage was: 'Transaction created. \nPlease approve it on the other devices.'. we have to bring this back and think about better solution.
-        $rootScope.$emit('Local/ShowAlert', 'Transaction created.', 'fi-key', () => {
-          go.walletHome();
-        });
-      });
+      // eventBus.on('confirm_on_other_devices', () => {
+        // // todo: originally the mesage was: 'Transaction created. \nPlease approve it on the other devices.'. we have to bring this back and think about better solution.
+        // $rootScope.$emit('Local/ShowAlert', 'Transaction created.', 'fi-key', () => {
+          // go.walletHome();
+        // });
+      // });
 
       eventBus.on('refused_to_sign', (deviceAddress) => {
         const device = require('byteballcore/device.js');
