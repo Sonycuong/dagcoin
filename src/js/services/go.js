@@ -15,7 +15,8 @@
      gettextCatalog,
      authService,
      $deepStateRedirect,
-     $stickyState) => {
+     $stickyState,
+     ENV) => {
       const root = {};
       let removeListener;
       const hideSidebars = function () {
@@ -130,12 +131,8 @@
       };
 
       function handleUri(uri) {
-        const conf = require('byteballcore/conf.js');
-        const pack = require('../package.json');
-        this.protocol = pack.name;
-        const tmpUri = uri.replace(`${this.protocol}`, conf.program);
-        console.log(`handleUri ${tmpUri}`);
-        require('byteballcore/uri.js').parseUri(tmpUri, {
+        console.log(`handleUri ${uri}`);
+        require('byteballcore/uri.js').parseUri(uri, {
           ifError(err) {
             console.log(err);
             notification.error(err);
