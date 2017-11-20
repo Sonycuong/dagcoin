@@ -619,21 +619,22 @@
     root.unlockFC = function (error, cb) {
       $log.debug('Wallet is encrypted');
       $rootScope.$emit('Local/NeedsPassword', false, error, (err2, password) => {
-        if (err2 || !password) {
+        if (err2 && !password) {
           return cb({
-            message: (err2 || gettext('Password needed')),
+            message: (gettext('Password needed')),
           });
         }
+
         const fc = root.focusedClient;
-        try {
-          fc.unlock(password);
-          breadcrumbs.add(`unlocked ${fc.credentials.walletId}`);
-        } catch (e) {
-          $log.debug(e);
-          return cb({
-            message: gettext('Wrong password'),
-          });
-        }
+          try {
+            fc.unlock(password);
+            breadcrumbs.add(`unlocked ${fc.credentials.walletId}`);
+          } catch (e) {
+            $log.debug(e);
+            return cb({
+              message: (gettext('Wrong password')),
+            });
+          }
         const autolock = () => {
           if (root.bKeepUnlocked) {
             console.log('keeping unlocked');
@@ -653,6 +654,7 @@
           }
         };
         $timeout(autolock, 30 * 1000);
+
         return cb();
       });
     };

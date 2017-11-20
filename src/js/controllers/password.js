@@ -6,7 +6,7 @@
       const self = this;
 
       self.validationErrors = [];
-      let pass1;
+      let passwordTemp;
 
       self.isVerification = false;
 
@@ -22,7 +22,7 @@
         if (isSetup && !self.isVerification) {
           document.getElementById('passwordInput').focus();
           self.isVerification = true;
-          pass1 = self.password;
+          passwordTemp = self.password;
           self.password = null;
           $timeout(() => {
             $rootScope.$apply();
@@ -30,12 +30,8 @@
           return;
         }
         if (isSetup) {
-          if (pass1 !== self.password) {
+          if (passwordTemp !== self.password) {
             self.error = gettext('Passwords do not match');
-            self.isVerification = false;
-            self.password = null;
-            pass1 = null;
-
             return;
           }
         }
@@ -46,22 +42,18 @@
         self.validationErrors = [];
 
         if (self.password.length < 8) {
-            self.validationErrors.push('Password must be at least 8 characters long');
+            self.validationErrors.push(gettext('Password must be at least 8 characters long'));
         }
         if (self.password.search(/[a-z]/i) < 0) {
-            self.validationErrors.push('Password must contain at least one letter');
+            self.validationErrors.push(gettext('Password must contain at least one letter'));
         }
         if (self.password.search(/[0-9]/) < 0) {
-            self.validationErrors.push('Password must contain at least one digit');
+            self.validationErrors.push(gettext('Password must contain at least one digit'));
         }
         if (self.password.search(/[!@#$%^&*]/) < 0) {
-            self.validationErrors.push('Password must contain at least one special character');
+            self.validationErrors.push(gettext('Password must contain at least one special character'));
         }
-        if (self.validationErrors.length > 0) {
-            return false;
-        }
-
-        return true;
+        return self.validationErrors.length <= 0;
       };
     });
 }());

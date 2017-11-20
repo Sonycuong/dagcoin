@@ -1,13 +1,16 @@
 <div class="navbar-wrap">
-	<ul>
-		<li ng-repeat="item in index.menu" ng-class="{'active': tab == item.link}">
-			<a ng-click="index.setTab(item, false, 0, true)" id="menu-{{item.link}}">
-				<svg class="icon {{item.icon}}">
-					<use xlink:href="{{index.getSvgSrc(item.icon)}}"></use>
-				</svg>
-				<span>{{ item.title|translate }}</span>
-			</a>
-		</li>
-	</ul>
-	<menu-toggle ng-show="index.menu.length > 5"></menu-toggle>
+  <ul>
+    <li ng-repeat="item in index.menu" ng-class="{'active': tab == item.link}">
+      <a ng-click="index.setTab(item, false, 0, true)" id="menu-{{item.link}}">
+        <svg class="icon {{item.icon}}">
+          <use xlink:href="{{index.getSvgSrc(item.icon)}}"></use>
+        </svg>
+        <span>{{ item.title|translate }}</span>
+        <div ng-if="item.title == 'Chat' && totalNewMsgCnt > 0" class="badge">
+          {{totalNewMsgCnt}}
+        </div>
+      </a>
+    </li>
+  </ul>
+  <menu-toggle ng-show="index.menu.length > 5"></menu-toggle>
 </div>

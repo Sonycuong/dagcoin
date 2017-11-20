@@ -33,11 +33,8 @@
         });
 
         elm.bind('scroll', () => {
-          if (raw.scrollTop + raw.offsetHeight !== raw.scrollHeight) {
-            scope.autoScrollEnabled = false;
-          } else {
-            scope.autoScrollEnabled = true;
-          }
+          scope.autoScrollEnabled = true;
+
           if (raw.scrollTop <= 20 && !scope.loadingHistory) { // load more items before you hit the top
             scope.loadingHistory = true;
             chatScrollPosition.prepareFor('up');

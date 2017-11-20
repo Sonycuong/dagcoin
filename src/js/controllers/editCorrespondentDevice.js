@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('editCorrespondentDeviceController',
-    ($scope, $rootScope, $timeout, configService, profileService, isCordova, go, correspondentListService, $modal, animationService) => {
+    ($scope, $rootScope, $timeout, configService, profileService, isCordova, go, correspondentListService, $modal, animationService, gettext) => {
       const fc = profileService.focusedClient;
       $scope.backgroundColor = fc.backgroundColor;
       const correspondent = correspondentListService.currentCorrespondent;
@@ -22,8 +22,8 @@
 
       $scope.purge_chat = function () {
         const ModalInstanceCtrl = function ($scopeModal, $modalInstance, $sce) {
-          $scopeModal.header = $sce.trustAsHtml('Clear chat history');
-          $scopeModal.title = $sce.trustAsHtml(`Delete the whole chat history with ${correspondent.name}?`);
+          $scopeModal.header = $sce.trustAsHtml(gettext('Clear chat history'));
+          $scopeModal.title = $sce.trustAsHtml(gettext(`Delete the whole chat history with ${correspondent.name} ?`));
 
           $scopeModal.ok = function () {
             $modalInstance.close(true);

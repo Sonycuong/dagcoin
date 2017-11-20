@@ -4,7 +4,7 @@
 
     <div class="modal-content-header">
         <svg-icon title="credit-card"></svg-icon>
-        <h3>Transaction detail</h3>
+        <h3 translate>Transaction detail</h3>
     </div>
 
     <div class="modal-content-body">
@@ -41,7 +41,7 @@
 
             <li ng-if="btx.action == 'received'">
                 <svg-icon title="vertical_align_top"></svg-icon>
-                <strong>From:</strong>
+                <strong translate>From:</strong>
                 <div class="value" ng-repeat="address in btx.arrPayerAddresses">
                     {{address ? address : ('Incoming transaction' | translate)}}
                 </div>
@@ -77,7 +77,7 @@
             </li>
             <li>
                 <svg-icon title="crop_square"></svg-icon>
-                <strong>Unit</strong>:
+                <strong translate>Unit</strong>:
                 <div class="value">
                     <a ng-click="openInExplorer()">{{btx.unit}}</a>
                 </div>

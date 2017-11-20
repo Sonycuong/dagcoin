@@ -55,8 +55,10 @@
       };
 
       $scope.$watch('prefAlias.alias', (newValue, oldValue) => {
-        if (newValue.length > 50) {
-          $scope.prefAlias.alias = oldValue;
+        if (typeof newValue !== 'undefined') {
+          if (newValue.length > 50) {
+            $scope.prefAlias.alias = oldValue;
+          }
         }
       });
 

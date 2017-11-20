@@ -44,16 +44,6 @@
         $scope.$digest();
       });
 
-      /*
-       $scope.$watch(function(){return $scope.totalCosigners;}, function(newVal, oldVal){
-       console.log("watch "+oldVal+" "+newVal);
-       if (newVal > oldVal)
-       for (var i=oldVal; i<newVal-1; i++)
-       self.cosigners.push({});
-       else
-       self.cosigners.length = newVal-1;
-       }, true); */
-
       this.setTotalCosigners = function (tc) {
         const oldLen = self.cosigners.length;
         const newLen = tc - 1;

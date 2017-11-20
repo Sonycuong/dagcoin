@@ -2,7 +2,16 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+"Project-Id-Version: dagcoin\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: dagcoin\n"
+"X-Crowdin-Language: hi\n"
+"X-Crowdin-File: /i18n/po/template.pot\n"
+"Last-Translator: Dagcoin <tech@dagcoin.org>\n"
+"Language-Team: Hindi\n"
+"Language: hi_IN\n"
+"PO-Revision-Date: 2017-11-17 08:32-0500\n"
 
 #: public/views/authConfirmation.html:10
 msgid "(The site won't see your balance and no money will be spent)"
@@ -10,7 +19,7 @@ msgstr ""
 
 #: public/views/create.html:98
 msgid "-- Select co-signer --"
-msgstr ""
+msgstr "--सह-हस्ताक्षरकर्ता चुने--"
 
 #: public/views/modals/offer-contract.html:18
 msgid "1. Payment to the contract:"
@@ -21,8 +30,7 @@ msgid "2. Who can unlock the contract:"
 msgstr ""
 
 #: public/views/disclaimer.html:86
-msgid ""
-"<label>\n"
+msgid "<label>\n"
 "          <input type=\"checkbox\" ng-model=\"isAgree\">\n"
 "          I confirm that I have read, understood, and agree to these terms.</label>"
 msgstr ""
@@ -47,7 +55,7 @@ msgstr ""
 #: src/js/controllers/preferencesDelete.js:13
 #: src/js/services/confirmDialog.js:8
 msgid "Accept"
-msgstr ""
+msgstr "स्वीकारें"
 
 #: public/views/addCorrespondentDevice.html:20
 msgid "Accept invitation from the other device"
@@ -59,7 +67,7 @@ msgstr ""
 
 #: public/views/correspondentDevices.html:33
 msgid "Add a new device"
-msgstr ""
+msgstr "नया डिवाइस जोड़ें"
 
 #: public/views/modals/destination-address.html:106
 #: public/views/modals/destination-address.html:99
@@ -74,16 +82,16 @@ msgstr ""
 #: public/views/modals/destination-address.html:118
 #: public/views/paymentUri.html:15
 msgid "Address"
-msgstr ""
+msgstr "पता"
 
 #: public/views/modals/destination-address.html:19
 #: public/views/modals/destination-address.html:23
 msgid "Addressbook"
-msgstr ""
+msgstr "पता पुस्तिका"
 
 #: public/views/preferences.html:32
 msgid "Advanced"
-msgstr ""
+msgstr "उन्नत"
 
 #: public/views/preferencesInformation.html:69
 msgid "All Wallet Addresses <button ng-click=\"info.setAddress()\" ng-disabled=\"index.isOffline\">{{'Generate new address' | translate}}</button>"
@@ -108,7 +116,7 @@ msgstr ""
 #: public/views/paymentUri.html:16
 #: public/views/walletHome.html:280
 msgid "Amount"
-msgstr ""
+msgstr "राशि"
 
 #: public/views/modals/bind.html:26
 msgid "An event is posted by an oracle:"
@@ -133,7 +141,7 @@ msgstr ""
 
 #: public/views/modals/customized-amount.html:72
 msgid "Asset"
-msgstr ""
+msgstr "संपत्ति"
 
 #: public/views/walletHome.html:290
 msgid "Available <span>{{index.dagBalance.stable / 1e6}}</span>"
@@ -141,7 +149,7 @@ msgstr ""
 
 #: public/views/includes/available-balance.html:7
 msgid "Available Balance"
-msgstr ""
+msgstr "उपलब्ध बैलेंस"
 
 #: public/views/preferencesGlobal.html:44
 msgid "BACKUP"
@@ -153,23 +161,23 @@ msgstr ""
 #: public/views/modals/destination-address.html:9
 #: public/views/modals/scanner.html:10
 msgid "Back"
-msgstr ""
+msgstr "वापस"
 
 #: public/views/walletHome.html:212
 msgid "Backup now"
-msgstr ""
+msgstr "बैकअप"
 
 #: public/views/preferencesGlobal.html:48
 msgid "Backup wallet seed"
-msgstr ""
+msgstr "वॉलेट मूल बैकअप"
 
 #: src/js/controllers/backup.js:7
 msgid "Backup words deleted"
-msgstr ""
+msgstr "बैकअप शब्दों को हटाया"
 
 #: public/views/preferencesInformation.html:91
 msgid "Balance By Address"
-msgstr ""
+msgstr "पतों के अनुसार बैलेंस"
 
 #: public/views/walletHome.html:206
 msgid "Before receiving funds, it is highly recommended you backup your wallet keys."
@@ -178,11 +186,11 @@ msgstr ""
 #: public/views/modals/bind.html:100
 #: public/views/modals/bind.html:8
 msgid "Bind payment"
-msgstr ""
+msgstr "भुगतान जोड़ें"
 
 #: public/views/paymentUri.html:10
 msgid "Bitcoin URI is NOT valid!"
-msgstr ""
+msgstr "बिटकॉइन URI गलत है!"
 
 #: public/views/correspondentDevice.html:258
 msgid "Both you and {{correspondent.name}} enabled local chat history recording."
@@ -190,7 +198,7 @@ msgstr ""
 
 #: public/views/unsupported.html:6
 msgid "Browser unsupported"
-msgstr ""
+msgstr "असमर्थित ब्राउज़र"
 
 #: public/views/includes/password.html:27
 msgid "CANCEL"
@@ -200,7 +208,7 @@ msgstr ""
 #: public/views/splash.html:148
 #: public/views/splash.html:57
 msgid "CONTINUE"
-msgstr ""
+msgstr "जारी रखें"
 
 #: src/js/controllers/preferencesDelete.js:73
 msgid "Can't delete the last remaining wallet"
@@ -211,7 +219,7 @@ msgstr ""
 #: src/js/controllers/preferencesDelete.js:14
 #: src/js/services/confirmDialog.js:9
 msgid "Cancel"
-msgstr ""
+msgstr "रद्द करें"
 
 #: public/views/preferencesGlobal.html:15
 msgid "Change Wallet type"
@@ -219,7 +227,7 @@ msgstr ""
 
 #: public/views/editCorrespondentDevice.html:41
 msgid "Change hub:"
-msgstr ""
+msgstr "हब बदलें:"
 
 #: src/js/controllers/preferencesGlobal.js:157
 msgid "Change it"
@@ -230,8 +238,7 @@ msgid "Change wallet type!"
 msgstr ""
 
 #: public/views/preferencesAlias.html:24
-msgid ""
-"Changing wallet alias only affects the local wallet\n"
+msgid "Changing wallet alias only affects the local wallet\n"
 "        name."
 msgstr ""
 
@@ -241,7 +248,7 @@ msgstr ""
 
 #: public/views/modals/correspondentListToReSendPrivPayloads.html:10
 msgid "Choose the device to send to"
-msgstr ""
+msgstr "को भेजने के लिए डिवाइस चुने"
 
 #: src/js/controllers/editCorrespondentDevice.js:25
 msgid "Clear chat history"
@@ -258,15 +265,15 @@ msgstr ""
 #: public/views/modals/pending-modal.html:6
 #: public/views/modals/select-subwallet.html:4
 msgid "Close"
-msgstr ""
+msgstr "बंद करें"
 
 #: public/views/create.html:94
 msgid "Co-signer {{$index+1}}:"
-msgstr ""
+msgstr "सह-हस्ताक्षरकर्ता {{$index+1}}:"
 
 #: public/views/preferencesInformation.html:45
 msgid "Co-signers"
-msgstr ""
+msgstr "सह-हस्ताक्षरकर्ता"
 
 #: public/views/export.html:53
 msgid "Compress the file? (Slower)"
@@ -278,7 +285,7 @@ msgstr ""
 #: src/js/controllers/preferencesDelete.js:15
 #: src/js/services/confirmDialog.js:10
 msgid "Confirm"
-msgstr ""
+msgstr "पुष्टि करें"
 
 #: public/views/modals/multi-payment.html:8
 msgid "Confirm payment"
@@ -286,7 +293,7 @@ msgstr ""
 
 #: public/views/modals/tx-details.html:109
 msgid "Confirmed"
-msgstr ""
+msgstr "पुष्टि हुई"
 
 #: src/js/controllers/inviteCorrespondentDevice.js:29
 #: src/js/controllers/walletHome.js:413
@@ -326,7 +333,7 @@ msgstr ""
 #: src/js/services/profileService.js:478
 #: src/js/services/profileService.js:499
 msgid "Could not import"
-msgstr ""
+msgstr "आयात नहीं हो सका"
 
 #: src/js/services/profileService.js:428
 msgid "Could not import. Check input file and password"
@@ -343,7 +350,7 @@ msgstr ""
 #: public/views/add.html:9
 #: public/views/create.html:52
 msgid "Create new wallet"
-msgstr ""
+msgstr "नया वॉलेट बनाएं"
 
 #: src/js/controllers/index.js:351
 msgid "Create new wallet  together with  ?"
@@ -355,22 +362,21 @@ msgstr ""
 
 #: public/views/modals/address-definition.html:23
 msgid "Created:"
-msgstr ""
+msgstr "बनाया:"
 
 #: public/views/splash.html:34
-msgid ""
-"Creates light wallet which will contain minimum information relevant to you. The wallet vendor will be\n"
+msgid "Creates light wallet which will contain minimum information relevant to you. The wallet vendor will be\n"
 "              able to know some of your balances and will be able to see which transactions are yours, but you can start\n"
 "              using the wallet immediately."
 msgstr ""
 
 #: public/views/splash.html:136
 msgid "Creating Profile..."
-msgstr ""
+msgstr "प्रोफ़ाइल बन रहा है..."
 
 #: public/views/create.html:16
 msgid "Creating Wallet..."
-msgstr ""
+msgstr "वॉलेट  बन रहा है..."
 
 #: public/views/splash.html:48
 msgid "Custom settings"
@@ -378,7 +384,7 @@ msgstr ""
 
 #: public/views/backup.html:79
 msgid "DELETE WORDS"
-msgstr ""
+msgstr "शब्द हटाएँ"
 
 #: public/views/splash.html:75
 msgid "DOWNLOAD THE ENTIRE DAGCOIN DATABASE"
@@ -389,8 +395,7 @@ msgid "Dagcoin Logs"
 msgstr ""
 
 #: src/js/controllers/preferencesLogs.js:9
-msgid ""
-"Dagcoin Session Logs\n"
+msgid "Dagcoin Session Logs\n"
 " Be careful, this could contain sensitive private data"
 msgstr ""
 
@@ -405,11 +410,10 @@ msgstr ""
 
 #: src/js/controllers/index.js:264
 msgid "Declined"
-msgstr ""
+msgstr "अस्वीकृत"
 
 #: public/views/paperWallet.html:50
-msgid ""
-"Decrypting a paper wallet could take around 5 minutes on this device. please be patient and\n"
+msgid "Decrypting a paper wallet could take around 5 minutes on this device. please be patient and\n"
 "\t\t\t\t\t\t\tkeep the app open."
 msgstr ""
 
@@ -426,8 +430,7 @@ msgid "Definitions of addresses"
 msgstr ""
 
 #: public/views/preferencesAdvanced.html:14
-msgid ""
-"Delete\n"
+msgid "Delete\n"
 "            Wallet"
 msgstr ""
 
@@ -439,7 +442,7 @@ msgstr ""
 #: src/js/controllers/copayers.js:49
 #: src/js/controllers/preferencesDelete.js:40
 msgid "Delete wallet"
-msgstr ""
+msgstr "वॉलेट नष्ट करें"
 
 #: public/views/preferencesInformation.html:27
 msgid "Derivation Strategy"
@@ -448,20 +451,19 @@ msgstr ""
 #: public/views/modals/customized-amount.html:29
 #: public/views/modals/multi-payment.html:17
 msgid "Details"
-msgstr ""
+msgstr "विवरण"
 
 #: public/views/preferencesGlobal.html:29
 msgid "Device address"
-msgstr ""
+msgstr "डिवाइस का पता"
 
 #: public/views/preferencesDeviceName.html:14
 #: public/views/preferencesGlobal.html:9
 msgid "Device name"
-msgstr ""
+msgstr "डिवाइस का नाम"
 
 #: public/views/preferencesDeviceName.html:24
-msgid ""
-"Device name is visible to other devices you communicate\n"
+msgid "Device name is visible to other devices you communicate\n"
 "\t\t\t\twith."
 msgstr ""
 
@@ -476,7 +478,7 @@ msgstr ""
 #: public/views/correspondentDevice.html:19
 #: public/views/modals/destination-address.html:38
 msgid "Edit"
-msgstr ""
+msgstr "एडिट"
 
 #: public/views/correspondentDevice.html:261
 msgid "Either you or {{correspondent.name}} have chat history recording disabled. History is not saved for anyone now."
@@ -492,7 +494,7 @@ msgstr ""
 
 #: public/views/includes/password.html:13
 msgid "Enter your password"
-msgstr ""
+msgstr "आपका पासवर्ड डालें"
 
 #: src/js/services/profileService.js:279
 #: src/js/services/profileService.js:334
@@ -505,16 +507,16 @@ msgstr ""
 
 #: public/views/export.html:61
 msgid "Export"
-msgstr ""
+msgstr "निर्यात"
 
 #: src/js/controllers/export.js:145
 #: src/js/controllers/export.js:177
 msgid "Export completed successfully"
-msgstr ""
+msgstr "निर्यात सफलतापूर्वक पूर्ण"
 
 #: public/views/export.html:14
 msgid "Exporting..."
-msgstr ""
+msgstr "निर्यात हो रहा है..."
 
 #: public/views/preferencesInformation.html:57
 msgid "Extended Public Keys"
@@ -526,7 +528,7 @@ msgstr ""
 
 #: public/views/modals/tx-details.html:114
 msgid "Fee"
-msgstr ""
+msgstr "शुल्क"
 
 #: public/views/modals/tx-details.html:44
 msgid "From:"
@@ -534,11 +536,11 @@ msgstr ""
 
 #: public/views/editCorrespondentDevice.html:28
 msgid "Full address:"
-msgstr ""
+msgstr "पूरा पता:"
 
 #: public/views/preferencesGlobal.html:63
 msgid "Full backup"
-msgstr ""
+msgstr "पूरा बैकअप"
 
 #: public/views/modals/fundingNodeNotification.html:4
 msgid "Funding hub"
@@ -562,11 +564,11 @@ msgstr ""
 
 #: public/views/splash.html:156
 msgid "GET STARTED"
-msgstr ""
+msgstr "शुरू करें"
 
 #: public/views/preferencesInformation.html:69
 msgid "Generate new address"
-msgstr ""
+msgstr "नया पता बनाएं"
 
 #: public/views/walletHome.html:37
 msgid "Generating .csv file..."
@@ -578,7 +580,7 @@ msgstr ""
 
 #: public/views/disclaimer.html:93
 msgid "Go back"
-msgstr ""
+msgstr "पीछे जाएँ"
 
 #: public/views/preferencesInformation.html:32
 msgid "Hardware Wallet"
@@ -594,11 +596,11 @@ msgstr ""
 
 #: src/js/controllers/index.js:634
 msgid "History"
-msgstr ""
+msgstr "इतिहास"
 
 #: src/js/controllers/index.js:622
 msgid "Home"
-msgstr ""
+msgstr "घर"
 
 #: public/views/modals/offer-contract.html:22
 msgid "I pay:"
@@ -618,7 +620,7 @@ msgstr ""
 
 #: public/views/import.html:45
 msgid "Import"
-msgstr ""
+msgstr "आयात"
 
 #: src/js/controllers/import.js:183
 #: src/js/controllers/import.js:204
@@ -627,15 +629,14 @@ msgstr ""
 
 #: public/views/add.html:16
 msgid "Import wallet"
-msgstr ""
+msgstr "वॉलेट आयात"
 
 #: public/views/import.html:15
 msgid "Importing wallet..."
-msgstr ""
+msgstr "वॉलेट आयात रहा है..."
 
 #: public/views/walletHome.html:367
-msgid ""
-"Initial transaction history synchronization can take some minutes for wallets with many transactions.<br>\n"
+msgid "Initial transaction history synchronization can take some minutes for wallets with many transactions.<br>\n"
 "\t\t\t\t\tPlease stand by."
 msgstr ""
 
@@ -645,7 +646,7 @@ msgstr ""
 
 #: src/js/controllers/index.js:1590
 msgid "Invalid Touch ID"
-msgstr ""
+msgstr "गलत टच आईडी"
 
 #: src/js/controllers/acceptCorrespondentInvitation.js:33
 msgid "Invalid pairing code"
@@ -657,7 +658,7 @@ msgstr ""
 
 #: public/views/addCorrespondentDevice.html:13
 msgid "Invite the other device"
-msgstr ""
+msgstr "अन्य डिवाइस को आमंत्रित करें"
 
 #: public/views/splash.html:93
 msgid "KEEP ONLY DATA RELEVANT TO YOU"
@@ -665,7 +666,7 @@ msgstr ""
 
 #: public/views/modals/destination-address.html:120
 msgid "Label"
-msgstr ""
+msgstr "लेबल"
 
 #: public/views/preferencesGlobal.html:21
 msgid "Language"
@@ -677,12 +678,12 @@ msgstr ""
 
 #: public/views/modals/newVersionIsAvailable.html:16
 msgid "Later"
-msgstr ""
+msgstr "बाद में"
 
 #: public/views/disclaimer.html:14
 #: src/js/controllers/disclaimer.js:14
 msgid "Loading..."
-msgstr ""
+msgstr "लोड हो रहा है..."
 
 #: public/views/modals/newVersionIsAvailable.html:5
 msgid "Looks that there is a new version available.<br>Would you like to update now?"
@@ -690,26 +691,26 @@ msgstr ""
 
 #: public/views/paymentUri.html:13
 msgid "Make a payment to"
-msgstr ""
+msgstr "को भुगतान करें"
 
 #: public/views/modals/approveNewWitnesses.html:29
 msgid "Maybe later"
-msgstr ""
+msgstr "शायद बाद में"
 
 #: public/views/includes/copayers.html:4
 #: public/views/modals/multi-payment.html:40
 #: public/views/modals/offer-contract.html:149
 #: public/views/preferencesInformation.html:49
 msgid "Me"
-msgstr ""
+msgstr "मैं"
 
 #: public/views/modals/tx-details.html:90
 msgid "Merchant message"
-msgstr ""
+msgstr "व्यापारी संदेश"
 
 #: public/views/paymentUri.html:17
 msgid "Message"
-msgstr ""
+msgstr "संदेश"
 
 #: src/js/controllers/import.js:173
 msgid "Mobile version supports only light wallets."
@@ -726,7 +727,7 @@ msgstr ""
 
 #: public/views/paymentUri.html:18
 msgid "Network"
-msgstr ""
+msgstr "नेटवर्क"
 
 #: src/js/controllers/preferencesAdvanced.js:28
 #: src/js/controllers/preferencesInformation.js:42
@@ -747,12 +748,12 @@ msgstr ""
 
 #: public/views/modals/approveNewWitnesses.html:9
 msgid "New witnesses"
-msgstr ""
+msgstr "नए गवाह"
 
 #: public/views/authConfirmation.html:22
 #: src/js/controllers/index.js:290
 msgid "No"
-msgstr ""
+msgstr "नहीं"
 
 #: src/js/controllers/recoveryFromSeed.js:276
 msgid "No active addresses found."
@@ -790,7 +791,7 @@ msgstr ""
 #: public/views/includes/output.html:15
 #: public/views/modals/tx-details.html:86
 msgid "Note"
-msgstr ""
+msgstr "नोट"
 
 #: public/views/modals/tx-details.html:60
 msgid "Note:"
@@ -815,11 +816,11 @@ msgstr ""
 
 #: public/views/acceptCorrespondentInvitation.html:70
 msgid "Pair"
-msgstr ""
+msgstr "जोड़ें"
 
 #: public/views/includes/sidebar.html:41
 msgid "Paired devices"
-msgstr ""
+msgstr "जुड़े डिवाइसेस"
 
 #: public/views/paperWallet.html:32
 msgid "Paper Wallet Private Key"
@@ -941,7 +942,7 @@ msgstr ""
 
 #: public/views/modals/customized-amount.html:16
 msgid "QR Code"
-msgstr ""
+msgstr "QR कोड"
 
 #: public/views/modals/tx-details.html:98
 msgid "Re-send private payloads"
@@ -1047,7 +1048,7 @@ msgstr ""
 #: public/views/preferencesDeviceName.html:22
 #: public/views/preferencesEmail.html:35
 msgid "Save"
-msgstr ""
+msgstr "सेव"
 
 #: public/views/preferencesEmail.html:21
 msgid "Saving preferences..."
@@ -1104,7 +1105,7 @@ msgstr ""
 #: public/views/includes/transaction.html:10
 #: src/js/controllers/index.js:630
 msgid "Send"
-msgstr ""
+msgstr "भेजें"
 
 #: public/views/walletHome.html:272
 msgid "Send <span>dags</span>"
@@ -1112,19 +1113,19 @@ msgstr ""
 
 #: public/views/modals/multi-payment.html:62
 msgid "Send Payment"
-msgstr ""
+msgstr "भुगतान भेजें"
 
 #: public/views/preferencesInformation.html:85
 msgid "Send addresses by email"
-msgstr ""
+msgstr "पतें ईमेल द्वारा भी भेजें"
 
 #: public/views/walletHome.html:291
 msgid "Send all"
-msgstr ""
+msgstr "पूरा भेजें"
 
 #: public/views/preferencesLogs.html:11
 msgid "Send by email"
-msgstr ""
+msgstr "ईमेल द्वारा भेजें"
 
 #: public/views/paperWallet.html:19
 msgid "Sending funds..."
@@ -1207,7 +1208,7 @@ msgstr ""
 
 #: public/views/preferencesGlobal.html:51
 msgid "Still not done"
-msgstr ""
+msgstr "अभी भी नहीं हुआ"
 
 #: src/js/controllers/copayers.js:40
 #: src/js/controllers/export.js:145
@@ -1217,7 +1218,7 @@ msgstr ""
 #: src/js/controllers/preferencesDelete.js:31
 #: src/js/controllers/walletHome.js:1426
 msgid "Success"
-msgstr ""
+msgstr "सफल"
 
 #: public/views/modals/pending-modal.html:3
 msgid "Successfully changed"
@@ -1256,8 +1257,7 @@ msgid "The Funding Client is not ready"
 msgstr ""
 
 #: src/js/controllers/correspondentDevice.js:270
-msgid ""
-"The amounts are equal, you cannot require the peer to pay to the contract.  \n"
+msgid "The amounts are equal, you cannot require the peer to pay to the contract.  \n"
 "              Please either change the amounts slightly or fund the entire contract yourself and require the peer to pay his half to you."
 msgstr ""
 
@@ -1288,22 +1288,19 @@ msgid "The wallet is not approved yet"
 msgstr ""
 
 #: public/views/splash.html:97
-msgid ""
-"The wallet will contain minimum information relevant to you.  The wallet vendor will be able to know\n"
+msgid "The wallet will contain minimum information relevant to you.  The wallet vendor will be able to know\n"
 "              some of your balances and will be able to see which transactions are yours, but you can start using the\n"
 "              wallet immediately and the wallet is fully functional."
 msgstr ""
 
 #: src/js/controllers/preferencesGlobal.js:152
-msgid ""
-"The wallet will contain the most current state of the entire Dagcoin database. \n"
+msgid "The wallet will contain the most current state of the entire Dagcoin database. \n"
 "            This option is better for privacy but will take several gigabytes of storage and the initial sync will take several days. \n"
 "            CPU load will be high during sync. After changing to full wallet your money won't be visible until database will synchronize your transactions."
 msgstr ""
 
 #: public/views/splash.html:79
-msgid ""
-"The wallet will contain the most current state of the entire Dagcoin database.  This option is better\n"
+msgid "The wallet will contain the most current state of the entire Dagcoin database.  This option is better\n"
 "              for privacy but will take  several gigabytes of storage and the initial sync will take several days.\n"
 "              CPU load will be high during sync."
 msgstr ""
@@ -1340,18 +1337,16 @@ msgstr ""
 #: public/views/includes/transaction.html:19
 #: public/views/modals/tx-details.html:16
 msgid "To"
-msgstr ""
+msgstr "को"
 
 #: src/js/controllers/backup.js:13
-msgid ""
-"To protect your funds, please use multisig wallets with redundancy, \n"
+msgid "To protect your funds, please use multisig wallets with redundancy, \n"
 "          e.g. 1-of-2 wallet with one key on this device and another key on your laptop computer. \n"
 "          Just the wallet seed is not enough."
 msgstr ""
 
 #: src/js/controllers/backup.js:19
-msgid ""
-"To restore your wallets, you will need a full backup of Dagcoin data at .  \n"
+msgid "To restore your wallets, you will need a full backup of Dagcoin data at .  \n"
 "                     Better yet, use multisig wallets with redundancy, \n"
 "                     e.g. 1-of-2 wallet with one key on this device and another key on your smartphone.  \n"
 "                     Just the wallet seed is not enough."
@@ -1383,7 +1378,7 @@ msgstr ""
 
 #: public/views/modals/tx-details.html:108
 msgid "Unconfirmed"
-msgstr ""
+msgstr "अपुष्ट"
 
 #: public/views/modals/tx-details.html:80
 msgid "Unit"
@@ -1403,11 +1398,11 @@ msgstr ""
 
 #: public/views/preferencesAbout.html:10
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 #: public/views/walletHome.html:202
 msgid "WARNING: Backup needed"
-msgstr ""
+msgstr "चेतावनी: बैकअप आवश्यक"
 
 #: public/views/backup.html:63
 msgid "WARNING: This seed was created with a passphrase. To recover this wallet both the mnemonic and passphrase are needed."
@@ -1481,7 +1476,7 @@ msgstr ""
 #: public/views/create.html:31
 #: public/views/create.html:67
 msgid "Wallet name"
-msgstr ""
+msgstr "वॉलेट का नाम"
 
 #: public/views/backup.html:21
 msgid "Wallet seed not available."
@@ -1490,11 +1485,11 @@ msgstr ""
 #: public/views/modals/destination-address.html:15
 #: public/views/modals/destination-address.html:29
 msgid "Wallets"
-msgstr ""
+msgstr "वॉलेट"
 
 #: public/views/preferencesDeleteWallet.html:9
 msgid "Warning!"
-msgstr ""
+msgstr "चेतावनी!"
 
 #: src/js/controllers/recoveryFromSeed.js:212
 msgid "When scanning an error occurred, please try again later."
@@ -1511,12 +1506,12 @@ msgstr ""
 
 #: src/js/services/profileService.js:635
 msgid "Wrong password"
-msgstr ""
+msgstr "गलत पासवर्ड"
 
 #: public/views/authConfirmation.html:17
 #: src/js/controllers/index.js:289
 msgid "Yes"
-msgstr ""
+msgstr "हाँ"
 
 #: src/js/controllers/walletHome.js:1264
 msgid "You are sending all your stable amount. Transaction fee will be automatically excluded!"
@@ -1525,15 +1520,15 @@ msgstr ""
 #: public/views/backup.html:42
 #: public/views/recoveryFromSeed.html:27
 msgid "Your Wallet Seed:"
-msgstr ""
+msgstr "आपका वॉलेट मूल:"
 
 #: public/views/export.html:38
 msgid "Your export password"
-msgstr ""
+msgstr "आपका निर्यात पासवर्ड"
 
 #: public/views/includes/password.html:18
 msgid "Your password"
-msgstr ""
+msgstr "आपका पासवर्ड"
 
 #: public/views/walletHome.html:380
 msgid "Your transaction history"
@@ -1541,7 +1536,7 @@ msgstr ""
 
 #: public/views/import.html:29
 msgid "Your wallet file:"
-msgstr ""
+msgstr "आपकी वॉलेट फ़ाइल:"
 
 #: public/views/includes/password.html:43
 msgid "Your wallet key will be encrypted. Password cannot be recovered. Be sure to write it down"
@@ -1553,7 +1548,7 @@ msgstr ""
 
 #: public/views/create.html:104
 msgid "[ Add new co-signer device ]"
-msgstr ""
+msgstr "[ नया सह-हस्ताक्षरकर्ता डिवाइस जोड़ें ]"
 
 #: src/js/controllers/correspondentDevice.js:409
 msgid "[your share of payment to the contract]()"
@@ -1652,11 +1647,11 @@ msgstr ""
 #: src/js/controllers/walletHome.js:925
 #: src/js/controllers/walletHome.js:972
 msgid "sending"
-msgstr ""
+msgstr "भेज रहे है"
 
 #: public/views/modals/approveNewWitnesses.html:17
 msgid "to"
-msgstr ""
+msgstr "को"
 
 #: src/js/controllers/recoveryFromSeed.js:264
 msgid "wallets recovered, please restart the application to finish."
@@ -1698,3 +1693,4 @@ msgstr ""
 #: public/views/modals/confirmation.html:12
 msgid "{{yes_label || 'Yes'}}"
 msgstr ""
+

@@ -1,7 +1,7 @@
 <div ng-include="'views/includes/topbar.html'"
   ng-init="titleSection='Recovery'; goBackToState = 'preferencesGlobal'; invert = true">
 </div>
-<div class="content preferences" ng-controller="recoveryFromSeed as recFromSeed">
+<div class="content" ng-controller="recoveryFromSeed as recFromSeed">
 
 	<div class="onGoingProcess" ng-show="recFromSeed.scanning">
 		<div class="onGoingProcess-content" ng-style="{'background-color':index.backgroundColor}">
@@ -16,31 +16,32 @@
 		</div>
 	</div>
 
-  <div class="box-notification" ng-show="recFromSeed.error">
-	<span class="text-warning">
-		{{recFromSeed.error}}
-	</span>
+  <div class="text-center size-14" ng-show="recFromSeed.error">
+    <span class="text-warning">
+      {{recFromSeed.error}}
+    </span>
   </div>
 
-  <div>
-    <form name="settingsDeviceNameForm" class="columns" ng-submit="recFromSeed.recoveryForm()">
-      <label><span translate>Your Wallet Seed:</span></label>
-      <textarea id="inputMnemonic" ng-model="recFromSeed.inputMnemonic"></textarea>
-      <div class="page-action">
-        <input ng-show="!recFromSeed.scanning" type="submit" class="btn btn_red-full expand round"
-               value="{{'Recover'|translate}}" ng-style="{'background-color':index.backgroundColor}">
-      </div>
-    </form>
-    <div class="text-alert size-12 columns">
-      <span translate>WARNINGS:</span>
-      <ul class="warnings">
-        <li translate>This will permanently delete all your existing wallets!</li>
-        <li translate>Only single-sig wallets can be recovered.</li>
-        <li translate>Correspondents are not restored.</li>
-        <li translate>Do not clone wallets, stop using the original wallet with this seed.</li>
-      </ul>
+  <form name="settingsDeviceNameForm" class="columns" ng-submit="recFromSeed.recoveryForm()">
+    <label>
+      <span translate>Your Wallet Seed:</span>
+    </label>
+    
+    <textarea id="inputMnemonic" ng-model="recFromSeed.inputMnemonic" style="max-height: 100px;"></textarea>
+    
+    <div class="page-action">
+      <button ng-show="!recFromSeed.scanning" type="submit" class="btn btn_red-full"
+             ng-disabled="recFromSeed.inputMnemonic.trim() === ''" translate>
+             Recover
+      </button>
     </div>
-  </div>
 
+    <div class="text-alert size-14 text-center m15t">
+      <span translate>WARNINGS:</span> <br/>
+      <span translate>This will permanently delete all your existing wallets!</span> <br/>
+      <span translate>Only single-sig wallets can be recovered.</span> <br/>
+      <span translate>Correspondents are not restored.</span> <br/>
+      <span translate>Do not clone wallets, stop using the original wallet with this seed.</span> <br/>
+    </div>
+  </form>
 </div>
-<div class="extra-margin-bottom"></div>

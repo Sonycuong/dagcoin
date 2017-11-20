@@ -29,13 +29,12 @@
     </li>
 
     <li ng-show="index.externalSource">
-      <div>Hardware Wallet</div>
+      <div translate>Hardware Wallet</div>
       <div class="value capitalize">{{index.externalSource}}</div>
     </li>
 
     <li ng-show="!index.externalSource && !index.canSign">
-      <div translate></div>
-      <div class="value capitalize">No private key</div>
+      <div class="value capitalize" translate>No private key</div>
     </li>
 
     <li ng-show="index.account">

@@ -9,52 +9,15 @@
       name: 'English',
       isoCode: 'en',
     }, {
-      name: 'Français',
-      isoCode: 'fr',
-    }, {
-      name: 'Italiano',
-      isoCode: 'it',
-    }, {
-      name: 'Deutsch',
-      isoCode: 'de',
-    }, {
-      name: 'Español',
-      isoCode: 'es',
-    }, {
-      name: 'Português',
-      isoCode: 'pt',
-    }, {
-      name: 'Nederlands',
-      isoCode: 'nl',
-    }, {
-      name: 'Svenska',
-      isoCode: 'sv',
-    }, {
-      name: 'Polski',
-      isoCode: 'pl',
-    }, {
-      name: 'Magyar',
-      isoCode: 'hu',
-    }, {
-      name: 'Ελληνικά',
-      isoCode: 'el',
-    }, {
-      name: '日本語',
-      isoCode: 'ja',
-      useIdeograms: true,
-    }, {
       name: '中文',
-      isoCode: 'zh',
+      isoCode: 'zh_CN',
       useIdeograms: true,
     }, {
       name: 'Pусский',
-      isoCode: 'ru',
+      isoCode: 'ru_RU',
     }, {
       name: 'Bahasa Indonesia',
-      isoCode: 'id',
-    }, {
-      name: 'Türk',
-      isoCode: 'tr',
+      isoCode: 'id_ID',
     }];
 
     root.currentLanguage = null;
@@ -72,15 +35,18 @@
       }
       userLang = userLang ? (userLang.split('-', 1)[0] || 'en') : 'en';
 
-      return userLang;
+      for (let i = 0; i < root.availableLanguages.length; i += 1) {
+        const isoCode = root.availableLanguages[i].isoCode;
+        if (userLang === isoCode.substr(0, 2)) { return isoCode; }
+      }
+
+      return 'en';
     };
 
     root.set = function (lang) {
       $log.debug(`Setting default language: ${lang}`);
       gettextCatalog.setCurrentLanguage(lang);
-      if (lang !== 'en') {
-        gettextCatalog.loadRemote(`languages/${lang}.json`);
-      }
+      if (lang !== 'en') { gettextCatalog.loadRemote(`languages/${lang}.json`); }
       amMoment.changeLocale(lang);
       root.currentLanguage = lang;
     };
@@ -95,7 +61,7 @@
 
     root.getCurrentLanguageInfo = function () {
       return lodash.find(root.availableLanguages, {
-        isoCode: root.currentLanguage,
+        isoCode: root.currentLanguage
       });
     };
 
@@ -122,7 +88,7 @@
 
     root.getName = function (lang) {
       return lodash.result(lodash.find(root.availableLanguages, {
-        isoCode: lang,
+        isoCode: lang
       }), 'name');
     };
 

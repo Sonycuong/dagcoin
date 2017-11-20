@@ -75,7 +75,7 @@
 
 						<div class="text-gray text-center size-12 p10t" ng-show="index.walletScanStatus == 'error'"
 							 ng-click='index.retryScan()'>
-							<span class="size-12 db m10b">Scan status finished with error</span>
+							<span class="size-12 db m10b" translate>Scan status finished with error</span>
 							<button class=" btn_red tiny round" translate>Tap to retry</button>
 						</div>
 
@@ -98,8 +98,8 @@
 							</div>
 
 
-							<span ng-if="index.dagBalance.pending" class="ballance">Pending wallet balance: {{index.dagBalance.pendingStr}}</span>
-							<span ng-if="!index.dagBalance.pending" class="ballance">Wallet balance</span>
+							<span ng-if="index.dagBalance.pending" class="ballance" translate>Pending wallet balance: {{index.dagBalance.pendingStr}}</span>
+							<span ng-if="!index.dagBalance.pending" class="ballance" translate>Wallet balance</span>
 
 						</div>
 
@@ -115,7 +115,7 @@
 
 				<div class="transactions">
 					<div class="transactions__head">
-						<span>Recent transactions</span>
+						<span translate>Recent transactions</span>
 					</div>
 					<div class="oh text-center" ng-show=" index.updatingTxHistory">
 
@@ -137,7 +137,7 @@
 
 					<div class="oh text-center"
 						 ng-show="!index.updatingTxHistory">
-					<span class="text-center" ng-show="!index.txHistory[0] && !index.txHistoryError">
+					<span class="text-center" ng-show="!index.txHistory[0] && !index.txHistoryError" translate>
 					  No recent transactions yet
 					</span>
 					</div>
@@ -148,7 +148,7 @@
 								<tr ng-repeat="btx in index.txHistory | filter: { isFundingNodeTransaction: false } | limitTo: 3" class="row ">
 									<td><span class="details-price"
 											  ng-class="btx.action == 'received'? 'success':'danger'">{{btx.amountStr}}</span>
-										<div class="details-wrap"><span class="details-info">My Account</span>
+										<div class="details-wrap"><span class="details-info" translate>My Account</span>
 											<svg class="icon"
 												 ng-class="btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right'">
 												<use
@@ -215,7 +215,7 @@
 			</div>
 			<div class="p-wrap text-center m20t" ng-show="!index.needsBackup">
 
-				<h2 style="padding: 10px 20px;font-weight: 400;font-size: 14px;margin-top: 40px;">Tap the <strong>QR-code</strong> to copy its address.<br/>Share it with the sender via email or text.</h2>
+				<h2 style="padding: 10px 20px;font-weight: 400;font-size: 14px;margin-top: 40px;" translate>Tap the <strong>QR-code</strong> to copy its address.<br/>Share it with the sender via email or text.</h2>
 
 
 				<!-- Address-->
@@ -240,7 +240,7 @@
 								</div>
 							</div>
 						</div>
-						<div ng-show="!index.isCordova" ng-class="{'visible': tooltipCopiedShown}" class="tooltip radius tip-top"><svg-icon name="done"></svg-icon>Copied!</div>
+						<div ng-show="!index.isCordova" ng-class="{'visible': tooltipCopiedShown}" class="tooltip radius tip-top" translate><svg-icon name="done"></svg-icon>Copied!</div>
 					</div>
 					<div class="m10t" ng-hide>
 						<h4 ng-class="{'enable_text_select': !index.isCordova}" class="size-12">
@@ -251,10 +251,9 @@
 				</div>
 				<div class="page-action">
 					<a ng-show="index.isCordova" href="#" ng-click="home.shareAddress(home.addr[index.walletId])"
-					   class="btn btn_red-full">Share wallet link</a>
+					   class="btn btn_red-full" translate>Share wallet link</a>
 					<div ng-show="index.isCordova" class="page-action__info">
-						<span>Share the link above to receive payments.</span></div>
-
+						<span translate>Share the link above to receive payments.</span></div>
 				</div>
 
 			</div>
@@ -270,7 +269,7 @@
 			<div class="introduction-svg" ng-include="'views/includes/background.html'"></div>
 			<div class="p-share js-introduction">
 				<div class="p-wrap" style="width: 300px;margin: 0 auto;">
-					<div class="page-heading"><span>Send <span>dags</span></span></div>
+					<div class="page-heading"><span translate>Send <span>dags</span></span></div>
           <form class="page-form" name="sendForm" novalidate>
 						<div class="box-notification" ng-show="home.error" ng-click="home.resetError()">
 					  <span class="text-warning">
@@ -278,7 +277,7 @@
 					  </span>
 						</div>
 						<div class="form-group">
-							<div class="title clearfix"><span class="name">Amount</span>
+							<div class="title clearfix"><span class="name" translate>Amount</span>
 								<div class="left" ng-hide="sendForm.amount.$pristine && !sendForm.amount.$modelValue">
 									<span class="has-error right size-12" ng-if="sendForm.amount.$invalid && !sendForm.amount.$error.required">
 										<i class="icon-close-circle size-14"></i>
@@ -288,7 +287,7 @@
 										<i class="icon-checkmark-circle size-14"></i>
 									</small>
 								</div>
-								<span class="available">Available <span>{{index.dagBalance.stable / 1e6}}</span></span>
+								<span class="available" translate>Available <span>{{index.dagBalance.stable / 1e6}}</span></span>
                 <a ng-click="home.setSendAll()" ng-show="!home.lockAmount" style="text-transform: none; margin-left: 10px" translate>Send all</a>
 							</div>
 
@@ -310,7 +309,7 @@
 						</div>
 						<div class="form-group">
 
-							<div class="title clearfix"><span class="name">Receiver</span>
+							<div class="title clearfix"><span class="name" translate>Receiver</span>
 								<div class="left" ng-hide="sendForm.address.$pristine ">
 									<span class="has-error right size-12"
 										  ng-show="sendForm.address.$invalid && _address">
@@ -338,7 +337,7 @@
 
 						</div>
             <div class="page-action">
-              <button ng-disabled="sendForm.$invalid || index.onGoingProcessName == 'sending'" class="btn btn_red-full" ng-click="home.submitForm()">Send</button>
+              <button ng-disabled="sendForm.$invalid || index.onGoingProcessName == 'sending'" class="btn btn_red-full" ng-click="home.submitForm()" translate>Send</button>
             </div>
 					</form>
 				</div>
@@ -378,7 +377,7 @@
 
 			<div class="p-history js-introduction">
 				<div class="p-wrap">
-					<div class="page-heading"><span>Your transaction history</span></div>
+					<div class="page-heading"><span translate>Your transaction history</span></div>
 					<div  class="transactions" >
 						<div class="oh text-center" ng-show="!index.txHistory[0] || index.updatingTxHistory[index.walletId]">
 						<span ng-show="index.txHistoryError" ng-click='index.updateTxHistory()'>
@@ -398,7 +397,7 @@
 									<tr  ng-repeat="btx in index.txHistory | filter: { isFundingNodeTransaction: false }" ng-click="home.openTxModal(btx, index.txHistory)"
 										 class="row  last-transactions-content">
 										<td><span class="details-price" ng-class="btx.action == 'received'? 'success':'danger'">{{btx.amountStr}}</span>
-											<div class="details-wrap"><span class="details-info">My Account</span>
+											<div class="details-wrap"><span class="details-info" translate>My Account</span>
 												<svg class="icon" ng-class="btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right'">
 													<use
 															xlink:href="{{index.getSvgSrc(btx.action == 'received'? 'icon-arrow-left':'icon-arrow-right')}}"></use>
@@ -418,7 +417,7 @@
 							</div>
 						</div>
             <div class="page-action">
-              <a href="#" ng-show="index.historyShowShowAll" ng-click="index.showAllHistory()" class="btn btn_red-full">Show all</a>
+              <a href="#" ng-show="index.historyShowShowAll" ng-click="index.showAllHistory()" class="btn btn_red-full" translate>Show all</a>
             </div>
 					</div>
 				</div>

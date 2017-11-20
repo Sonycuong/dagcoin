@@ -19,7 +19,7 @@ install:
   - npm install
 script:
   - npm test
-  - codecov --token=f33366c3-862d-4bdf-b956-c9ace7bb9739
+#  - codecov --token=f33366c3-862d-4bdf-b956-c9ace7bb9739
 cache:
   directories:
     - "node_modules"

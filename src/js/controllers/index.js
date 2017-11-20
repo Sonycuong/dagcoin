@@ -192,17 +192,17 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         newVersion.askForVersion();
       });
 
-      eventBus.on('confirm_on_other_devices', () => {
-        // todo: originally the mesage was: 'Transaction created. \nPlease approve it on the other devices.'. we have to bring this back and think about better solution.
-        $rootScope.$emit('Local/ShowAlert', 'Transaction created.', 'fi-key', () => {
-          go.walletHome();
-        });
-      });
+      // eventBus.on('confirm_on_other_devices', () => {
+        // // todo: originally the mesage was: 'Transaction created. \nPlease approve it on the other devices.'. we have to bring this back and think about better solution.
+        // $rootScope.$emit('Local/ShowAlert', 'Transaction created.', 'fi-key', () => {
+          // go.walletHome();
+        // });
+      // });
 
       eventBus.on('refused_to_sign', (deviceAddress) => {
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.success(gettextCatalog.getString('Refused'), `${correspondent.name} refused to sign the transaction`);
+          notification.success(gettextCatalog.getString('Refused'), gettext(`${correspondent.name} refused to sign the transaction`));
         });
       });
 
@@ -248,7 +248,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         updatePublicKeyRing(client);
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.success(gettextCatalog.getString('Success'), `Wallet ${walletName} approved by ${correspondent.name}`);
+          notification.success(gettextCatalog.getString('Success'), gettext(`Wallet ${walletName} approved by ${correspondent.name}`));
         });
       });
 
@@ -261,7 +261,7 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         const walletName = client.credentials.walletName;
         const device = require('byteballcore/device.js');
         device.readCorrespondent(deviceAddress, (correspondent) => {
-          notification.info(gettextCatalog.getString('Declined'), `Wallet ${walletName} declined by ${correspondent.name}`);
+          notification.info(gettextCatalog.getString('Declined'), gettext(`Wallet ${walletName} declined by ${correspondent.name}`));
         });
         profileService.deleteWallet({ client }, (err) => {
           if (err) {
@@ -634,6 +634,11 @@ no-nested-ternary,no-shadow,no-plusplus,consistent-return,import/no-extraneous-d
         title: gettext('History'),
         icon: 'icon-history',
         link: 'history'
+      }, {
+        title: gettext('Chat'),
+        icon: 'icon-chat',
+        new_state: 'correspondentDevices',
+        link: 'chat'
       }];
 
       self.getSvgSrc = function (id) {

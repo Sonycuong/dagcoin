@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('acceptCorrespondentInvitationController',
-    function ($scope, $rootScope, $timeout, configService, profileService, isCordova, go, correspondentListService) {
+    function ($scope, $rootScope, $timeout, configService, profileService, isCordova, go, correspondentListService, gettext) {
       const self = this;
       console.log('acceptCorrespondentInvitationController');
 
@@ -30,18 +30,18 @@
         const pairCode = code.replace(re, '');
         const matches = pairCode.match(/^([\w\/+]+)@([\w.:\/-]+)#([\w\/+-]+)$/);
         if (!matches) {
-          return setError('Invalid pairing code');
+          return setError(gettext('Invalid pairing code'));
         }
         const pubkey = matches[1];
         const hub = matches[2];
         const pairingSecret = matches[3];
         if (pubkey.length !== 44) {
-          return setError('Invalid pubkey length');
+          return setError(gettext('Invalid pubkey length'));
         }
         // if (pairing_secret.length !== 12)
         //    return setError("Invalid pairing secret length");
         console.log(pubkey, hub, pairingSecret);
-        self.setOngoingProcess('pairing');
+        self.setOngoingProcess(gettext('pairing'));
         correspondentListService.acceptInvitation(hub, pubkey, pairingSecret, (err) => {
           if (err) {
             console.log('acceptInvitationError', err);

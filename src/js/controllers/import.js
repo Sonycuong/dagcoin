@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('importController',
-    function ($scope, $rootScope, $location, $timeout, $log, storageService, fileSystemService, isCordova, isMobile) {
+    function ($scope, $rootScope, $location, $timeout, $log, storageService, fileSystemService, isCordova, isMobile, gettext) {
       const JSZip = require('jszip');
       const async = require('async');
       const crypto = require('crypto');
@@ -170,7 +170,7 @@
           zip.loadAsync(decrypt(data, password)).then((zippedFile) => {
             if (!zippedFile.file('light')) {
               self.imported = false;
-              self.error = 'Mobile version supports only light wallets.';
+              self.error = gettext('Mobile version supports only light wallets.');
               $timeout(() => {
                 $rootScope.$apply();
               });
@@ -180,7 +180,7 @@
                   return showError(err);
                 }
                 self.imported = false;
-                return $rootScope.$emit('Local/ShowAlert', 'Import successfully completed, please restart the application.', 'fi-check', () => {
+                return $rootScope.$emit('Local/ShowAlert', gettext('Import successfully completed, please restart the application.'), 'fi-check', () => {
                   if (navigator && navigator.app) {
                     navigator.app.exitApp();
                   } else if (process.exit) {
@@ -201,7 +201,7 @@
                 return showError(err);
               }
               self.imported = false;
-              return $rootScope.$emit('Local/ShowAlert', 'Import successfully completed, please restart the application.', 'fi-check', () => {
+              return $rootScope.$emit('Local/ShowAlert', gettext('Import successfully completed, please restart the application.'), 'fi-check', () => {
                 if (navigator && navigator.app) {
                   navigator.app.exitApp();
                 } else if (process.exit) {

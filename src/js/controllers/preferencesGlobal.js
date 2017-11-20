@@ -2,8 +2,8 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('preferencesGlobalController',
-    function ($scope, $q, $rootScope, $timeout, $log, configService, uxLanguage, pushNotificationsService, profileService,
-      fundingExchangeProviderService, $modal, animationService, changeWalletTypeService) {
+    function ($scope, $q, $rootScope, $log, $modal, configService, uxLanguage, pushNotificationsService, profileService,
+              fundingExchangeProviderService, animationService, changeWalletTypeService, gettext) {
       const conf = require('byteballcore/conf.js');
       const self = this;
       self.fundingNodeSettings = {};
@@ -22,7 +22,7 @@
 
       this.init = function () {
         const config = configService.getSync();
-        this.type = (conf.bLight ? 'light wallet' : 'full wallet');
+        this.type = conf.bLight ? gettext('light wallet') : gettext('full wallet');
         this.unitName = config.wallet.settings.unitName;
         this.dagUnitName = config.wallet.settings.dagUnitName;
         this.deviceName = config.deviceName;
@@ -52,37 +52,52 @@
         });
       });
 
+      function lock() {
+        $rootScope.$emit('Local/NeedsPassword', true, null, (err, password) => {
+          if (err && !password) {
+            $scope.encrypt = false;
+            return;
+          }
+          profileService.setPrivateKeyEncryptionFC(password, () => {
+            $rootScope.$emit('Local/NewEncryptionSetting');
+            $scope.encrypt = true;
+          });
+        });
+      }
+
+      function unlock(error) {
+        profileService.unlockFC(error, (err) => {
+          if (err) {
+            $scope.encrypt = true;
+
+            if (err.message !== gettext('Password needed')) {
+              return unlock(err.message);
+            }
+            return;
+          }
+          profileService.disablePrivateKeyEncryptionFC((disablePrivateKeyEncryptionFCError) => {
+            $rootScope.$emit('Local/NewEncryptionSetting');
+            if (disablePrivateKeyEncryptionFCError) {
+              $scope.encrypt = true;
+              $log.error(disablePrivateKeyEncryptionFCError);
+              return;
+            }
+            $scope.encrypt = false;
+          });
+        });
+      }
+
       const unwatchEncrypt = $scope.$watch('encrypt', (val) => {
         const fc = profileService.focusedClient;
-        if (!fc) return;
+
+        if (!fc) {
+          return;
+        }
 
         if (val && !fc.hasPrivKeyEncrypted()) {
-          $rootScope.$emit('Local/NeedsPassword', true, null, (err, password) => {
-            if (err || !password) {
-              $scope.encrypt = false;
-              return;
-            }
-            profileService.setPrivateKeyEncryptionFC(password, () => {
-              $rootScope.$emit('Local/NewEncryptionSetting');
-              $scope.encrypt = true;
-            });
-          });
+          lock();
         } else if (!val && fc.hasPrivKeyEncrypted()) {
-          profileService.unlockFC(null, (err) => {
-            if (err) {
-              $scope.encrypt = true;
-              return;
-            }
-            profileService.disablePrivateKeyEncryptionFC((disablePrivateKeyEncryptionFCError) => {
-              $rootScope.$emit('Local/NewEncryptionSetting');
-              if (disablePrivateKeyEncryptionFCError) {
-                $scope.encrypt = true;
-                $log.error(disablePrivateKeyEncryptionFCError);
-                return;
-              }
-              $scope.encrypt = false;
-            });
-          });
+          unlock();
         }
       });
 
@@ -133,13 +148,13 @@
       self.changeWalletType = function () {
         if (self.isLight) {
           const ModalInstanceCtrl = function ($scopeModal, $modalInstance, $sce) {
-            $scopeModal.header = $sce.trustAsHtml('Change wallet type!');
-            $scopeModal.title = $sce.trustAsHtml(`
+            $scopeModal.header = $sce.trustAsHtml(gettext('Change wallet type!'));
+            $scopeModal.title = $sce.trustAsHtml(gettext(`
             The wallet will contain the most current state of the entire Dagcoin database. 
             This option is better for privacy but will take several gigabytes of storage and the initial sync will take several days. 
-            CPU load will be high during sync. After changing to full wallet your money won't be visible until database will synchronize your transactions.`);
+            CPU load will be high during sync. After changing to full wallet your money won't be visible until database will synchronize your transactions.`));
 
-            $scopeModal.yes_label = 'Change it';
+            $scopeModal.yes_label = gettext('Change it');
             $scopeModal.ok = function () {
               $modalInstance.close(true);
             };

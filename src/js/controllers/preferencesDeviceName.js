@@ -24,8 +24,10 @@
       };
 
       $scope.$watch('prefDeviceName.deviceName', (newValue, oldValue) => {
-        if (newValue.length > 50) {
-          $scope.prefDeviceName.deviceName = oldValue;
+        if (typeof newValue !== 'undefined') {
+          if (newValue.length > 50) {
+            $scope.prefDeviceName.deviceName = oldValue;
+          }
         }
       });
     });

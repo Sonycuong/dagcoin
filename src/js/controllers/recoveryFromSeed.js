@@ -3,7 +3,7 @@
   'use strict';
 
   angular.module('copayApp.controllers').controller('recoveryFromSeed',
-    function ($rootScope, $scope, $log, $timeout, profileService) {
+    function ($rootScope, $scope, $log, $timeout, profileService, gettext) {
       const async = require('async');
       const conf = require('byteballcore/conf.js');
       const walletDefinedByKeys = require('byteballcore/wallet_defined_by_keys.js');
@@ -209,7 +209,7 @@
               if (response && response.error) {
                 const breadcrumbs = require('byteballcore/breadcrumbs.js');
                 breadcrumbs.add(`Error scanForAddressesAndWalletsInLightClient: ${response.error}`);
-                self.error = 'When scanning an error occurred, please try again later.';
+                self.error = gettext('When scanning an error occurred, please try again later.');
                 self.scanning = false;
                 $timeout(() => {
                   $rootScope.$apply();
@@ -261,7 +261,7 @@
               createWallets(arrWalletIndexes, () => {
                 createAddresses(assocMaxAddressIndexes, () => {
                   self.scanning = false;
-                  $rootScope.$emit('Local/ShowAlert', `${arrWalletIndexes.length} wallets recovered, please restart the application to finish.`, 'fi-check', () => {
+                  $rootScope.$emit('Local/ShowAlert', gettext(`${arrWalletIndexes.length} wallets recovered, please restart the application to finish.`), 'fi-check', () => {
                     if (navigator && navigator.app) {  // android
                       navigator.app.exitApp();
                     } else if (process.exit) { // nwjs
@@ -273,7 +273,7 @@
             });
           });
         } else {
-          self.error = 'No active addresses found.';
+          self.error = gettext('No active addresses found.');
           self.scanning = false;
           $timeout(() => {
             $rootScope.$apply();
@@ -285,6 +285,7 @@
         if (self.inputMnemonic) {
           self.error = '';
           self.inputMnemonic = self.inputMnemonic.toLowerCase();
+
           if ((self.inputMnemonic.split(' ').length % 3 === 0) && Mnemonic.isValid(self.inputMnemonic)) {
             self.scanning = true;
             if (self.bLight) {
@@ -293,7 +294,7 @@
               scanForAddressesAndWallets(self.inputMnemonic, cleanAndAddWalletsAndAddresses);
             }
           } else {
-            self.error = 'Seed is not valid';
+            self.error = gettext('Seed is not valid');
           }
         }
       };
