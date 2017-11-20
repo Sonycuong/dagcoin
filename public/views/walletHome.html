@@ -3,6 +3,8 @@
      ng-init="titleSection='My wallet'; showCamera = true">
 </div>
 
+<qr-scanner ng-if="tab === 'send'" ng-show="index.isComplete" on-scan="index.onQrCodeScanned(data)" before-scan="index.onBeforeScan()"></qr-scanner>
+
 <div ng-controller="walletHomeController as home">
 	<div class="onGoingProcess" ng-show="index.isOffline">
 		<div class="onGoingProcess-content" ng-style="{'background-color':'#222'}">
@@ -278,21 +280,12 @@
 						</div>
 						<div class="form-group">
 							<div class="title clearfix"><span class="name" translate>Amount</span>
-								<div class="left" ng-hide="sendForm.amount.$pristine && !sendForm.amount.$modelValue">
-									<span class="has-error right size-12" ng-if="sendForm.amount.$invalid && !sendForm.amount.$error.required">
-										<i class="icon-close-circle size-14"></i>
-										<span clas="vm" translate>Not valid</span>
-									</span>
-									<small class="text-primary right" ng-if="!sendForm.amount.$invalid">
-										<i class="icon-checkmark-circle size-14"></i>
-									</small>
-								</div>
 								<span class="available" translate>Available <span>{{index.dagBalance.stable / 1e6}}</span></span>
                 <a ng-click="home.setSendAll()" ng-show="!home.lockAmount" style="text-transform: none; margin-left: 10px" translate>Send all</a>
 							</div>
 
 							<div class="input-wrap input-icon">
-								<input type="number" id="amount" ng-disabled="home.blockUx || home.lockAmount"
+								<input ng-class="{'error': sendForm.amount.$invalid && !sendForm.amount.$error.required, 'success': !sendForm.amount.$invalid}" style="font-size: 12px;" type="number" id="amount" ng-disabled="home.blockUx || home.lockAmount"
 									   name="amount" ng-attr-placeholder="{{('Amount')|translate}}" min="0.000001"
 									   ng-minlength="1" ng-maxlength="16" ng-model="_amount"
 									   ng-required="!home.bSendAll"
@@ -309,28 +302,16 @@
 						</div>
 						<div class="form-group">
 
-							<div class="title clearfix"><span class="name" translate>Receiver</span>
-								<div class="left" ng-hide="sendForm.address.$pristine ">
-									<span class="has-error right size-12"
-										  ng-show="sendForm.address.$invalid && _address">
-								<i class="icon-close-circle size-14"></i>
-								<span class="vm" translate>Not valid</span>
-							</span>
-									<small class="right text-primary" ng-show="!sendForm.address.$invalid">
-										<i class="icon-checkmark-circle size-14"></i>
-									</small>
-								</div>
-
+							<div class="title clearfix">
+								<span class="name" translate>Receiver</span>
 							</div>
 
 							<div class="input-wrap">
-								<input class="m0" type="text" id="address"
+								<input ng-class="{'error' : sendForm.address.$invalid && _address, 'success': _address && !sendForm.address.$invalid}" style="font-size: 12px;" class="m0" type="text" id="address"
 									   name="address"
 									   ng-attr-placeholder="{{home.canSendExternalPayment() ? 'DAG address' : 'DAG address of your other wallet &#8594;'}}"
 									   ng-model="_address" valid-address required
 									   ng-blur="home.formFocus(false)">
-
-								<qr-scanner ng-show="index.isComplete" on-scan="index.onQrCodeScanned(data)" before-scan="index.onBeforeScan()"></qr-scanner>
 
 							</div>
 
