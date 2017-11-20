@@ -1,5 +1,6 @@
 {
   "ENV": {
+    "environment": "testnet",
     "isTestnet": true,
     "discoveryDeviceAddress": "06HM3M45WJYU7EXIXWCYAKPXQS32ZNR6X",
     "DAGCOIN_ASSET": "B9dw3C3gMC+AODL/XqWjFh9jFe31jS08yf2C3zl8XGg=",
@@ -7,6 +8,7 @@
     "TIMESTAMPER_ADDRESS": "OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD",
     "hub": "testnetexplorer.dagcoin.org/wss/",
     "discoveryServicePairingCode": "AnqLjlEMkQsoP6yZ/vDwT41F3IE6ItfggF0oxyYsUj42@testnetexplorer.dagcoin.org/wss/#0000",
-    "protocolPrefix": "dagcoin-tn"
+    "protocolPrefix": "dagcoin-tn",
+    "DATABASE_MIGRATION_TOOL": "native-queries"
   }
 }

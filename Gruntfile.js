@@ -206,6 +206,10 @@ module.exports = function (grunt) {
         ],
         dest: 'public/dagcoin.js'
       },
+      migrations: {
+        src: ['src/js/migrations/migrations.json'],
+        dest: 'public/migrations/migrations.json'
+      },
       constants: {
         src: ['src/js/config.js'],
         dest: 'public/config.js'
@@ -400,7 +404,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           transform: [['babelify', { presets: ['es2015'] }]],
-          exclude: ['sqlite3', 'nw.gui', 'mysql', 'ws', 'regedit']
+          exclude: ['sqlite3', 'nw.gui', 'mysql', 'ws', 'regedit', 'fsevents']
         },
         src: 'public/dagcoin.js',
         dest: 'public/dagcoin.js'

@@ -111,6 +111,7 @@ package.json
 
 #generated environment variables
 src/js/config.js
+environments/dev.json
 
 #generated database.json
 database.json
