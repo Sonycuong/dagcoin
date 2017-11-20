@@ -13,6 +13,8 @@
                                               proofingService) => {
       const self = {};
 
+      self.dbManager = require('dagcoin-core/databaseManager').getInstance();
+
       // Statuses
       self.active = false;
       self.activating = false;
@@ -388,37 +390,58 @@
       };
 
       $rootScope.$on('Local/BalanceUpdatedAndWalletUnlocked', () => {
-        readMyAddresses().then((myAddresses) => {
-          if (!myAddresses) {
-            console.log('THIS WALLET DOES NOT HAVE ADDRESSES');
+        const walletId = profileService.focusedClient.credentials.walletId;
+
+        self.dbManager.query('SELECT account FROM wallets WHERE wallet = ?', [walletId]).then((rows) => {
+          if (rows == null || rows.length === 0) {
+            return Promise.reject(new Error(`NO ROWS FOR WALLET ${walletId}`));
           }
-          self.walletAddresses = [];
-          myAddresses.forEach((addr) => {
-            self.walletAddresses.push(addr.address);
+
+          if (rows.length > 1) {
+            return Promise.reject(new Error(`TOO MANY ACCOUNTS FOR WALLET ${walletId}: ${rows.length}. CHECK THE DATABASE`));
+          }
+
+          const account = rows[0].account;
+
+          if (account !== 0) {
+            console.log(`THIS IS NOT THE MAIN WALLET (WALLET ${walletId}, ACCOUNT ${account}): NOT USING THE EXCHANGE SERVICE.`);
+            return Promise.resolve();
+          }
+
+          return readMyAddresses().then((myAddresses) => {
+            if (!myAddresses) {
+              console.log('THIS WALLET DOES NOT HAVE ADDRESSES');
+            }
+            self.walletAddresses = [];
+            myAddresses.forEach((addr) => {
+              self.walletAddresses.push(addr.address);
+            });
+
+            console.log('ACTIVATING');
+
+            return self.activate().then(
+              (active) => {
+                if (active) {
+                  console.log('FUNDING EXCHANGE CLIENT ACTIVATED');
+                  proofingService.readMasterAddress().then((masterAddress) => {
+                    dagcoinProtocolService.sendRequest(
+                      self.bytesProviderDeviceAddress,
+                      'load-address',
+                      {
+                        address: masterAddress.address
+                      }
+                    );
+                  });
+                } else {
+                  console.log('FUNDING EXCHANGE CLIENT STILL ACTIVATING. BE PATIENT');
+                }
+              },
+              (err) => {
+                console.log(`COULD NOT ACTIVATE FUNDING EXCHANGE CLIENT: ${err}`);
+              }
+            );
           });
         });
-        console.log('ACTIVATING');
-        self.activate().then(
-          (active) => {
-            if (active) {
-              console.log('FUNDING EXCHANGE CLIENT ACTIVATED');
-              proofingService.readMasterAddress().then((masterAddress) => {
-                dagcoinProtocolService.sendRequest(
-                  self.bytesProviderDeviceAddress,
-                  'load-address',
-                  {
-                    address: masterAddress.address
-                  }
-                );
-              });
-            } else {
-              console.log('FUNDING EXCHANGE CLIENT STILL ACTIVATING. BE PATIENT');
-            }
-          },
-          (err) => {
-            console.log(`COULD NOT ACTIVATE FUNDING EXCHANGE CLIENT: ${err}`);
-          }
-        );
       });
 
       self.activate = activate;
