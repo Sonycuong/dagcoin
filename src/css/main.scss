@@ -2,7 +2,6 @@
 @import "mobile";
 @import "dagNavBar";
 @import "settings";
-
 /* Components */
 @import "components/buttons";
 @import "components/inputs";
@@ -1964,6 +1963,14 @@ input.ng-invalid-match, input.ng-invalid-match:focus {
     padding: 4px 10px;
     width: 100px;
   }
+
+  &.error{
+    border-color: $red;
+  }
+
+  &.success{
+    border-color: $green;
+  }
 }
 
 .animated {
@@ -2285,13 +2292,13 @@ a.a_none {
     margin-top: -8px
   }
 
-  svg-icon{
+  svg-icon {
     svg {
       width: 22px;
       height: 22px
     }
 
-    &.svg-icon-add{
+    &.svg-icon-add {
       svg {
         width: 16px;
         height: 16px
@@ -2313,29 +2320,25 @@ a.a_none {
   }
 }
 
-#send, #accept {
-  #qr-scanner {
+#qr-scanner {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  z-index: 12;
+  color: white;
+
+  svg-icon {
     position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    background: #eee;
-    width: 50px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    top: 50%;
+    left: 50%;
+    margin-left: -14px;
+    margin-top: -14px;
 
-    svg-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -13px;
-      margin-top: -14px;
-
-      svg {
-        width: 26px;
-        height: 26px;
-        fill: #666;
-      }
+    svg {
+      width: 28px;
+      height: 28px;
     }
   }
 }
@@ -2948,7 +2951,7 @@ section {
   }
 }
 
-.preferences ul.warnings{
+.preferences ul.warnings {
   margin: 20px 0;
   background-color: transparent;
   text-align: center;

@@ -94,6 +94,9 @@
 
         const disableTabListener = $rootScope.$on('Local/TabChanged', (e, tab) => {
           // This will slow down switch, do not add things here!
+
+          self.currentTab = tab;
+
           console.log(`tab changed ${tab}`);
           switch (tab) {
             case 'receive':
