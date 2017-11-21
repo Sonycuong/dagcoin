@@ -1,43 +1,8 @@
 <div
   ng-include="'views/includes/topbar.html'"
-  ng-init="titleSection='Accept invitation'; goBackToState = 'correspondentDevices.addCorrespondentDevice'; showCamera = true; invert = true;">
+  ng-init="titleSection='Accept invitation'; goBackToState = 'correspondentDevices.addCorrespondentDevice';">
 </div>
-
-<style>
-  #qr-scanner{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 100%;
-    background: #eee;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-
-  #qr-scanner svg-icon{
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  #qr-scanner svg{
-    width: 26px;
-    height: 26px;
-    fill: #666;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -13px;
-    margin-top: -14px;
-  }
-</style>
-
+<qr-scanner on-scan="onQrCodeScanned(data)" before-scan="beforeQrCodeScan()"></qr-scanner>
 <div ng-controller="acceptCorrespondentInvitationController">
     
   <div class="onGoingProcess" ng-show="onGoingProcess">
@@ -61,7 +26,6 @@
 
           <div class="input-wrap m20t">
             <input type="text" class="m0" id="code" name="code" ng-model="code" required>
-            <qr-scanner on-scan="onQrCodeScanned(data)" before-scan="beforeQrCodeScan()"></qr-scanner>
           </div>
           <div class="row">
             <div ng-style="{'text-align':'center'}">

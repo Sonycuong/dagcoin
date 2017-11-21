@@ -1,6 +1,6 @@
 <div class="topbar-container topbar-transparent"
      ng-include="'views/includes/topbar.html'"
-     ng-init="titleSection='My wallet'; showCamera = true">
+     ng-init="titleSection='My wallet';">
 </div>
 
 <qr-scanner ng-if="tab === 'send'" ng-show="index.isComplete" on-scan="index.onQrCodeScanned(data)" before-scan="index.onBeforeScan()"></qr-scanner>
