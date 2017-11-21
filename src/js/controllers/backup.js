@@ -71,7 +71,7 @@
           self.mnemonicWords = words.split(/[\u3000\s]+/);
           self.mnemonicHasPassphrase = fc.mnemonicHasPassphrase();
           self.useIdeograms = words.indexOf('\u3000') >= 0;
-          self.mnemonicWordsJoined = self.mnemonicWords.join(' ')
+          self.mnemonicWordsJoined = self.mnemonicWords.join(' ');
         }
       }
 
