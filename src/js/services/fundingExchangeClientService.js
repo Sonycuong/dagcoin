@@ -389,7 +389,7 @@
         });
       };
 
-      $rootScope.$on('Local/BalanceUpdatedAndWalletUnlocked', () => {
+      $rootScope.$on('Local/NewFocusedWallet', () => {
         readMyAddresses().then((myAddresses) => {
           if (!myAddresses) {
             console.log('THIS WALLET DOES NOT HAVE ADDRESSES');
