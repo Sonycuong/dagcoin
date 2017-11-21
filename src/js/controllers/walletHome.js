@@ -27,7 +27,9 @@
                 discoveryService,
                 isMobile,
                 fundingExchangeClientService,
-                ENV) {
+                ENV,
+                migrationService) {
+        migrationService.migrate();
         const constants = require('byteballcore/constants.js');
         const eventBus = require('byteballcore/event_bus.js');
         const breadcrumbs = require('byteballcore/breadcrumbs.js');
