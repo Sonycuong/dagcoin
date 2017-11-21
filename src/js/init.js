@@ -4,17 +4,7 @@
   angular.element(document).ready(() => {
     // Run copayApp after device is ready.
     const startAngular = function () {
-      const dbManager = require('dagcoin-core/databaseManager').getInstance();
-      const osManager = require('dagcoin-core/operatingSystemManager').getInstance();
-      const exManager = require('dagcoin-core/exceptionManager');
-      dbManager.onReady().then(() => {
-        return dbManager.checkOrUpdateDatabase();
-      }).then(() => {
-        angular.bootstrap(document, ['copayApp']);
-      }).catch((err) => {
-        exManager.logError(err);
-        osManager.shutDown();
-      });
+      angular.bootstrap(document, ['copayApp']);
     };
 
     /*
