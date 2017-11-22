@@ -67,11 +67,11 @@
   <div ng-show="addrs">
     <h4 translate>All Wallet Addresses <button ng-click="info.setAddress()" ng-disabled="index.isOffline">{{'Generate new address' | translate}}</button></h4>
     <ul>
-      <li ng-repeat="a in addrs" class="oh">
+      <li ng-repeat="a in addrs" class="oh" style="display: flex; flex-wrap: wrap;">
         <div class="enable_text_select ellipsis">
           {{a.address}}
         </div>
-        <div class="text-gray size-12 right enable_text_select">
+        <div class="text-gray size-12 text-right enable_text_select">
           {{a.path}} &middot; {{a.createdOn *1000 | amDateFormat:'MMMM Do YYYY, h:mm a' }}
         </div>
       </li>
@@ -89,12 +89,12 @@
     <div ng-show="hasListOfBalances()">
       <h4 translate>Balance By Address</h4>
       <ul>
-        <li class="line-b p20 oh" ng-repeat="(key, value) in assocListOfBalances">
-          <div class="enable_text_select ellipsis">
+        <li class="line-b p20 oh" ng-repeat="(key, value) in assocListOfBalances" style="display: flex; flex-wrap: wrap;">
+          <div class="enable_text_select">
             {{key}}
           </div>
-          <div class="text-gray text-right" ng-repeat="row in value">
-            {{row.amount}}
+          <div class="text-gray size-12">
+            <span ng-repeat="row in value">{{row.amount}}</span>
           </div>
         </li>
       </ul>
