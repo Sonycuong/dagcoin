@@ -48,7 +48,18 @@
       };
       const device = require('byteballcore/device.js');
 
-      device.sendMessageToDevice(deviceAddress, 'text', JSON.stringify(keepAlive));
+      let devicePubKey;
+
+      try {
+        devicePubKey = device.getMyDevicePubKey();
+      }
+      catch (e) {
+        // continue regardless of error
+      }
+
+      if (devicePubKey) {
+        device.sendMessageToDevice(deviceAddress, 'text', JSON.stringify(keepAlive));
+      }
 
       const attempts = 12;
       const timeoutSeconds = 10;
